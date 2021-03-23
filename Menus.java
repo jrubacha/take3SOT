@@ -1,3 +1,7 @@
+/*
+Writing and running menus
+*/
+
 import java.util.*;
 public class Menus {
     UserInterface ui = new UserInterface();
@@ -17,17 +21,56 @@ public class Menus {
         ui.println("You may:");
         ui.println("1. Continue on your journey");
         ui.println("2. Check supplies");
-        ui.println("3. Check crew");
-        ui.println("4. Attempt to trade");
-        ui.println("5. Talk to people");
-        ui.println("6. Perform ship maintenance");
+        ui.println("3. Change food rations");
+        ui.println("4. Check crew");
+        ui.println("5. Attempt to trade");
+        ui.println("6. Talk to people");
+        ui.println("7. Perform ship maintenance");
         ui.print("\nWhat is your choice? ");
+    }
+
+    public void runDailyMenu(Supplies.Food food, Crew crew){
+        int userSelection = 0;
+        while (userSelection != 1) {
+            userSelection = ui.getUserInt();
+            switch (userSelection) {
+                case 1: // continue on journey
+                    break;
+                case 2: // check supplies
+                    ui.println("check supplies place holder");
+                    ui.pressEnter();
+                    break;
+                case 3: // change food rations
+                    ui.println("change rations place holder");
+                    ui.pressEnter();
+                    break;
+                case 4: // check crew
+                    ui.println("check crew place holder");
+                    ui.pressEnter();
+                    break;
+                case 5: // attempt to trade
+                    ui.println("attempt to trade place holder");
+                    ui.pressEnter();
+                    break;
+                case 6: // talk to people
+                    ui.println("talk to people place holder");
+                    ui.pressEnter();
+                    break;
+                case 7: // perform ship maintenance
+                    ui.println("perform maintenance place holder");
+                    ui.pressEnter();
+                    break;
+                default:
+                    userSelection = 0;
+                    break;
+            }
+        }
     }
 
     public void printStationDailyMenu(currentLocation location){
         ui.clear();
         ui.println("You may:");
-        ui.println("1. Continue on your journey");
+        ui.println("1. Depart from " + location);
         ui.println("2. Manage supplies");
         ui.println("3. Manage crew");
         ui.println("4. Manage space craft");
@@ -36,4 +79,78 @@ public class Menus {
         ui.print("\nWhat is your choice?");
     }
 
+    public void runDailyStationMenu(currentLocation location) {
+        int userSelection = 0;
+        while (userSelection != 0) {
+            userSelection = ui.getUserInt();
+            switch (userSelection) {
+                case 1: // depart the current station
+                    // verify the user wants to leave
+                    ui.placeholder("depart " + location);
+                    break;
+                case 2: // manage supplies
+                    printManageSuppliesMenu();
+                    ui.placeholder("run supplies menu");
+                    break;
+                case 3: // manage crew
+                    printManageCrewMenu();
+                    ui.placeholder("run crew menu");
+                    break;
+                case 4: // manage spact craft
+                    printManageCraftMenu();
+                    ui.placeholder("run craft menu");
+                    break;
+                case 5: // talk to people
+                    ui.placeholder("talk to people");
+                    break;
+                case 6: // stay overnight
+                    ui.placeholder("stay overnight");
+                    break;
+                default:
+                    userSelection = 0;
+                    break;
+            }
+        }
+    }
+
+    public void printManageSuppliesMenu(){
+        ui.clear();
+        ui.println("< Managing Supplies >\n");
+        ui.println("You may:");
+        ui.println("1. Check supplies");
+        ui.println("2. Buy supplies");
+        ui.println("3. Sell supplies");
+        ui.println("4. Change food ration size");
+        ui.println("5. Attempt to trade");
+        ui.println("6. Do nothing"); // exits out of current menu with no changes
+        ui.print("\nWhat is your choice? ");
+    }
+
+    public void printManageCrewMenu(){
+        ui.clear();
+        ui.println("< Managing Crew >\n");
+        ui.println("You may:");
+        ui.println("1. View crew list");
+        ui.println("2. Hire crew members");
+        ui.println("3. Fire crew members");
+        ui.println("4. Do nothing");
+        ui.print("\nWhat is your choice? ");
+    }
+
+    public void printManageCraftMenu(){
+        ui.clear();
+        ui.println("< Managing Space Craft >\n");
+        ui.println("You may:");
+        ui.println("1. View current craft's specs");
+        ui.println("2. Buy spact craft");
+        ui.println("3. Craft Maintenance");
+        ui.println("\nWhat is your choice? ");
+    }
+
+    public void printStationMaintenanceMenu(currentLocation location){
+        ui.clear();
+        ui.println("< Space Craft Maintenance >\n");
+        ui.println("1. Have crew engineers perform maintenance - Free, minimal repair gain");
+        ui.println("2. Have " + location + " Repairmen perform maintenance = $1000, Excellent repair gain");
+    }
 }

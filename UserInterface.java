@@ -15,4 +15,21 @@ public class UserInterface {
         print("\n< Press ENTER to continue >");
         keyboard.nextLine();
     }
+
+    public int getUserInt(){
+        int a = 0;
+        while (a == 0) {
+            try {
+                a = keyboard.nextInt();
+            } catch (InputMismatchException e) {
+                a = 0;
+            }
+        }
+        return a;
+    }
+
+    public void placeholder(String word){
+        println(word + " placeholder");
+        pressEnter();
+    }
 }
