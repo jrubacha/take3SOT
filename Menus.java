@@ -32,33 +32,28 @@ public class Menus {
     public void runDailyMenu(Supplies.Food food, Crew crew){
         int userSelection = 0;
         while (userSelection != 1) {
-            userSelection = ui.getUserInt();
+            printSpaceDailyMenu();
+            userSelection =   ui.getUserInt(); // keyboard.nextInt(); //
             switch (userSelection) {
                 case 1: // continue on journey
                     break;
                 case 2: // check supplies
-                    ui.println("check supplies place holder");
-                    ui.pressEnter();
+                    ui.placeholder("supplies");
                     break;
                 case 3: // change food rations
-                    ui.println("change rations place holder");
-                    ui.pressEnter();
+                    ui.placeholder("rations");
                     break;
                 case 4: // check crew
-                    ui.println("check crew place holder");
-                    ui.pressEnter();
+                    ui.placeholder("check crew");
                     break;
                 case 5: // attempt to trade
-                    ui.println("attempt to trade place holder");
-                    ui.pressEnter();
+                    ui.placeholder("trade");
                     break;
                 case 6: // talk to people
-                    ui.println("talk to people place holder");
-                    ui.pressEnter();
+                    ui.placeholder("talk people");
                     break;
                 case 7: // perform ship maintenance
-                    ui.println("perform maintenance place holder");
-                    ui.pressEnter();
+                    ui.placeholder("maintenance");
                     break;
                 default:
                     userSelection = 0;
@@ -79,7 +74,7 @@ public class Menus {
         ui.print("\nWhat is your choice?");
     }
 
-    public void runDailyStationMenu(currentLocation location) {
+    public void runDailyStationMenu(currentLocation location, Supplies.Food food, Crew crew) {
         int userSelection = 0;
         while (userSelection != 0) {
             userSelection = ui.getUserInt();

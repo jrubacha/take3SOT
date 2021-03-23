@@ -4,20 +4,34 @@ class Main {
         // Setup objects, locations, etc.
         UserInterface ui = new UserInterface();
         Scanner keyboard = new Scanner(System.in);
+        Menus menu = new Menus();
+        Supplies.Food food = new Supplies.Food();
+        Crew crew = new Crew();
+        SpaceCraft craft = new SpaceCraft();
+        int currentDay = 0;
         currentLocation location = currentLocation.EARTH;
         
         // Welcome
+        ui.placeholder("welcome");
 
         // Select a Ship
+        ui.placeholder("select ship");
 
         // Assemble a Crew
+        ui.placeholder("make crew");
 
         // Buy Initial Supplies
+        ui.placeholder("buy supplies");
 
         // Launch
+        ui.placeholder("launch");
 
         // Space Dailies (Earth --> Moon)
         location = currentLocation.SPACE;
+        while (location == currentLocation.SPACE) { // loop needs to run until target reached
+            menu.printSpaceDailyHeader(currentDay, location, crew, food, craft);
+            menu.runDailyMenu(food, crew);
+        }
 
         // Station Dailies (Moon)
         location = currentLocation.MOON_BASE_1;

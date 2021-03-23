@@ -22,7 +22,7 @@ public class UserInterface {
             try {
                 a = keyboard.nextInt();
             } catch (InputMismatchException e) {
-                a = 0;
+                keyboard.next();
             }
         }
         return a;
