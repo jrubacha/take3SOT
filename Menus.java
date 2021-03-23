@@ -12,11 +12,6 @@ public class Menus {
         ui.println("Days until next stop: "); // TODO: create days until method
     }
 
-    public void consumeConsumables(Crew crew, Supplies.Food food, SpaceCraft craft) {
-        // eatFood --> set amt. per day per crew member
-        // burnFuel --> set. amt. per day based on tank size
-    }
-
     public void printSpaceDailyMenu(){
         ui.clear();
         ui.println("You may:");
