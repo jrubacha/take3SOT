@@ -75,8 +75,9 @@ public class Menus {
         ui.print("\nWhat is your choice?");
     }
 
-    public void runDailyStationMenu(currentLocation location, Supplies.Food food, Crew crew) {
+    public boolean runDailyStationMenu(currentLocation location, Supplies.Food food, Crew crew) {
         int userSelection = 1;
+        boolean readyToLeave = false;
         while (userSelection != 0) {
             printStationDailyMenu(location);
             userSelection =  ui.getUserInt(); // keyboard.nextInt(); //
@@ -84,6 +85,7 @@ public class Menus {
                 case 1: // depart the current station
                     // verify the user wants to leave
                     ui.placeholder("depart " + location);
+                    readyToLeave = true;
                     userSelection = 0;
                     break;
                 case 2: // manage supplies
@@ -109,6 +111,7 @@ public class Menus {
                     break;
             }
         }
+        return readyToLeave;
     }
 
     public void printManageSuppliesMenu(){

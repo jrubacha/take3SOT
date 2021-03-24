@@ -96,7 +96,57 @@ public class SpaceCraft {
     public int getMaxCapacity(){
         return capacity;
     }
-    
+
+    public int getTimetoMoon(){
+        if (speed == craftSpeed.FAST) {
+            return 2;
+        } else if (speed == craftSpeed.AVERAGE) {
+            return 3;
+        } else {
+            return 4;
+        }
+    }
+
+    public int getTimetoMars(){
+        if (speed == craftSpeed.FAST) {
+            return 180;
+        } else if (speed == craftSpeed.AVERAGE) {
+            return 210;
+        } else {
+            return 240;
+        }
+    }
+
+    public int getTimetoInnerBelt(){
+        if (speed == craftSpeed.FAST) {
+            return 200;
+        } else if (speed == craftSpeed.AVERAGE) {
+            return 300;
+        } else {
+            return 400;
+        }
+    }
+
+    public int getTimetoOuterBelt(){
+        if (speed == craftSpeed.FAST) {
+            return 250;
+        } else if (speed == craftSpeed.AVERAGE) {
+            return 350;
+        } else {
+            return 450;
+        }
+    }
+
+    public int getTimetoGanymede(){
+        if (speed == craftSpeed.FAST) {
+            return 300;
+        } else if (speed == craftSpeed.AVERAGE) {
+            return 450;
+        } else {
+            return 600;
+        }
+    }
+
     // Earth Based Space Craft
     public static class SaturnV extends SpaceCraft {
         public SaturnV(){
@@ -147,10 +197,9 @@ public class SpaceCraft {
             super("Avalon", craftRange.EVERYWHERE, craftQuality.FAIR, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 12000, 8, craftOrigin.MARS, "Avalon text");
         }
     }
-    public static class Mayflower extends SpaceCraft {
-        public Mayflower() {
-            super("Mayflower Legacy", craftRange.OUTER_BELT, craftQuality.GOOD, craftSpeed.SLOW, craftTankSize.LARGE, 15000, 9, craftOrigin.MARS, "Mayflower text");
-            // I want this ship to be indestructable, don't know what all that means, but essentially, it's made for crossing the asteroid belt
+    public static class TX7 extends SpaceCraft {
+        public TX7() {
+            super("T-X7", craftRange.OUTER_BELT, craftQuality.GOOD, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 12000, 6, craftOrigin.MARS, "T-X7 text");
         }
     }
     public static class Foxfire extends SpaceCraft {
@@ -159,12 +208,29 @@ public class SpaceCraft {
         }
     }
 
-    // Inner Belt Based Space Craft (2)
-    // T-X7
-    // Cygnus Mu
+    // Inner Belt Based Space Craft
+    public static class Mayflower extends SpaceCraft {
+        public Mayflower() {
+            super("Mayflower Legacy", craftRange.OUTER_BELT, craftQuality.GOOD, craftSpeed.SLOW, craftTankSize.LARGE, 15000, 9, craftOrigin.INNER_BELT, "Mayflower text");
+            // I want this ship to be indestructable, don't know what all that means, but essentially, it's made for crossing the asteroid belt
+        }
+    }
+    public static class Cygnus extends SpaceCraft {
+        public Cygnus() {
+            super("Cygnus Mu", craftRange.EVERYWHERE, craftQuality.POOR, craftSpeed.FAST, craftTankSize.MEDIUM, 11000, 7, craftOrigin.INNER_BELT, "Cygnus Mu text");
+        }
+    }
 
-    // Outer Belt Based Space Craft (2)
-    // Ankaa
-    // Nikephoros
+    // Outer Belt Based Space Craft
+    public static class Ankaa extends SpaceCraft {
+        public Ankaa() {
+            super("Ankaa", craftRange.EVERYWHERE, craftQuality.FAIR, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 9000, 6, craftOrigin.OUTER_BELT, "Ankaa text");
+        }
+    }
+    public static class Nikephoros extends SpaceCraft {
+        public Nikephoros() {
+            super("Nikephoros", craftRange.EVERYWHERE, craftQuality.GOOD, craftSpeed.SLOW, craftTankSize.LARGE, 10000, 8, craftOrigin.OUTER_BELT, "Nikephoros text");
+        }
+    }
 
 }

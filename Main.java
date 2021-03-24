@@ -11,7 +11,9 @@ class Main {
         Crew crew = new Crew();
         SpaceCraft craft = new SpaceCraft.SaturnV();
         int currentDay = 1;
+        int targetDay;
         int money = 0;
+        boolean readyToLeave = false;
         currentLocation location = currentLocation.EARTH;
         
         
@@ -39,7 +41,8 @@ class Main {
 
         // Space Dailies (Earth --> Moon)
         location = currentLocation.SPACE;
-        while (currentDay < 3) { // loop needs to run until target reached
+        targetDay = currentDay + craft.getTimetoMoon();
+        while (currentDay < targetDay) { // loop needs to run until target reached
             menu.printSpaceDailyHeader(currentDay, location, crew, food, craft);
             ui.pressEnter();
             menu.runDailyMenu(food, crew);
@@ -48,35 +51,41 @@ class Main {
 
         // Station Dailies (Moon)
         location = currentLocation.MOON_BASE_1;
-        while (currentDay < 6) { // loop needs to run until user leaves moon
+        text.printMoonWelcome();
+        while (!readyToLeave) { // loop needs to run until user leaves moon
             menu.printSpaceDailyHeader(currentDay, location, crew, food, craft);
-            menu.runDailyStationMenu(location, food, crew);
+            readyToLeave = menu.runDailyStationMenu(location, food, crew);
             currentDay++;
         }
 
         // Space Dailies (Moon --> Mars)
         location = currentLocation.SPACE;
+        targetDay = currentDay + craft.getTimetoMoon();
 
         // Station Dailies (Mars)
         location = currentLocation.MARS_COLONY_7;
+        text.printMarsWelcome();
 
         // Space Dailies (Mars --> Inner Belt Transit Station)
         location = currentLocation.SPACE;
 
         // Station Dailies (Inner Belt Transit Station)
         location = currentLocation.INNER_BELT_TRANSIT_STATION_2;
+        text.printInnerBeltWelcome();
 
         // Space Dailies (Inner Belt --> Outer Belt)
         location = currentLocation.SPACE;
 
         // Station Dailies (Outer Belt Outpost 4)
         location = currentLocation.OUTBELT_OUTPOST_4;
+        text.printOuterBeltWelcome();
 
         // Space Dailies (Outer Belt --> Ganymede)
         location = currentLocation.SPACE;
 
         // Arrival on Ganymede
         location = currentLocation.GANYMEDE_RESEARCH_CENTER;
+        text.printGanymedeWelcome();
 
         // Game Over and Report Score
     }

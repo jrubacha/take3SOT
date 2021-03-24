@@ -26,6 +26,37 @@ public class TextBlocks {
         printStarLines();
         ui.pressEnter();
     }
+
+    public void printMarsWelcome() {
+        ui.clear();
+        printStarLines();
+        ui.println("Welcome to Mars Colony 7!\n\nNestled on the edge of Solis Lacus, or \"The Eye of Mars\" if you will, Colony 7 is small outpost dedicated to maintaining services for outbound travellers such as yourself. You'll find our shops, crew quarters, and maintenance days up to the task of preparing you to get where you need to go.");
+        printStarLines();
+        ui.pressEnter();
+    }
+
+    public void printInnerBeltWelcome(){
+        ui.clear();
+        printStarLines();
+        ui.println("Greetings traveller! Transit Station 2 welcomes you to her docking bays. As your last stop before crossing into the asteroid belt, we encourage you to stock up on anything you might need before departing.");
+        printStarLines();
+        ui.pressEnter();
+    }
+
+    public void printOuterBeltWelcome(){
+        ui.clear();
+        printStarLines();
+        ui.println("Welcome to the middle of nowhere. This is Outpost 4, first post-asteroid belt relief station. You already know what kind of amenities we offer, so I'll let you get to it. This is the last rest point before the Ganymede Research Center, so think twice before leaving, it's a long trip out there.");
+        printStarLines();
+        ui.pressEnter();
+    }
+    public void printGanymedeWelcome(){
+        ui.clear();
+        printStarLines();
+        ui.println("You've done it! You've arrived at the Ganymede Research Center!\n\nWe're so glad you're here. The equipment you've brought will be instrumental to our success, we need it more than ever. You wouldn't believe the logistical challenges in having to order things years in advance.\n\nThank you and welcome.");
+        printStarLines();
+        ui.pressEnter();
+    }
     public void printSpaceCraftVendorDialogue(){
         ui.clear();
         ui.println("< Welcome to Al's Space Barn >\n\nWe've got all your space craft needs, offered to you at low low prices. No need to worry about pesky launch costs here. I bet you'll find something you like.\n");
