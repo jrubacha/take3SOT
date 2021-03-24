@@ -63,5 +63,7 @@ public class TextBlocks {
     public void printPegasusText(){
         ui.println("Looking for luxury? Look no further. The Pegasus was designed for you to travel anywhere in the galaxy in stylish comfort. Just, don't expect to get there in a hurry, okay? Sit back and enjoy the trip.");
     }
-
+    public void printPurchaseShipOptions(){
+        ui.println("\n1. See next ship\n2. Purchase this ship\n\nWhat would you like to do? ");
+    }
 }

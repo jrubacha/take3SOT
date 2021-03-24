@@ -8,10 +8,12 @@ class Main {
         Menus menu = new Menus();
         Supplies.Food food = new Supplies.Food();
         Crew crew = new Crew();
-        SpaceCraft craft = new SpaceCraft();
+        SpaceCraft craft = new SpaceCraft.SaturnV();
         int currentDay = 0;
         int money = 0;
         currentLocation location = currentLocation.EARTH;
+        
+        SpaceCraft[] moonCraft = {new SpaceCraft.Skybird(), new SpaceCraft.Helios(), new SpaceCraft.Pegasus()};
         
         // Welcome
         text.printGameIntro();
@@ -21,7 +23,7 @@ class Main {
 
         // Select a Ship
         text.shipSelectionPrompt(crew.getCaptainName(), money);
-
+        craft = menu.offerEarthCraft();
 
         // Assemble a Crew
         ui.placeholder("make crew");

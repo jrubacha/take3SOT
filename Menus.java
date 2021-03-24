@@ -5,6 +5,7 @@ Writing and running menus
 import java.util.*;
 public class Menus {
     UserInterface ui = new UserInterface();
+    TextBlocks text = new TextBlocks();
     Scanner keyboard = new Scanner(System.in);
 
     public void printSpaceDailyHeader(int whichDay, currentLocation location, Crew crew, Supplies.Food food, SpaceCraft craft){
@@ -236,5 +237,23 @@ public class Menus {
             } 
         } while (userSelection == 0);
     }
-    
+   
+    public SpaceCraft offerEarthCraft(){
+        SpaceCraft[] earthCraft = {new SpaceCraft.SaturnV(), new SpaceCraft.Atlas(), new SpaceCraft.NewShepard(), new SpaceCraft.Artemis(), new SpaceCraft.NewOrion()};
+        boolean needAShip = true;
+        int userSelection, i = 0;
+        while (needAShip) {
+            for (i=0; i<earthCraft.length; i++) {
+                ui.clear();
+                earthCraft[i].printShortSpecs();
+                text.printPurchaseShipOptions();
+                userSelection = keyboard.nextInt();
+                if (userSelection == 2) {
+                    needAShip = false;
+                    break;
+                }
+            }
+        }
+        return earthCraft[i];
+    }
 }

@@ -89,62 +89,62 @@ public class SpaceCraft {
     }
 
     // Earth Based Space Craft
-    public class SaturnV extends SpaceCraft {
+    public static class SaturnV extends SpaceCraft {
         public SaturnV(){
             super("Saturn V", craftRange.MOON, craftQuality.POOR, craftSpeed.SLOW, craftTankSize.SMALL, 1000, 3, craftOrigin.EARTH);
         }
     }
-    public class Atlas extends SpaceCraft {
+    public static class Atlas extends SpaceCraft {
         public Atlas(){
             super("Atlas", craftRange.MOON, craftQuality.FAIR, craftSpeed.SLOW, craftTankSize.SMALL, 5000, 4, craftOrigin.EARTH);
         }
     }
-    public class NewShepard extends SpaceCraft {
+    public static class NewShepard extends SpaceCraft {
         public NewShepard() {
             super("New Shepard XC", craftRange.MARS, craftQuality.GOOD, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 10000, 6, craftOrigin.EARTH);
         }
     }
-    public class Artemis extends SpaceCraft {
+    public static class Artemis extends SpaceCraft {
         public Artemis() {
             super("Artemis N", craftRange.EVERYWHERE, craftQuality.GOOD, craftSpeed.FAST, craftTankSize.MEDIUM, 20000, 10, craftOrigin.EARTH);
         }
     }
-    public class NewOrion extends SpaceCraft {
+    public static class NewOrion extends SpaceCraft {
         public NewOrion(){
             super("New Orion", craftRange.EVERYWHERE, craftQuality.GOOD, craftSpeed.FAST, craftTankSize.LARGE, 40000, 12, craftOrigin.EARTH);
         }
     }
 
     // Moon Based Space Craft
-    public class Skybird extends SpaceCraft {
+    public static class Skybird extends SpaceCraft {
         public Skybird() {
             super("Skybird", craftRange.MARS, craftQuality.FAIR, craftSpeed.SLOW, craftTankSize.MEDIUM, 5000, 5, craftOrigin.MOON);
         }
     }
-    public class Helios extends SpaceCraft {
+    public static class Helios extends SpaceCraft {
         public Helios() {
             super("Helios 9", craftRange.INNER_BELT, craftQuality.POOR, craftSpeed.SLOW, craftTankSize.LARGE, 7500, 5, craftOrigin.MOON);
         }
     }
-    public class Pegasus extends SpaceCraft {
+    public static class Pegasus extends SpaceCraft {
         public Pegasus() {
             super("Pegasus", craftRange.EVERYWHERE, craftQuality.GOOD, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 20000, 10, craftOrigin.MOON);
         }
     }
 
     // Mars Based Space Craft (3)
-    public class Avalon extends SpaceCraft {
+    public static class Avalon extends SpaceCraft {
         public Avalon() {
             super("Avalon", craftRange.EVERYWHERE, craftQuality.FAIR, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 12000, 8, craftOrigin.MARS);
         }
     }
-    public class Mayflower extends SpaceCraft {
+    public static class Mayflower extends SpaceCraft {
         public Mayflower() {
             super("Mayflower Legacy", craftRange.OUTER_BELT, craftQuality.GOOD, craftSpeed.SLOW, craftTankSize.LARGE, 15000, 9, craftOrigin.MARS);
             // I want this ship to be indestructable, don't know what all that means, but essentially, it's made for crossing the asteroid belt
         }
     }
-    public class Foxfire extends SpaceCraft {
+    public static class Foxfire extends SpaceCraft {
         public Foxfire() {
             super("Foxfire", craftRange.EVERYWHERE, craftQuality.FAIR, craftSpeed.FAST, craftTankSize.SMALL, 17500, 5, craftOrigin.MARS);
         }
