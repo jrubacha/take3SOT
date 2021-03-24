@@ -3,19 +3,25 @@ class Main {
     public static void main(String[] args) {
         // Setup objects, locations, etc.
         UserInterface ui = new UserInterface();
+        TextBlocks text = new TextBlocks();
         Scanner keyboard = new Scanner(System.in);
         Menus menu = new Menus();
         Supplies.Food food = new Supplies.Food();
         Crew crew = new Crew();
         SpaceCraft craft = new SpaceCraft();
         int currentDay = 0;
+        int money = 0;
         currentLocation location = currentLocation.EARTH;
         
         // Welcome
-        ui.placeholder("welcome");
+        text.printGameIntro();
+
+        // Add Captain to the Crew
+        crew.addCaptain();
 
         // Select a Ship
-        ui.placeholder("select ship");
+        text.shipSelectionPrompt(crew.getCaptainName(), money);
+
 
         // Assemble a Crew
         ui.placeholder("make crew");

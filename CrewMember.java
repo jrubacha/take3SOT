@@ -16,4 +16,15 @@ public class CrewMember {
         CAPTAIN
     }
 
+    // Constructor
+    public CrewMember(String name, crewMemberOccupation occupation) {
+        this.name = name;
+        this.health = crewMemberHealth.GOOD;
+        this.occupation = occupation;
+    }
+
+    // Methods
+    public String getName(){
+        return name;
+    }
 }

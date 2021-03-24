@@ -50,18 +50,18 @@ public class TextBlocks {
     public void shipSelectionPrompt(String captainName, int money) {
         ui.clear();
         printStarLines();
-        ui.println("Welcome aboard Captain " + captainName + "!\n\nYour first task is to choose a ship.\n\nChoose wisely, some of these flight vehicles are meant for short voyages only and others are suitable for long hauls. You will have the opportunity to purchase a new flight vehicle at each waystion.\n\nYour starting budget is $" + money + ". Ship costs include any fuel needed to get out of Earth's orbit.");
+        ui.println("Welcome aboard Captain " + captainName + "!\n\nYour first task is to choose a ship.\n\nChoose wisely, some of these flight vehicles are meant for short voyages only and others are suitable for long hauls. You will have the opportunity to purchase a new flight vehicle at each waystation.\n\nYour starting budget is $" + money + ". Ship costs include any fuel needed to get out of Earth's orbit.");
         printStarLines();
         ui.pressEnter();
     }
     public void printSkybirdText(){
-        ui.println("Skybird place holder");
+        ui.println("Skybird's an delapidated Earthcraft left adrift around the moon. We towed her back and cleaned her up. Don't expect to get past Mars with this ol' ship.");
     }
     public void printHelios9Text(){
-        ui.println("helios 9 placeholder");
+        ui.println("The Helios 9 was built in space, for space. She's an older model though, not quite suited for a trip across the belt. A decent mid system hopper, I'd say.");
     }
     public void printPegasusText(){
-        ui.println("pegasus placeholder");
+        ui.println("Looking for luxury? Look no further. The Pegasus was designed for you to travel anywhere in the galaxy in stylish comfort. Just, don't expect to get there in a hurry, okay? Sit back and enjoy the trip.");
     }
 
 }
