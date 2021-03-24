@@ -13,7 +13,7 @@ class Main {
         int money = 0;
         currentLocation location = currentLocation.EARTH;
         
-        SpaceCraft[] moonCraft = {new SpaceCraft.Skybird(), new SpaceCraft.Helios(), new SpaceCraft.Pegasus()};
+        
         
         // Welcome
         text.printGameIntro();
@@ -26,7 +26,9 @@ class Main {
         craft = menu.offerEarthCraft();
 
         // Assemble a Crew
-        ui.placeholder("make crew");
+        // TODO: intro text
+        crew.assembleCrew(craft.getMaxCapacity());
+        // TODO: print crew list
 
         // Buy Initial Supplies
         ui.placeholder("buy supplies");

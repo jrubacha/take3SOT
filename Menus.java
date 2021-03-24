@@ -244,9 +244,7 @@ public class Menus {
         int userSelection, i = 0;
         while (needAShip) {
             for (i=0; i<earthCraft.length; i++) {
-                ui.clear();
-                earthCraft[i].printShortSpecs();
-                text.printPurchaseShipOptions();
+                printEarthSpaceCraftShopFormat(earthCraft[i]);
                 userSelection = keyboard.nextInt();
                 if (userSelection == 2) {
                     needAShip = false;
@@ -255,5 +253,91 @@ public class Menus {
             }
         }
         return earthCraft[i];
+    }
+
+    public SpaceCraft offerMoonCraft(){
+        SpaceCraft[] moonCraft = {new SpaceCraft.Skybird(), new SpaceCraft.Helios(), new SpaceCraft.Pegasus()};
+        boolean needAShip = true;
+        int userSelection, i = 0;
+        while (needAShip) {
+            for (i=0; i<moonCraft.length; i++) {
+                printSpaceCraftShopFormat(moonCraft[i]);
+                userSelection = keyboard.nextInt();
+                if (userSelection == 2 || userSelection == 3) {
+                    needAShip = false;
+                    break;
+                }
+            }
+        }
+        return moonCraft[i];
+    }
+
+    public SpaceCraft offerMarsCraft(){
+        SpaceCraft[] marsCraft = {new SpaceCraft.Avalon(), new SpaceCraft.Mayflower(), new SpaceCraft.Foxfire()};
+        boolean needAShip = true;
+        int userSelection, i = 0;
+        while (needAShip) {
+            for (i=0; i<marsCraft.length; i++) {
+                printSpaceCraftShopFormat(marsCraft[i]);
+                userSelection = keyboard.nextInt();
+                if (userSelection == 2 || userSelection == 3) {
+                    needAShip = false;
+                    break;
+                }
+            }
+        }
+        return marsCraft[i];
+    }
+
+    public SpaceCraft offerIBCraft(){
+        SpaceCraft[] ibCraft = {new SpaceCraft.Skybird(), new SpaceCraft.Helios(), new SpaceCraft.Pegasus()}; // TODO: Fix this
+        boolean needAShip = true;
+        int userSelection, i = 0;
+        while (needAShip) {
+            for (i=0; i<ibCraft.length; i++) {
+                printSpaceCraftShopFormat(ibCraft[i]);
+                userSelection = keyboard.nextInt();
+                if (userSelection == 2 || userSelection == 3) {
+                    needAShip = false;
+                    break;
+                }
+            }
+        }
+        return ibCraft[i];
+    }
+
+    public SpaceCraft offerOBCraft(){
+        SpaceCraft[] obCraft = {new SpaceCraft.Skybird(), new SpaceCraft.Helios(), new SpaceCraft.Pegasus()}; // TODO: fix this
+        boolean needAShip = true;
+        int userSelection, i = 0;
+        while (needAShip) {
+            for (i=0; i<obCraft.length; i++) {
+                printSpaceCraftShopFormat(obCraft[i]);
+                userSelection = keyboard.nextInt();
+                if (userSelection == 2 || userSelection == 3) {
+                    needAShip = false;
+                    break;
+                }
+            }
+        }
+        return obCraft[i];
+    }
+
+    public void printEarthSpaceCraftShopFormat(SpaceCraft craft){
+        ui.clear();
+        text.printStarLines();
+        craft.printQuickDescription();
+        craft.printShortSpecs();
+        text.printStarLines();
+        text.printPurchaseShipOptions();
+    }
+
+    public void printSpaceCraftShopFormat(SpaceCraft craft){
+        ui.clear();
+        text.printStarLines();
+        craft.printQuickDescription();
+        craft.printShortSpecs();
+        text.printStarLines();
+        text.printSpacePurchaseShipOptions();
     }
 }

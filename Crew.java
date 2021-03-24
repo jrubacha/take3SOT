@@ -23,4 +23,68 @@ public class Crew {
         }
         return captainName;
     }
+    public int sumTotalOfCrew() {
+        return (crewList.size());
+    }
+    public void hireCrewPrompt(){
+        ui.clear();
+        ui.print("\nYou can hire several people for your journey. There are many qualified candidates from the following categories:\n1. Engineer\n2. Scientist\n3. Communications Officer\n4. Pilot\n5. No more hires\n\nWho would you like to hire? ");
+    }
+    public void assembleCrew(int maxCapacity) {
+        int userSelc = 0;
+        while ((sumTotalOfCrew() < maxCapacity) && (userSelc != 5)) {
+            CrewMember.crewMemberOccupation currentJob = CrewMember.crewMemberOccupation.ENGINEER; // default to engr
+            hireCrewPrompt();
+            int remainingCapacity = maxCapacity - sumTotalOfCrew();
+            userSelc = keyboard.nextInt();
+            switch (userSelc) {
+                case 1:
+                    currentJob = CrewMember.crewMemberOccupation.ENGINEER;
+                    ui.print("How many engineers would you like to hire? ");
+                    break;
+                case 2:
+                    currentJob = CrewMember.crewMemberOccupation.SCIENTIST;    
+                    ui.print("How many scientists would you like to hire? ");
+                    break;
+                case 3:
+                    currentJob = CrewMember.crewMemberOccupation.COMMUNICATIONS_OFFICER;
+                    ui.print("How many communications officers would you like to hire? ");
+                    break;
+                case 4:
+                    currentJob = CrewMember.crewMemberOccupation.PILOT;
+                    ui.print("How many pilots would you like to hire? ");
+                    break;
+                case 5:
+                    if (sumTotalOfCrew() == 1){
+                        ui.print("You haven't hired anyone.\n\n1. Yes\n2. No\n\nAre you sure? ");
+                        userSelc = keyboard.nextInt();
+                        if (userSelc == 1) {
+                            userSelc = 5;
+                        } else {
+                            userSelc = 0;
+                        }
+                    } else {
+                        ui.println("No more hires, got it.");
+                    }
+                    break;
+                default:
+                    ui.println("Don't do that");
+                    break;
+            }
+            
+            if (userSelc !=5) {
+                int numberOfCrewToAdd = keyboard.nextInt();
+                if (numberOfCrewToAdd < 0 || numberOfCrewToAdd > remainingCapacity) {
+                    ui.clear();
+                    ui.println("I'm sorry, you can't hire that number. No hires were made.");
+                } else {
+                    for (int i=0; i<numberOfCrewToAdd; i++) {
+                        ui.print("What's this crew member's name? ");
+                        String newCrewName = keyboard.next();
+                        crewList.add(new CrewMember(newCrewName, currentJob));
+                    }
+                }
+            }
+        }
+    }
 }
