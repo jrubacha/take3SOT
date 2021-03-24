@@ -18,9 +18,7 @@ public class TextBlocks {
     public void printLaunchPrompt(){
         ui.print("\n1. Launch Today\n2. Postpone launch one day\n\nWhat would you like to do? ");
     }
-    public void printLaunchSuccess() {
-        ui.print("Congrats on making it to space. You're on your way to the Moon now. ");
-    }
+
     public void printMoonWelcome() {
         ui.clear();
         printStarLines();
@@ -47,5 +45,29 @@ public class TextBlocks {
 
     public void printSpacePurchaseShipOptions(){
         ui.print("\n1. See next ship\n2. Purchase this ship\n3. Leave\n\nWhat would you like to do? ");
+    }
+
+    public void printMissedLaunchWindow(){
+        ui.clear();
+        printStarLines();
+        ui.println("Oh no! You waited too long!"); // TODO: make better message
+        printStarLines();
+        System.exit(0);
+    }
+
+    public void printBadWeatherLaunchMessage(){
+        ui.clear();
+        printStarLines();
+        ui.println("\nWeather conditions proved unfavorable for the launch.\n\nStart Command is sorry to report that all hands were lost.");
+        printStarLines();
+        System.exit(0);
+    }
+
+    public void printSuccessfulLaunchMessage() {
+        ui.clear();
+        printStarLines();
+        ui.println("Congrats! You didn't die on launch."); // TODO: make better success message
+        printStarLines();
+        ui.pressEnter();
     }
 }

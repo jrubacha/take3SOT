@@ -6,10 +6,11 @@ class Main {
         TextBlocks text = new TextBlocks();
         Scanner keyboard = new Scanner(System.in);
         Menus menu = new Menus();
+        Weather weather = new Weather();
         Supplies.Food food = new Supplies.Food();
         Crew crew = new Crew();
         SpaceCraft craft = new SpaceCraft.SaturnV();
-        int currentDay = 0;
+        int currentDay = 1;
         int money = 0;
         currentLocation location = currentLocation.EARTH;
         
@@ -34,7 +35,7 @@ class Main {
         ui.placeholder("buy supplies");
 
         // Launch
-        ui.placeholder("launch");
+        weather.runLaunchSystem();
 
         // Space Dailies (Earth --> Moon)
         location = currentLocation.SPACE;
