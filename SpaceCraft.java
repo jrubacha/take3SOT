@@ -88,7 +88,7 @@ public class SpaceCraft {
         ui.println("Crew Capacity: " + capacity);
     }
 
-    // Earth-based Space Craft
+    // Earth Based Space Craft
     public class SaturnV extends SpaceCraft {
         public SaturnV(){
             super("Saturn V", craftRange.MOON, craftQuality.POOR, craftSpeed.SLOW, craftTankSize.SMALL, 1000, 3, craftOrigin.EARTH);
@@ -133,9 +133,29 @@ public class SpaceCraft {
     }
 
     // Mars Based Space Craft (3)
+    public class Avalon extends SpaceCraft {
+        public Avalon() {
+            super("Avalon", craftRange.EVERYWHERE, craftQuality.FAIR, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 12000, 8, craftOrigin.MARS);
+        }
+    }
+    public class Mayflower extends SpaceCraft {
+        public Mayflower() {
+            super("Mayflower Legacy", craftRange.OUTER_BELT, craftQuality.GOOD, craftSpeed.SLOW, craftTankSize.LARGE, 15000, 9, craftOrigin.MARS);
+            // I want this ship to be indestructable, don't know what all that means, but essentially, it's made for crossing the asteroid belt
+        }
+    }
+    public class Foxfire extends SpaceCraft {
+        public Foxfire() {
+            super("Foxfire", craftRange.EVERYWHERE, craftQuality.FAIR, craftSpeed.FAST, craftTankSize.SMALL, 17500, 5, craftOrigin.MARS);
+        }
+    }
 
     // Inner Belt Based Space Craft (2)
+    // T-X7
+    // Cygnus Mu
 
     // Outer Belt Based Space Craft (2)
-    
+    // Ankaa
+    // Nikephoros
+
 }
