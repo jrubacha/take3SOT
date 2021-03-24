@@ -28,13 +28,20 @@ class Main {
 
         // Space Dailies (Earth --> Moon)
         location = currentLocation.SPACE;
-        while (location == currentLocation.SPACE) { // loop needs to run until target reached
+        while (currentDay < 3) { // loop needs to run until target reached
             menu.printSpaceDailyHeader(currentDay, location, crew, food, craft);
+            ui.pressEnter();
             menu.runDailyMenu(food, crew);
+            currentDay++;
         }
 
         // Station Dailies (Moon)
         location = currentLocation.MOON_BASE_1;
+        while (currentDay < 6) { // loop needs to run until user leaves moon
+            menu.printSpaceDailyHeader(currentDay, location, crew, food, craft);
+            menu.runDailyStationMenu(location, food, crew);
+            currentDay++;
+        }
 
         // Space Dailies (Moon --> Mars)
         location = currentLocation.SPACE;

@@ -75,8 +75,9 @@ public class Menus {
     }
 
     public void runDailyStationMenu(currentLocation location, Supplies.Food food, Crew crew) {
-        int userSelection = 0;
+        int userSelection = 1;
         while (userSelection != 0) {
+            printStationDailyMenu(location);
             userSelection =  ui.getUserInt(); // keyboard.nextInt(); //
             switch (userSelection) {
                 case 1: // depart the current station
@@ -86,21 +87,22 @@ public class Menus {
                     break;
                 case 2: // manage supplies
                     printManageSuppliesMenu();
-                    ui.placeholder("run supplies menu");
+                    runManageSuppliesMenu();
                     break;
                 case 3: // manage crew
                     printManageCrewMenu();
-                    ui.placeholder("run crew menu");
+                    runManageCrewMenu();
                     break;
                 case 4: // manage spact craft
                     printManageCraftMenu();
-                    ui.placeholder("run craft menu");
+                    runManageCraftMenu();
                     break;
                 case 5: // talk to people
                     ui.placeholder("talk to people");
                     break;
                 case 6: // stay overnight
                     ui.placeholder("stay overnight");
+                    userSelection = 0;
                     break;
                 default:
                     break;
@@ -123,7 +125,7 @@ public class Menus {
 
     public void runManageSuppliesMenu(){
         int userSelection = keyboard.nextInt();
-        while (userSelection != 0) {
+        do {
             switch (userSelection){
                 case 1: // check supplies
                     break;
@@ -138,9 +140,11 @@ public class Menus {
                 case 6: // do nothing
                     break;
                 default:
+                    userSelection = 0;
+                    printManageSuppliesMenu();
                     break;
-            }
-        }
+            } 
+        } while (userSelection == 0);
     }
 
     public void printManageCrewMenu(){
@@ -156,7 +160,7 @@ public class Menus {
 
     public void runManageCrewMenu(){
         int userSelection = keyboard.nextInt();
-        while (userSelection != 0) {
+        do {
             switch (userSelection){
                 case 1: // view crew list
                     break;
@@ -167,9 +171,11 @@ public class Menus {
                 case 4: // do nothing
                     break;
                 default:
+                    userSelection = 0;
+                    printManageCrewMenu();
                     break;
-            }
-        }
+            } 
+        } while (userSelection == 0);
     }
 
     public void printManageCraftMenu(){
@@ -185,7 +191,7 @@ public class Menus {
 
     public void runManageCraftMenu(){
         int userSelection = keyboard.nextInt();
-        while (userSelection != 0) {
+        do {
             switch (userSelection){
                 case 1: // view current craft's specs
                     break;
@@ -196,17 +202,39 @@ public class Menus {
                 case 4: // do nothing
                     break;
                 default:
+                    userSelection = 0;
+                    printManageCraftMenu();
                     break;
-            }
-        }
+            } 
+        } while (userSelection == 0);
     }
 
-    public void printStationMaintenanceMenu(currentLocation location){
+    public void printStationMaintenanceMenu(){
         ui.clear();
         ui.println("< Space Craft Maintenance >\n");
+        ui.println("You may:");
         ui.println("1. Have crew engineers perform maintenance - Free, minimal repair gain");
-        ui.println("2. Have " + location + " Repairmen perform maintenance = $1000, Excellent repair gain");
+        ui.println("2. Have station repairmen perform maintenance = $1000, Excellent repair gain");
+        ui.println("3. Do nothing");
+        ui.print("\nWhat would you like to do? ");
     }
 
+    public void runStationMaintenanceMenu(){
+        int userSelection = keyboard.nextInt();
+        do {
+            switch (userSelection){
+                case 1: // crew engineers
+                    break;
+                case 2: // station engineers
+                    break;
+                case 3: // do nothing
+                    break;
+                default:
+                    userSelection = 0;
+                    printStationMaintenanceMenu();
+                    break;
+            } 
+        } while (userSelection == 0);
+    }
     
 }
