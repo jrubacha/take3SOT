@@ -33,7 +33,7 @@ public class Menus {
         int userSelection = 0;
         while (userSelection != 1) {
             printSpaceDailyMenu();
-            userSelection =   ui.getUserInt(); // keyboard.nextInt(); //
+            userSelection =    keyboard.nextInt(); // ui.getUserInt(); //
             switch (userSelection) {
                 case 1: // continue on journey
                     break;
@@ -77,11 +77,12 @@ public class Menus {
     public void runDailyStationMenu(currentLocation location, Supplies.Food food, Crew crew) {
         int userSelection = 0;
         while (userSelection != 0) {
-            userSelection = ui.getUserInt();
+            userSelection =  ui.getUserInt(); // keyboard.nextInt(); //
             switch (userSelection) {
                 case 1: // depart the current station
                     // verify the user wants to leave
                     ui.placeholder("depart " + location);
+                    userSelection = 0;
                     break;
                 case 2: // manage supplies
                     printManageSuppliesMenu();
@@ -102,7 +103,6 @@ public class Menus {
                     ui.placeholder("stay overnight");
                     break;
                 default:
-                    userSelection = 0;
                     break;
             }
         }
@@ -121,6 +121,28 @@ public class Menus {
         ui.print("\nWhat is your choice? ");
     }
 
+    public void runManageSuppliesMenu(){
+        int userSelection = keyboard.nextInt();
+        while (userSelection != 0) {
+            switch (userSelection){
+                case 1: // check supplies
+                    break;
+                case 2: // buy supplies
+                    break;
+                case 3: // sell supplies
+                    break;
+                case 4: // change food ration size
+                    break;
+                case 5: // attempt to trade
+                    break;
+                case 6: // do nothing
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
     public void printManageCrewMenu(){
         ui.clear();
         ui.println("< Managing Crew >\n");
@@ -132,14 +154,51 @@ public class Menus {
         ui.print("\nWhat is your choice? ");
     }
 
+    public void runManageCrewMenu(){
+        int userSelection = keyboard.nextInt();
+        while (userSelection != 0) {
+            switch (userSelection){
+                case 1: // view crew list
+                    break;
+                case 2: // hire crew members
+                    break;
+                case 3: // fire crew members
+                    break;
+                case 4: // do nothing
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
     public void printManageCraftMenu(){
         ui.clear();
         ui.println("< Managing Space Craft >\n");
         ui.println("You may:");
         ui.println("1. View current craft's specs");
-        ui.println("2. Buy spact craft");
-        ui.println("3. Craft Maintenance");
+        ui.println("2. Buy space craft");
+        ui.println("3. Craft maintenance");
+        ui.println("4. Do nothing");
         ui.println("\nWhat is your choice? ");
+    }
+
+    public void runManageCraftMenu(){
+        int userSelection = keyboard.nextInt();
+        while (userSelection != 0) {
+            switch (userSelection){
+                case 1: // view current craft's specs
+                    break;
+                case 2: // buy space craft
+                    break;
+                case 3: // craft maintenance
+                    break;
+                case 4: // do nothing
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     public void printStationMaintenanceMenu(currentLocation location){
@@ -148,4 +207,6 @@ public class Menus {
         ui.println("1. Have crew engineers perform maintenance - Free, minimal repair gain");
         ui.println("2. Have " + location + " Repairmen perform maintenance = $1000, Excellent repair gain");
     }
+
+    
 }
