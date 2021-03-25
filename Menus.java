@@ -14,7 +14,8 @@ public class Menus {
         ui.println("Location: " + location);
         ui.println("Crew health: "); // TODO: fix/create average crew health method
         ui.println("Food: " + food.getAmount());
-        ui.println("Days until next stop: " + (targetDay - currentDay)); // TODO: create days until method
+        ui.println("Days until next stop: " + (targetDay - currentDay));
+        text.printStarLines();
     }
 
     public void printSpaceDailyMenu(){
@@ -34,43 +35,49 @@ public class Menus {
         int userSelection = 0;
         while (userSelection != 1) {
             printSpaceDailyMenu();
-            userSelection =    keyboard.nextInt(); // ui.getUserInt(); //
+            userSelection = keyboard.nextInt();
             switch (userSelection) {
                 case 1: // continue on journey
                     break;
                 case 2: // check supplies
                     text.printSupplies(food, water);
+                    ui.clear();
                     break;
                 case 3: // change food rations
                     food.printChangeRationSizePrompt();
                     runChangeFoodRation(food);
+                    ui.clear();
                     break;
                 case 4: // check crew
                     crew.printCrewList();
+                    ui.clear();
                     break;
                 case 5: // attempt to trade
                     if (crew.doesCrewHaveCommOfficer()) {
                         ui.placeholder("trade"); // TODO: Figure out how trading works...
                     } else {
-                        ui.println("You do not have a communications officer. You cannot contact anyone to trade.");
+                        ui.println("\nYou do not have a communications officer. You cannot contact anyone to trade.");
                         ui.pressEnter();
                     }
+                    ui.clear();
                     break;
                 case 6: // talk to people
                     if (crew.doesCrewHaveCommOfficer()) {
                         ui.placeholder("talk"); // TODO: Make random dialogue prompts of "useful" information. And/or no one wants to talk
                     } else {
-                        ui.println("You do not have a communications officer. You cannot contact anyone to talk.");
+                        ui.println("\nYou do not have a communications officer. You cannot contact anyone to talk.");
                         ui.pressEnter();
                     }
+                    ui.clear();
                     break;
                 case 7: // perform ship maintenance
                     if (crew.doesCrewHaveCommOfficer()) {
                         ui.placeholder("repair"); // TODO: Make repair minigame?
                     } else {
-                        ui.println("You do not have an engineer. You cannot repair the ship in space.");
+                        ui.println("\nYou do not have an engineer. You cannot repair the ship in space.");
                         ui.pressEnter();
                     }
+                    ui.clear();
                     break;
                 default:
                     userSelection = 0;
