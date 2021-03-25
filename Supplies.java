@@ -34,6 +34,9 @@ public class Supplies {
     public void earnMoney(double delta) {
         money += delta;
     }
+    public void printMoney(){
+        ui.println("Money: " + (int) money);
+    }
     public void buySupply(int delta){
         increaseQuantity(delta);
         money -= delta * unitCost;

@@ -4,6 +4,7 @@ class Main {
         // Setup objects, locations, etc.
         UserInterface ui = new UserInterface();
         TextBlocks text = new TextBlocks();
+        SpaceDailies daily = new SpaceDailies();
         Scanner keyboard = new Scanner(System.in);
         Menus menu = new Menus();
         Weather weather = new Weather();
@@ -12,8 +13,8 @@ class Main {
         Crew crew = new Crew();
         SpaceCraft craft = new SpaceCraft.SaturnV();
         int currentDay = 1;
+        int increment = 1;
         int targetDay;
-        int money = 0;
         boolean readyToLeave = false;
         currentLocation location = currentLocation.EARTH;
         
@@ -26,8 +27,9 @@ class Main {
         crew.addCaptain();
 
         // Select a Ship
-        text.shipSelectionPrompt(crew.getCaptainName(), money);
+        text.shipSelectionPrompt(crew.getCaptainName(), food.getMoney());
         craft = menu.offerEarthCraft();
+        food.spendMoney(craft.getCost());
 
         // Assemble a Crew
         // TODO: intro text
@@ -35,12 +37,12 @@ class Main {
         // TODO: print crew list
 
         // Buy Initial Supplies
-        ui.print("buy food prompt");
-        int userSelection = keyboard.nextInt();
-        food.buySupply(userSelection, money);
-        ui.println("buy water prompt");
-        userSelection = keyboard.nextInt();
-        water.buySupply(userSelection, money);
+        text.printBuyFoodPrompt();
+        int userSelection = ui.getUserInt();
+        food.buySupply(userSelection);
+        text.printBuyWaterPrompt();
+        userSelection = ui.getUserInt();
+        water.buySupply(userSelection);
         text.printSupplies(food, water);
 
         // Launch
@@ -50,19 +52,21 @@ class Main {
         location = currentLocation.SPACE;
         targetDay = currentDay + craft.getTimetoMoon();
         while (currentDay < targetDay) { // loop needs to run until target reached
+            daily.consumeConsumables(crew, food, craft, water, increment);
             menu.printSpaceDailyHeader(currentDay, location, crew, food, craft);
             ui.pressEnter();
             menu.runDailyMenu(food, crew, water);
-            currentDay++;
+            currentDay += increment;
         }
 
         // Station Dailies (Moon)
         location = currentLocation.MOON_BASE_1;
         text.printMoonWelcome();
         while (!readyToLeave) { // loop needs to run until user leaves moon
+            daily.consumeConsumables(crew, food, craft, water, increment);
             menu.printSpaceDailyHeader(currentDay, location, crew, food, craft);
             readyToLeave = menu.runDailyStationMenu(location, food, crew);
-            currentDay++;
+            currentDay += increment;
         }
 
         // Space Dailies (Moon --> Mars)

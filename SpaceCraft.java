@@ -69,7 +69,22 @@ public class SpaceCraft {
             return 500;
         }
     }
+    public int getCost(){
+        return cost;
+    }
 
+    public void burnFuel() {
+        int dailyBurn = 0;
+        switch (quality) {
+            case POOR:
+                dailyBurn = 30;
+            case FAIR:
+                dailyBurn = 20;
+            case GOOD:
+                dailyBurn = 10;
+        }
+        currentFuel -= dailyBurn;
+    }
     public void printFullCraftSpecs(){
         ui.clear();
         ui.println("Name: " + name);
@@ -86,7 +101,7 @@ public class SpaceCraft {
     public void printShortSpecs(){
         ui.println("Name: " + name);
         ui.println("Cost: " + cost);
-        ui.println("Crew Capacity: " + capacity + "\n");
+        ui.println("Crew Capacity: " + capacity);
     }
 
     public void printQuickDescription(){

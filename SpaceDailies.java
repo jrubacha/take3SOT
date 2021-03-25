@@ -11,8 +11,9 @@ These may include
 
 
 public class SpaceDailies {
-    public void consumeConsumables(Crew crew, Supplies.Food food, SpaceCraft craft, int increment) {
-        // eatFood --> set amt. per day per crew member
-        // burnFuel --> set. amt. per day based on tank size
+    public void consumeConsumables(Crew crew, Supplies.Food food, SpaceCraft craft, Supplies.Water water, int increment) {
+        food.eatFood(crew.sumTotalOfCrew());
+        craft.burnFuel();
+        water.drinkWater(crew.sumTotalOfCrew());
     }
 }

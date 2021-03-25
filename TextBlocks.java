@@ -10,7 +10,7 @@ public class TextBlocks {
     public void printGameIntro() {
         ui.clear();
         printStarLines();
-        ui.println("Greetings eager space traveller, and welcome to Star Command.\n\nToday marks your first step in a long journey through the stars. We're glad you chose us to fly with.\n\nYour mission? Successfully navigate the solar system and deliver your crew and equipment safely to the Ganymede Research Center. They are counting on you to get the job done.\n");
+        ui.println("Greetings eager space traveller, and welcome to Star Command.\n\nToday marks your first step in a long journey through the stars. We're glad you chose us to fly with.\n\nYour mission? Successfully navigate the solar system and deliver your crew and equipment safely to the Ganymede Research Center. They are counting on you to get the job done.");
         printStarLines();
         ui.pressEnter();
     }
@@ -22,7 +22,7 @@ public class TextBlocks {
     public void printMoonWelcome() {
         ui.clear();
         printStarLines();
-        ui.println("Wecolme to Moon Base 1! Established in 2154, Moon Base 1 is a thriving hub of near-field research, commerce, and entertainment. You are welcome to stay in your docking station as long as you want, parking here is always free. Check out the vendors if you need a new ship or more supplies. Star Command Regional offices are always open if want to hire/fire any crew members. Interstellar launch rings will be waiting to take you on to Mars when you're ready to leave.\n");
+        ui.println("Wecolme to Moon Base 1! Established in 2154, Moon Base 1 is a thriving hub of near-field research, commerce, and entertainment. You are welcome to stay in your docking station as long as you want, parking here is always free. Check out the vendors if you need a new ship or more supplies. Star Command Regional offices are always open if want to hire/fire any crew members. Interstellar launch rings will be waiting to take you on to Mars when you're ready to leave.");
         printStarLines();
         ui.pressEnter();
     }
@@ -30,7 +30,7 @@ public class TextBlocks {
     public void printMarsWelcome() {
         ui.clear();
         printStarLines();
-        ui.println("Welcome to Mars Colony 7!\n\nNestled on the edge of Solis Lacus, or \"The Eye of Mars\" if you will, Colony 7 is small outpost dedicated to maintaining services for outbound travellers such as yourself. You'll find our shops, crew quarters, and maintenance days up to the task of preparing you to get where you need to go.");
+        ui.println("Welcome to Mars Colony 7!\n\nNestled on the edge of Solis Lacus, or \"The Eye of Mars\" if you will, Colony 7 is small outpost dedicated to maintaining services for outbound travellers such as yourself. You'll find our shops, crew quarters, and maintenance bays up to the task of preparing you to get where you need to go.");
         printStarLines();
         ui.pressEnter();
     }
@@ -62,10 +62,10 @@ public class TextBlocks {
         ui.println("< Welcome to Al's Space Barn >\n\nWe've got all your space craft needs, offered to you at low low prices. No need to worry about pesky launch costs here. I bet you'll find something you like.\n");
         ui.pressEnter();
     }
-    public void shipSelectionPrompt(String captainName, int money) {
+    public void shipSelectionPrompt(String captainName, double money) {
         ui.clear();
         printStarLines();
-        ui.println("Welcome aboard Captain " + captainName + "!\n\nYour first task is to choose a ship.\n\nChoose wisely, some of these flight vehicles are meant for short voyages only and others are suitable for long hauls. You will have the opportunity to purchase a new flight vehicle at each waystation.\n\nYour starting budget is $" + money + ". Ship costs include any fuel needed to get out of Earth's orbit.");
+        ui.println("Welcome aboard Captain " + captainName + "!\n\nYour first task is to choose a ship.\n\nChoose wisely, some of these flight vehicles are meant for short voyages only and others are suitable for long hauls. You will have the opportunity to purchase a new flight vehicle at each waystation.\n\nYour starting budget is $" + (int) money + ". Ship costs include any fuel needed to get out of Earth's orbit.");
         printStarLines();
         ui.pressEnter();
     }
@@ -106,8 +106,20 @@ public class TextBlocks {
         printStarLines();
         food.printFoodQuantity();
         water.printWaterQuantity();
+        food.printMoney();
         printStarLines();
         ui.pressEnter();
     }
-    
+
+    public void printBuyFoodPrompt(){
+        ui.clear();
+        ui.println("Now that you have a crew, you'll need to take care of them.\n\nYou'll need to make initial purchases of food and water to last at least until you can get to the moon.\n");
+        printStarLines();
+        ui.print("< Buying Food >\n\nThe average person eats 2 lbs of food a day.\n\nHow many pounds of food would you like to buy? ");
+    }
+
+    public void printBuyWaterPrompt(){
+        ui.clear();
+        ui.print("< Buying Water >\n\nThe average person needs 1 liter of water a day.\n\nHow many liters of water would you like to buy? ");
+    }
 }
