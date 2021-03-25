@@ -101,4 +101,12 @@ public class TextBlocks {
         printStarLines();
         ui.pressEnter();
     }
+
+    public void printSupplies(Supplies.Food food, Supplies.Water water){
+        printStarLines();
+        food.printFoodQuantity();
+        water.printWaterQuantity();
+        printStarLines();
+        ui.pressEnter();
+    }
 }

@@ -8,6 +8,7 @@ class Main {
         Menus menu = new Menus();
         Weather weather = new Weather();
         Supplies.Food food = new Supplies.Food();
+        Supplies.Water water = new Supplies.Water();
         Crew crew = new Crew();
         SpaceCraft craft = new SpaceCraft.SaturnV();
         int currentDay = 1;
@@ -34,7 +35,13 @@ class Main {
         // TODO: print crew list
 
         // Buy Initial Supplies
-        ui.placeholder("buy supplies");
+        ui.print("buy food prompt");
+        int userSelection = keyboard.nextInt();
+        food.buySupply(userSelection, money);
+        ui.println("buy water prompt");
+        userSelection = keyboard.nextInt();
+        water.buySupply(userSelection, money);
+        text.printSupplies(food, water);
 
         // Launch
         weather.runLaunchSystem();

@@ -1,4 +1,5 @@
 public class Supplies {
+    UserInterface ui = new UserInterface();
     static double amount;
     String supplyType;
     double unitCost, saleValue;
@@ -7,6 +8,7 @@ public class Supplies {
         this.supplyType= supplyType;
         this.unitCost = unitCost;
         this.saleValue = saleValue;
+        Supplies.amount = amount;
     }
 
     public double getAmount(){
@@ -52,6 +54,9 @@ public class Supplies {
             MEAGER,
             FILLING
         }
+        public void printFoodQuantity(){
+            ui.println("You have " + amount + " lbs of food.");
+        }
         private void calculateFoodPerDay(){
             if (rationSize == foodRationSize.BARE_BONES) {
                 foodPerDay = 0.75;
@@ -87,6 +92,9 @@ public class Supplies {
             PARCHED,
             THIRSTY,
             HYDRATED
+        }
+        public void printWaterQuantity(){
+            ui.println("You have " + amount + " liters of water.");
         }
         private void calculateWaterPerDay(){
             if (rationSize == waterRationSize.PARCHED) {
