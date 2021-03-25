@@ -30,7 +30,7 @@ public class Menus {
         ui.print("\nWhat is your choice? ");
     }
 
-    public void runDailyMenu(Supplies.Food food, Crew crew){
+    public void runDailyMenu(Supplies.Food food, Crew crew, Supplies.Water water){
         int userSelection = 0;
         while (userSelection != 1) {
             printSpaceDailyMenu();
@@ -39,22 +39,38 @@ public class Menus {
                 case 1: // continue on journey
                     break;
                 case 2: // check supplies
-                    ui.placeholder("supplies");
+                    text.printSupplies(food, water);
                     break;
                 case 3: // change food rations
-                    ui.placeholder("rations");
+                    food.printChangeRationSizePrompt();
+                    // TODO: finish this
                     break;
                 case 4: // check crew
-                    ui.placeholder("check crew");
+                    crew.printCrewList();
                     break;
                 case 5: // attempt to trade
-                    ui.placeholder("trade");
+                    if (crew.doesCrewHaveCommOfficer()) {
+                        ui.placeholder("trade");
+                    } else {
+                        ui.println("You do not have a communications officer. You cannot contact anyone to trade.");
+                        ui.pressEnter();
+                    }
                     break;
                 case 6: // talk to people
-                    ui.placeholder("talk people");
+                    if (crew.doesCrewHaveCommOfficer()) {
+                        ui.placeholder("talk");
+                    } else {
+                        ui.println("You do not have a communications officer. You cannot contact anyone to talk.");
+                        ui.pressEnter();
+                    }
                     break;
                 case 7: // perform ship maintenance
-                    ui.placeholder("maintenance");
+                    if (crew.doesCrewHaveCommOfficer()) {
+                        ui.placeholder("repair");
+                    } else {
+                        ui.println("You do not have an engineer. You cannot repair the ship in space.");
+                        ui.pressEnter();
+                    }
                     break;
                 default:
                     userSelection = 0;

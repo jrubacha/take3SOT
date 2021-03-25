@@ -27,4 +27,10 @@ public class CrewMember {
     public String getName(){
         return name;
     }
+    public String getHealth(){
+        return health.toString();
+    }
+    public String getOccupation(){
+        return occupation.toString();
+    }
 }

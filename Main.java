@@ -52,7 +52,7 @@ class Main {
         while (currentDay < targetDay) { // loop needs to run until target reached
             menu.printSpaceDailyHeader(currentDay, location, crew, food, craft);
             ui.pressEnter();
-            menu.runDailyMenu(food, crew);
+            menu.runDailyMenu(food, crew, water);
             currentDay++;
         }
 

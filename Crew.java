@@ -87,4 +87,31 @@ public class Crew {
             }
         }
     }
+    public void printCrewList(){
+        ui.println("The following people are in your crew.\n");
+        for (CrewMember i : crewList) {
+            ui.println("Name: " + i.getName() + "  Occupation: " + i.getOccupation() + "   Health: " + i.getHealth());
+        }
+        ui.pressEnter();
+    }
+    public boolean doesCrewHaveCommOfficer(){
+        boolean foundCommOfficer = false;
+        for (CrewMember i : crewList) {
+            if (i.occupation == CrewMember.crewMemberOccupation.COMMUNICATIONS_OFFICER) {
+                foundCommOfficer = true;
+            }
+        }
+        return foundCommOfficer;
+    }
+    public boolean doesCrewHaveEngineer(){
+        boolean foundEngineer = false;
+        for (CrewMember i : crewList) {
+            if (i.occupation == CrewMember.crewMemberOccupation.ENGINEER) {
+                foundEngineer = true;
+            }
+        }
+        return foundEngineer;
+    }
+
+
 }
