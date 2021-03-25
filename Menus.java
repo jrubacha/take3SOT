@@ -43,14 +43,14 @@ public class Menus {
                     break;
                 case 3: // change food rations
                     food.printChangeRationSizePrompt();
-                    // TODO: finish this
+                    runChangeFoodRation(food);
                     break;
                 case 4: // check crew
                     crew.printCrewList();
                     break;
                 case 5: // attempt to trade
                     if (crew.doesCrewHaveCommOfficer()) {
-                        ui.placeholder("trade");
+                        ui.placeholder("trade"); // TODO: Figure out how trading works...
                     } else {
                         ui.println("You do not have a communications officer. You cannot contact anyone to trade.");
                         ui.pressEnter();
@@ -58,7 +58,7 @@ public class Menus {
                     break;
                 case 6: // talk to people
                     if (crew.doesCrewHaveCommOfficer()) {
-                        ui.placeholder("talk");
+                        ui.placeholder("talk"); // TODO: Make random dialogue prompts of "useful" information. And/or no one wants to talk
                     } else {
                         ui.println("You do not have a communications officer. You cannot contact anyone to talk.");
                         ui.pressEnter();
@@ -66,7 +66,7 @@ public class Menus {
                     break;
                 case 7: // perform ship maintenance
                     if (crew.doesCrewHaveCommOfficer()) {
-                        ui.placeholder("repair");
+                        ui.placeholder("repair"); // TODO: Make repair minigame?
                     } else {
                         ui.println("You do not have an engineer. You cannot repair the ship in space.");
                         ui.pressEnter();
@@ -150,6 +150,8 @@ public class Menus {
                 case 1: // check supplies
                     break;
                 case 2: // buy supplies
+                    ui.print("You may:\n1. Buy food\n2. Buy water\n3.Buy Fuel.\n4. Buy spare parts\n5. Buy space suits\n6. Do nothing\n\nWhat is your choice? ");
+                    runBuySuppliesMenu();
                     break;
                 case 3: // sell supplies
                     break;
@@ -167,6 +169,28 @@ public class Menus {
         } while (userSelection == 0);
     }
 
+    public void runBuySuppliesMenu(){
+        int userSelection = keyboard.nextInt();
+        do {
+            switch(userSelection) {
+                case 1: // buy food
+                    break;
+                case 2: // buy water
+                    break;
+                case 3: // buy fuel
+                    break;
+                case 4: // buy spare parts
+                    break;
+                case 5: // buy space suits
+                    break;
+                case 6: // do nothing and leave
+                    break;
+                default: // loop menu until valid choice
+                    userSelection = 0;
+                    break;
+            }
+        } while (userSelection == 0);
+    }
     public void printManageCrewMenu(){
         ui.clear();
         ui.println("< Managing Crew >\n");
@@ -358,5 +382,22 @@ public class Menus {
         craft.printShortSpecs();
         text.printStarLines();
         text.printSpacePurchaseShipOptions();
+    }
+
+    public void runChangeFoodRation(Supplies.Food food){
+        switch (keyboard.nextInt()) {
+            case 1:
+                food.setRationSizeToFilling();
+                break;
+            case 2:
+                food.setRationSizeToMeager();
+                break;
+            case 3:
+                food.setRationSizeToBareBones();
+                break;
+            default:
+                food.setRationSizeToFilling();
+                break;
+        }
     }
 }

@@ -1,14 +1,16 @@
 public class Supplies {
     UserInterface ui = new UserInterface();
-    static double amount;
+    double amount;
     String supplyType;
     double unitCost, saleValue;
+    static double money;
 
     public Supplies(String supplyType, int amount, double unitCost, double saleValue){
         this.supplyType= supplyType;
         this.unitCost = unitCost;
         this.saleValue = saleValue;
-        Supplies.amount = amount;
+        this.amount = amount;
+        Supplies.money = 65000;
     }
 
     public double getAmount(){
@@ -23,20 +25,27 @@ public class Supplies {
     public double getSaleValue(){
         return saleValue;
     }
-    public int buySupply(int delta, int money){
+    public double getMoney(){
+        return money;
+    }
+    public void spendMoney(double delta) {
+        money -= delta;
+    }
+    public void earnMoney(double delta) {
+        money += delta;
+    }
+    public void buySupply(int delta){
         increaseQuantity(delta);
         money -= delta * unitCost;
-        return money;
     }
-    public int sellSupply(int delta, int money){
+    public void sellSupply(int delta){
         reduceQuantity(delta);
         money += delta * saleValue;
-        return money;
     }
-    private static void reduceQuantity(double delta) {
+    private void reduceQuantity(double delta) {
         amount -= delta;
     }
-    private static void increaseQuantity(double delta) {
+    private void increaseQuantity(double delta) {
         amount += delta;
     }
 //////////////////////////////////////////////////////////
@@ -46,8 +55,6 @@ public class Supplies {
             rationSize = foodRationSize.FILLING;
         }
         foodRationSize rationSize;
-        double foodCost = 0.20;
-        double foodSale = 0.10;
         double foodPerDay;
         enum foodRationSize {
             BARE_BONES,
@@ -68,7 +75,7 @@ public class Supplies {
         }
         public void eatFood(int crewSize) {
             calculateFoodPerDay();
-            reduceQuantity(crewSize * foodPerDay);
+            amount -= (crewSize * foodPerDay);
         }
         public void setRationSizeToFilling(){
             rationSize = foodRationSize.FILLING;
@@ -119,7 +126,7 @@ public class Supplies {
         }
         public void drinkWater(int crewSize){
             calculateWaterPerDay();
-            reduceQuantity(waterPerDay * crewSize);
+            amount -= (waterPerDay * crewSize);
         }
         public void setRationSizeToHydrated(){
             rationSize = waterRationSize.HYDRATED;
