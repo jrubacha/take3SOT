@@ -162,14 +162,21 @@ public class Menus {
                     text.printSupplies(food, water);
                     break;
                 case 2: // buy supplies
-                    ui.print("You may:\n1. Buy food\n2. Buy water\n3. Buy Fuel.\n4. Buy spare parts\n5. Buy space suits\n6. Do nothing\n\nWhat is your choice? ");
+                    ui.clear();
+                    ui.print("You may buy:\n1. Food\n2. Water\n3. Fuel.\n4. Spare parts\n5. Space suits\n6. Do nothing\n\nWhat is your choice? ");
                     runBuySuppliesMenu(food, water);
                     break;
                 case 3: // sell supplies
+                    ui.clear();
+                    ui.print("You may sell:\n1. Food\n2. Water\n3. Fuel.\n4. Spare parts\n5. Space suits\n6. Do nothing\n\nWhat is your choice? ");
+                    runSellSuppliesMenu(food, water);
                     break;
                 case 4: // change food ration size
+                    food.printChangeRationSizePrompt();
+                    runChangeFoodRation(food);
                     break;
                 case 5: // attempt to trade
+                    ui.placeholder("trade dialogue");
                     break;
                 case 6: // do nothing
                     break;
@@ -201,6 +208,35 @@ public class Menus {
                     break;
                 case 5: // buy space suits
                     ui.placeholder("buy space suits");
+                    break;
+                case 6: // do nothing and leave
+                    break;
+                default: // loop menu until valid choice
+                    userSelection = 0;
+                    break;
+            }
+        } while (userSelection == 0);
+    }
+    public void runSellSuppliesMenu(Supplies.Food food, Supplies.Water water){
+        int userSelection = keyboard.nextInt();
+        do {
+            switch(userSelection) {
+                case 1: // sell food
+                    ui.print("How many pounds of food would you like to sell? ");
+                    food.sellSupply(keyboard.nextInt());
+                    break;
+                case 2: // sell water
+                    ui.print("How many liters of water would you like to sell? ");
+                    water.sellSupply(keyboard.nextInt());
+                    break;
+                case 3: // sell fuel
+                    ui.placeholder("sell fuel");
+                    break;
+                case 4: // buy spare parts
+                    ui.placeholder("sell spare parts");
+                    break;
+                case 5: // buy space suits
+                    ui.placeholder("sell space suits");
                     break;
                 case 6: // do nothing and leave
                     break;
