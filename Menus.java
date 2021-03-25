@@ -13,7 +13,7 @@ public class Menus {
         ui.println("Day #" + whichDay);
         ui.println("Location: " + location);
         ui.println("Crew health: "); // TODO: fix/create average crew health method
-        ui.println("Food: "); // TODO: create remaining food method
+        ui.println("Food: " + food.getAmount());
         ui.println("Days until next stop: "); // TODO: create days until method
     }
 
@@ -91,7 +91,7 @@ public class Menus {
         ui.print("\nWhat is your choice?");
     }
 
-    public boolean runDailyStationMenu(currentLocation location, Supplies.Food food, Crew crew) {
+    public boolean runDailyStationMenu(currentLocation location, Supplies.Food food, Supplies.Water water, Crew crew) {
         int userSelection = 1;
         boolean readyToLeave = false;
         while (userSelection != 0) {
@@ -106,7 +106,7 @@ public class Menus {
                     break;
                 case 2: // manage supplies
                     printManageSuppliesMenu();
-                    runManageSuppliesMenu();
+                    runManageSuppliesMenu(food, water);
                     break;
                 case 3: // manage crew
                     printManageCrewMenu();
@@ -143,11 +143,12 @@ public class Menus {
         ui.print("\nWhat is your choice? ");
     }
 
-    public void runManageSuppliesMenu(){
+    public void runManageSuppliesMenu(Supplies.Food food, Supplies.Water water){
         int userSelection = keyboard.nextInt();
         do {
             switch (userSelection){
                 case 1: // check supplies
+                    text.printSupplies(food, water);
                     break;
                 case 2: // buy supplies
                     ui.print("You may:\n1. Buy food\n2. Buy water\n3.Buy Fuel.\n4. Buy spare parts\n5. Buy space suits\n6. Do nothing\n\nWhat is your choice? ");

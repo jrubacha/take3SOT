@@ -127,6 +127,13 @@ public class Supplies {
                 waterPerDay = 2;
             }
         }
+        public boolean hasCrewSufferedTerminalDehydration(){
+            if (amount <= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
         public void drinkWater(int crewSize){
             calculateWaterPerDay();
             amount -= (waterPerDay * crewSize);

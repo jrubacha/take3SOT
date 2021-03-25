@@ -103,6 +103,13 @@ public class SpaceCraft {
         ui.println("Cost: " + cost);
         ui.println("Crew Capacity: " + capacity);
     }
+    public boolean areWeOutOfFuel(){
+        if (currentFuel <= 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public void printQuickDescription(){
         ui.println(descriptiveText);

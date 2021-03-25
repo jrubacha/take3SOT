@@ -53,6 +53,9 @@ class Main {
         targetDay = currentDay + craft.getTimetoMoon();
         while (currentDay < targetDay) { // loop needs to run until target reached
             daily.consumeConsumables(crew, food, craft, water, increment);
+            if (!daily.areWeAlive(crew, food, water, craft)) {
+                System.exit(0);
+            }
             menu.printSpaceDailyHeader(currentDay, location, crew, food, craft);
             ui.pressEnter();
             menu.runDailyMenu(food, crew, water);
@@ -65,7 +68,7 @@ class Main {
         while (!readyToLeave) { // loop needs to run until user leaves moon
             daily.consumeConsumables(crew, food, craft, water, increment);
             menu.printSpaceDailyHeader(currentDay, location, crew, food, craft);
-            readyToLeave = menu.runDailyStationMenu(location, food, crew);
+            readyToLeave = menu.runDailyStationMenu(location, food, water, crew);
             currentDay += increment;
         }
 
