@@ -17,7 +17,7 @@ class Main {
         int targetDay;
         boolean readyToLeave = false;
         currentLocation location = currentLocation.EARTH;
-        
+              
         
         
         // Welcome
@@ -34,7 +34,7 @@ class Main {
         // Assemble a Crew
         // TODO: intro text
         crew.assembleCrew(craft.getMaxCapacity());
-        // TODO: print crew list
+        crew.printCrewList();
 
         // Buy Initial Supplies
         text.printBuyFoodPrompt();
@@ -56,8 +56,8 @@ class Main {
             if (!daily.areWeAlive(crew, food, water, craft)) {
                 System.exit(0);
             }
-            menu.printSpaceDailyHeader(currentDay, location, crew, food, craft);
-            ui.pressEnter();
+            menu.printSpaceDailyHeader(targetDay, currentDay, location, crew, food, craft);
+            // ui.pressEnter();
             menu.runDailyMenu(food, crew, water);
             currentDay += increment;
         }
@@ -67,7 +67,7 @@ class Main {
         text.printMoonWelcome();
         while (!readyToLeave) { // loop needs to run until user leaves moon
             daily.consumeConsumables(crew, food, craft, water, increment);
-            menu.printSpaceDailyHeader(currentDay, location, crew, food, craft);
+            menu.printSpaceDailyHeader(0, currentDay, location, crew, food, craft);
             readyToLeave = menu.runDailyStationMenu(location, food, water, crew);
             currentDay += increment;
         }

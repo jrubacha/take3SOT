@@ -88,6 +88,7 @@ public class Crew {
         }
     }
     public void printCrewList(){
+        ui.clear();
         ui.println("The following people are in your crew.\n");
         for (CrewMember i : crewList) {
             ui.println("Name: " + i.getName() + "  Occupation: " + i.getOccupation() + "   Health: " + i.getHealth());

@@ -103,6 +103,7 @@ public class TextBlocks {
     }
 
     public void printSupplies(Supplies.Food food, Supplies.Water water){
+        ui.clear();
         printStarLines();
         food.printFoodQuantity();
         water.printWaterQuantity();

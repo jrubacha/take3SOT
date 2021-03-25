@@ -8,17 +8,17 @@ public class Menus {
     TextBlocks text = new TextBlocks();
     Scanner keyboard = new Scanner(System.in);
 
-    public void printSpaceDailyHeader(int whichDay, currentLocation location, Crew crew, Supplies.Food food, SpaceCraft craft){
+    public void printSpaceDailyHeader(int targetDay, int currentDay, currentLocation location, Crew crew, Supplies.Food food, SpaceCraft craft){
         ui.clear();
-        ui.println("Day #" + whichDay);
+        ui.println("Day #" + currentDay);
         ui.println("Location: " + location);
         ui.println("Crew health: "); // TODO: fix/create average crew health method
         ui.println("Food: " + food.getAmount());
-        ui.println("Days until next stop: "); // TODO: create days until method
+        ui.println("Days until next stop: " + (targetDay - currentDay)); // TODO: create days until method
     }
 
     public void printSpaceDailyMenu(){
-        ui.clear();
+        //ui.clear();
         ui.println("You may:");
         ui.println("1. Continue on your journey");
         ui.println("2. Check supplies");
