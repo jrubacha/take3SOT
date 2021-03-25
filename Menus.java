@@ -86,8 +86,12 @@ public class Menus {
         }
     }
 
-    public void printStationDailyMenu(currentLocation location){
+    public void printStationDailyMenu(currentLocation location, int day, Crew crew){
         ui.clear();
+        ui.println("Day #" + day);
+        ui.println("Location: " + location);
+        ui.println("Crew Health: "); // TODO: finish once avg crew health made
+        text.printStarLines();
         ui.println("You may:");
         ui.println("1. Depart from " + location);
         ui.println("2. Manage supplies");
@@ -98,11 +102,11 @@ public class Menus {
         ui.print("\nWhat is your choice?");
     }
 
-    public boolean runDailyStationMenu(currentLocation location, Supplies.Food food, Supplies.Water water, Crew crew) {
+    public boolean runDailyStationMenu(currentLocation location, Supplies.Food food, Supplies.Water water, Crew crew, int currentDay) {
         int userSelection = 1;
         boolean readyToLeave = false;
         while (userSelection != 0) {
-            printStationDailyMenu(location);
+            printStationDailyMenu(location, currentDay, crew);
             userSelection =  ui.getUserInt(); // keyboard.nextInt(); //
             switch (userSelection) {
                 case 1: // depart the current station
@@ -158,8 +162,8 @@ public class Menus {
                     text.printSupplies(food, water);
                     break;
                 case 2: // buy supplies
-                    ui.print("You may:\n1. Buy food\n2. Buy water\n3.Buy Fuel.\n4. Buy spare parts\n5. Buy space suits\n6. Do nothing\n\nWhat is your choice? ");
-                    runBuySuppliesMenu();
+                    ui.print("You may:\n1. Buy food\n2. Buy water\n3. Buy Fuel.\n4. Buy spare parts\n5. Buy space suits\n6. Do nothing\n\nWhat is your choice? ");
+                    runBuySuppliesMenu(food, water);
                     break;
                 case 3: // sell supplies
                     break;
@@ -177,19 +181,26 @@ public class Menus {
         } while (userSelection == 0);
     }
 
-    public void runBuySuppliesMenu(){
+    public void runBuySuppliesMenu(Supplies.Food food, Supplies.Water water){
         int userSelection = keyboard.nextInt();
         do {
             switch(userSelection) {
                 case 1: // buy food
+                    text.printBuyFoodPrompt();
+                    food.buySupply(keyboard.nextInt());
                     break;
                 case 2: // buy water
+                    text.printBuyWaterPrompt();
+                    water.buySupply(keyboard.nextInt());
                     break;
                 case 3: // buy fuel
+                    ui.placeholder("buy fuel");
                     break;
                 case 4: // buy spare parts
+                    ui.placeholder("buy spare parts");
                     break;
                 case 5: // buy space suits
+                    ui.placeholder("buy space suits");
                     break;
                 case 6: // do nothing and leave
                     break;

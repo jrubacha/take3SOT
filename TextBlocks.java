@@ -114,8 +114,6 @@ public class TextBlocks {
 
     public void printBuyFoodPrompt(){
         ui.clear();
-        ui.println("Now that you have a crew, you'll need to take care of them.\n\nYou'll need to make initial purchases of food and water to last at least until you can get to the moon.\n");
-        printStarLines();
         ui.print("< Buying Food >\n\nThe average person eats 2 lbs of food a day.\n\nHow many pounds of food would you like to buy? ");
     }
 

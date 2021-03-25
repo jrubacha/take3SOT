@@ -37,6 +37,8 @@ class Main {
         crew.printCrewList();
 
         // Buy Initial Supplies
+        ui.println("Now that you have a crew, you'll need to take care of them.\n\nYou'll need to make initial purchases of food and water to last at least until you can get to the moon.\n");
+        text.printStarLines();
         text.printBuyFoodPrompt();
         int userSelection = ui.getUserInt();
         food.buySupply(userSelection);
@@ -68,7 +70,7 @@ class Main {
         while (!readyToLeave) { // loop needs to run until user leaves moon
             daily.consumeConsumables(crew, food, craft, water, increment);
             menu.printSpaceDailyHeader(0, currentDay, location, crew, food, craft);
-            readyToLeave = menu.runDailyStationMenu(location, food, water, crew);
+            readyToLeave = menu.runDailyStationMenu(location, food, water, crew, currentDay);
             currentDay += increment;
         }
 
