@@ -1,5 +1,6 @@
 public class TextBlocks {
     UserInterface ui = new UserInterface();
+    Art art = new Art();
 
     public void printStarLines(){
         for(int i=0; i<35; i++) {
@@ -96,6 +97,7 @@ public class TextBlocks {
 
     public void printSuccessfulLaunchMessage() {
         ui.clear();
+        art.printShip1();
         printStarLines();
         ui.println("Congrats! You didn't die on launch."); // TODO: make better success message
         printStarLines();

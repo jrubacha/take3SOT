@@ -11,6 +11,7 @@ class Main {
         Supplies.Food food = new Supplies.Food();
         Supplies.Water water = new Supplies.Water();
         Crew crew = new Crew();
+        Art art = new Art();
         int currentDay = 1;
         int increment = 1;
         int targetDay;
@@ -49,6 +50,7 @@ class Main {
 
         // Launch
         weather.runLaunchSystem();
+        art.printShip1();
 
         // Space Dailies (Earth --> Moon)
         location = currentLocation.SPACE;
