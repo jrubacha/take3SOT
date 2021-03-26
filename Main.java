@@ -68,7 +68,7 @@ class Main {
         location = currentLocation.MOON_BASE_1;
         text.printMoonWelcome();
         while (!readyToLeave) { // loop needs to run until user leaves moon
-            daily.consumeConsumables(crew, food, craft, water, increment);
+            // daily.consumeConsumables(crew, food, craft, water, increment);
             menu.printSpaceDailyHeader(0, currentDay, location, crew, food, craft);
             readyToLeave = menu.runDailyStationMenu(location, food, water, crew, craft, currentDay);
             currentDay += increment;

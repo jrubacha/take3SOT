@@ -96,6 +96,7 @@ public class SpaceCraft {
         ui.println("Tank Size: " + tankSize);
         ui.println("Current Fuel: " + currentFuel);
         ui.println("Status: " + status);
+        ui.pressEnter();
     }
 
     public void printShortSpecs(){
@@ -128,7 +129,6 @@ public class SpaceCraft {
             return 4;
         }
     }
-
     public int getTimetoMars(){
         if (speed == craftSpeed.FAST) {
             return 180;
@@ -138,7 +138,6 @@ public class SpaceCraft {
             return 240;
         }
     }
-
     public int getTimetoInnerBelt(){
         if (speed == craftSpeed.FAST) {
             return 200;
@@ -148,7 +147,6 @@ public class SpaceCraft {
             return 400;
         }
     }
-
     public int getTimetoOuterBelt(){
         if (speed == craftSpeed.FAST) {
             return 250;
@@ -158,7 +156,6 @@ public class SpaceCraft {
             return 450;
         }
     }
-
     public int getTimetoGanymede(){
         if (speed == craftSpeed.FAST) {
             return 300;

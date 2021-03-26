@@ -127,7 +127,7 @@ public class Menus {
                     break;
                 case 4: // manage spact craft
                     printManageCraftMenu();
-                    runManageCraftMenu();
+                    runManageCraftMenu(craft, location, crew);
                     break;
                 case 5: // talk to people
                     ui.placeholder("talk to people");
@@ -157,8 +157,9 @@ public class Menus {
     }
 
     public void runManageSuppliesMenu(Supplies.Food food, Supplies.Water water){
-        int userSelection = keyboard.nextInt();
+        int userSelection = 0;
         do {
+            userSelection = keyboard.nextInt();
             switch (userSelection){
                 case 1: // check supplies
                     text.printSupplies(food, water);
@@ -191,8 +192,9 @@ public class Menus {
     }
 
     public void runBuySuppliesMenu(Supplies.Food food, Supplies.Water water){
-        int userSelection = keyboard.nextInt();
+        int userSelection = 0;
         do {
+            userSelection = keyboard.nextInt();
             switch(userSelection) {
                 case 1: // buy food
                     text.printBuyFoodPrompt();
@@ -220,8 +222,9 @@ public class Menus {
         } while (userSelection == 0);
     }
     public void runSellSuppliesMenu(Supplies.Food food, Supplies.Water water){
-        int userSelection = keyboard.nextInt();
+        int userSelection = 0;
         do {
+            userSelection = keyboard.nextInt();
             switch(userSelection) {
                 case 1: // sell food
                     ui.print("How many pounds of food would you like to sell? ");
@@ -260,8 +263,9 @@ public class Menus {
     }
 
     public void runManageCrewMenu(Crew crew, SpaceCraft craft){
-        int userSelection = keyboard.nextInt();
+        int userSelection = 0;
         do {
+            userSelection = keyboard.nextInt();
             switch (userSelection){
                 case 1: // view crew list
                     crew.printCrewList();
@@ -293,15 +297,20 @@ public class Menus {
         ui.println("\nWhat is your choice? ");
     }
 
-    public void runManageCraftMenu(){
-        int userSelection = keyboard.nextInt();
+    public SpaceCraft runManageCraftMenu(SpaceCraft craft, currentLocation Location, Crew crew){
+        int userSelection = 0;
         do {
+            userSelection = keyboard.nextInt();
             switch (userSelection){
                 case 1: // view current craft's specs
+                    craft.printFullCraftSpecs();
                     break;
                 case 2: // buy space craft
+                    offerMoonCraft();
                     break;
                 case 3: // craft maintenance
+                    printStationMaintenanceMenu();
+                    runStationMaintenanceMenu(craft, crew);
                     break;
                 case 4: // do nothing
                     break;
@@ -311,6 +320,7 @@ public class Menus {
                     break;
             } 
         } while (userSelection == 0);
+        return craft;
     }
 
     public void printStationMaintenanceMenu(){
@@ -323,9 +333,10 @@ public class Menus {
         ui.print("\nWhat would you like to do? ");
     }
 
-    public void runStationMaintenanceMenu(){
-        int userSelection = keyboard.nextInt();
+    public void runStationMaintenanceMenu(SpaceCraft craft,Crew crew){
+        int userSelection = 0;
         do {
+            userSelection = keyboard.nextInt();
             switch (userSelection){
                 case 1: // crew engineers
                     break;
