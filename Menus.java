@@ -15,7 +15,7 @@ public class Menus {
         ui.clear();
         ui.println("Day #" + currentDay);
         ui.println("Location: " + location);
-        ui.println("Crew health: "); // TODO: fix/create average crew health method
+        ui.println("Crew health: " + crew.getOverallCrewHealth());
         ui.println("Food: " + food.getAmount());
         ui.println("Days until next stop: " + (targetDay - currentDay));
         text.printStarLines();
@@ -93,7 +93,7 @@ public class Menus {
         ui.clear();
         ui.println("Day #" + day);
         ui.println("Location: " + location);
-        ui.println("Crew Health: "); // TODO: finish once avg crew health made
+        ui.println("Crew Health: " + crew.getOverallCrewHealth());
         text.printStarLines();
         ui.println("You may:");
         ui.println("1. Depart from " + location);
@@ -115,9 +115,13 @@ public class Menus {
                 case 1: // depart the current station
                     // verify the user wants to leave
                     if (canWeLeaveStation(crew, location)) {
-                        readyToLeave = true;
-                        userSelection = 0;
-                        ui.placeholder("depart " + location);
+                        ui.print("Once you leave, you can't come back.\n\n1. Yes\n2. No\n\nAre you sure? ");
+                        userSelection = keyboard.nextInt();
+                        if (userSelection == 1) {
+                            readyToLeave = true;
+                            userSelection = 0;
+                            ui.placeholder("depart " + location);
+                        }
                     }
                     break;
                 case 2: // manage supplies
@@ -148,7 +152,6 @@ public class Menus {
     private boolean compareRangeAndLocation(Crew crew, currentLocation location) {
         String positionInSpace = location.toString();
         String craftRange = crew.getSpaceCraft().getRange().toString();
-        ui.println("posInSpace = " + positionInSpace + "  craftRange = " + craftRange);
         if (positionInSpace.equalsIgnoreCase(craftRange)) {
             return true;
         } else {
