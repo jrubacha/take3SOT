@@ -102,11 +102,12 @@ public class TextBlocks {
         ui.pressEnter();
     }
 
-    public void printSupplies(Supplies.Food food, Supplies.Water water){
+    public void printSupplies(Supplies.Food food, Supplies.Water water, Crew crew){
         ui.clear();
         printStarLines();
         food.printFoodQuantity();
         water.printWaterQuantity();
+        crew.getSpaceCraft().printRelativeFuelLevel();;
         food.printMoney();
         printStarLines();
         ui.pressEnter();

@@ -45,7 +45,7 @@ class Main {
         text.printBuyWaterPrompt();
         userSelection = keyboard.nextInt();
         water.buySupply(userSelection);
-        text.printSupplies(food, water);
+        text.printSupplies(food, water, crew);
 
         // Launch
         weather.runLaunchSystem();

@@ -17,6 +17,7 @@ public class Menus {
         ui.println("Location: " + location);
         ui.println("Crew health: " + crew.getOverallCrewHealth());
         ui.println("Food: " + food.getAmount());
+        crew.getSpaceCraft().printRelativeFuelLevel();
         ui.println("Days until next stop: " + (targetDay - currentDay));
         text.printStarLines();
     }
@@ -43,7 +44,7 @@ public class Menus {
                 case 1: // continue on journey
                     break;
                 case 2: // check supplies
-                    text.printSupplies(food, water);
+                    text.printSupplies(food, water, crew);
                     ui.clear();
                     break;
                 case 3: // change food rations
@@ -126,7 +127,7 @@ public class Menus {
                     break;
                 case 2: // manage supplies
                     printManageSuppliesMenu();
-                    runManageSuppliesMenu(food, water);
+                    runManageSuppliesMenu(food, water, crew);
                     break;
                 case 3: // manage crew
                     printManageCrewMenu();
@@ -187,13 +188,13 @@ public class Menus {
         ui.print("\nWhat is your choice? ");
     }
 
-    public void runManageSuppliesMenu(Supplies.Food food, Supplies.Water water){
+    public void runManageSuppliesMenu(Supplies.Food food, Supplies.Water water, Crew crew){
         int userSelection = 0;
         do {
             userSelection = keyboard.nextInt();
             switch (userSelection){
                 case 1: // check supplies
-                    text.printSupplies(food, water);
+                    text.printSupplies(food, water, crew);
                     break;
                 case 2: // buy supplies
                     ui.clear();

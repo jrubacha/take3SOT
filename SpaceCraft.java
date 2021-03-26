@@ -73,7 +73,12 @@ public class SpaceCraft {
         return cost;
     }
 
-    // TODO: Create a refueling method
+    public void refuelCraft(int delta) {
+        currentFuel += delta;
+        if (currentFuel > getMaxFuel()) {
+            currentFuel = getMaxFuel();
+        }
+    }
     
     public void burnFuel() {
         int dailyBurn = 0;
@@ -116,6 +121,24 @@ public class SpaceCraft {
 
     public void printQuickDescription(){
         ui.println(descriptiveText);
+    }
+    public int getCurrentFuel(){
+        return currentFuel;
+    }
+
+    public void printRelativeFuelLevel(){
+        double percentageFuel = currentFuel / (double) getMaxCapacity();
+        String fuelLevel = "";
+        if (percentageFuel > .7) {
+            fuelLevel = "High";
+        } else if (percentageFuel > 0.4) {
+            fuelLevel = "Medium";
+        } else if (percentageFuel > 0.1) {
+            fuelLevel = "Low";
+        } else {
+            fuelLevel = "Very Low";
+        }
+        ui.println("Fuel level: " + fuelLevel);
     }
 
     public int getMaxCapacity(){
