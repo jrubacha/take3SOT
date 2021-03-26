@@ -273,7 +273,7 @@ public class Menus {
                     crew.printCrewList();
                     break;
                 case 2: // hire crew members
-                    crew.assembleCrew(craft.getMaxCapacity());
+                    crew.assembleCrew(crew.getSpaceCraft().getMaxCapacity());
                     break;
                 case 3: // fire crew members
                     crew.fireCrewMember();
@@ -305,14 +305,14 @@ public class Menus {
             userSelection = keyboard.nextInt();
             switch (userSelection){
                 case 1: // view current craft's specs
-                    craft.printFullCraftSpecs();
+                    crew.getSpaceCraft().printFullCraftSpecs();
                     break;
                 case 2: // buy space craft
-                    offerMoonCraft(crew);
+                    offerMoonCraft(crew, crew.getSpaceCraft());
                     break;
                 case 3: // craft maintenance
                     printStationMaintenanceMenu();
-                    runStationMaintenanceMenu(craft, crew);
+                    runStationMaintenanceMenu(crew.getSpaceCraft(), crew);
                     break;
                 case 4: // do nothing
                     break;
@@ -372,10 +372,10 @@ public class Menus {
         crew.modifyCraft(earthCraft[i]);
     }
 
-    public void offerMoonCraft(Crew crew){
+    public void offerMoonCraft(Crew crew, SpaceCraft craft){
         SpaceCraft[] moonCraft = {new SpaceCraft.Skybird(), new SpaceCraft.Helios(), new SpaceCraft.Pegasus()};
         boolean needAShip = true;
-        int userSelection, i = 0;
+        int userSelection=0, i = 0;
         while (needAShip) {
             for (i=0; i<moonCraft.length; i++) {
                 printSpaceCraftShopFormat(moonCraft[i]);
@@ -386,7 +386,9 @@ public class Menus {
                 }
             }
         }
-        crew.modifyCraft(moonCraft[i]);
+        if (userSelection == 2) {
+            crew.modifyCraft(moonCraft[i]);
+        }        
     }
 
     public SpaceCraft offerMarsCraft(){

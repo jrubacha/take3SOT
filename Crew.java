@@ -153,7 +153,7 @@ public class Crew {
         return craft;
     }
     public void modifyCraft(SpaceCraft newCraft) {
-        this.craft = newCraft;
+        craft = newCraft;
     }
 
 }

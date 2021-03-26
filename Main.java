@@ -54,11 +54,11 @@ class Main {
         location = currentLocation.SPACE;
         targetDay = currentDay + craft.getTimetoMoon();
         while (currentDay < targetDay) { // loop needs to run until target reached
-            daily.consumeConsumables(crew, food, craft, water, increment);
-            if (!daily.areWeAlive(crew, food, water, craft)) {
+            daily.consumeConsumables(crew, food, crew.getSpaceCraft(), water, increment);
+            if (!daily.areWeAlive(crew, food, water, crew.getSpaceCraft())) {
                 System.exit(0);
             }
-            menu.printSpaceDailyHeader(targetDay, currentDay, location, crew, food, craft);
+            menu.printSpaceDailyHeader(targetDay, currentDay, location, crew, food, crew.getSpaceCraft());
             // ui.pressEnter();
             menu.runDailyMenu(food, crew, water, currentDay);
             currentDay += increment;
@@ -68,15 +68,16 @@ class Main {
         location = currentLocation.MOON_BASE_1;
         text.printMoonWelcome();
         while (!readyToLeave) { // loop needs to run until user leaves moon
-            // daily.consumeConsumables(crew, food, craft, water, increment);
-            menu.printSpaceDailyHeader(0, currentDay, location, crew, food, craft);
-            readyToLeave = menu.runDailyStationMenu(location, food, water, crew, craft, currentDay);
+            // daily.consumeConsumables(crew, food, craft, water, increment); // no consume while on station
+            menu.printSpaceDailyHeader(0, currentDay, location, crew, food, crew.getSpaceCraft());
+            readyToLeave = menu.runDailyStationMenu(location, food, water, crew, crew.getSpaceCraft(), currentDay);
             currentDay += increment;
         }
 
         // Space Dailies (Moon --> Mars)
         location = currentLocation.SPACE;
         targetDay = currentDay + craft.getTimetoMoon();
+        crew.getSpaceCraft().printFullCraftSpecs();
 
         // Station Dailies (Mars)
         location = currentLocation.MARS_COLONY_7;
