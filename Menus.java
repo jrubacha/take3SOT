@@ -329,7 +329,7 @@ public class Menus {
         ui.println("\nWhat is your choice? ");
     }
 
-    public void runManageCraftMenu(currentLocation Location, Crew crew, Supplies.Food food){
+    public void runManageCraftMenu(currentLocation location, Crew crew, Supplies.Food food){
         int userSelection = 0;
         do {
             userSelection = keyboard.nextInt();
@@ -338,7 +338,23 @@ public class Menus {
                     crew.getSpaceCraft().printFullCraftSpecs();
                     break;
                 case 2: // buy space craft
-                    offerMoonCraft(crew);
+                    switch (location) {
+                        case MOON_BASE_1:
+                            offerMoonCraft(crew);
+                            break;
+                        case MARS_COLONY_7:
+                            offerMarsCraft(crew);
+                            break;
+                        case INNER_BELT_TRANSIT_STATION_2:
+                            offerIBCraft(crew);
+                            break;
+                        case OUTBELT_OUTPOST_4:
+                            offerOBCraft(crew);
+                            break;
+                        default:
+                            ui.println("Something's wrong.");
+                            break;
+                    }
                     food.spendMoney(crew.getSpaceCraft().getCost());
                     break;
                 case 3: // craft maintenance

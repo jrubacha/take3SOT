@@ -151,6 +151,12 @@ public class Crew {
             return "Poor";
         }
     }
+
+    public void breakAnArm(){
+        
+    }
+
+
 ////////////////////////////////////////////////////////////////////////////////////
 
     public SpaceCraft getSpaceCraft(){

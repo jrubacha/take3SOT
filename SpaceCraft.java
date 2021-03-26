@@ -73,6 +73,8 @@ public class SpaceCraft {
         return cost;
     }
 
+    // TODO: Create a refueling method
+    
     public void burnFuel() {
         int dailyBurn = 0;
         switch (quality) {
