@@ -3,6 +3,8 @@ Writing and running menus
 */
 
 import java.util.*;
+
+
 public class Menus {
     UserInterface ui = new UserInterface();
     TextBlocks text = new TextBlocks();
@@ -99,10 +101,10 @@ public class Menus {
         ui.println("4. Manage space craft");
         ui.println("5. Talk to people");
         ui.println("6. Stay overnight at " + location);
-        ui.print("\nWhat is your choice?");
+        ui.print("\nWhat is your choice? ");
     }
 
-    public boolean runDailyStationMenu(currentLocation location, Supplies.Food food, Supplies.Water water, Crew crew, int currentDay) {
+    public boolean runDailyStationMenu(currentLocation location, Supplies.Food food, Supplies.Water water, Crew crew, SpaceCraft craft, int currentDay) {
         int userSelection = 1;
         boolean readyToLeave = false;
         while (userSelection != 0) {
@@ -121,7 +123,7 @@ public class Menus {
                     break;
                 case 3: // manage crew
                     printManageCrewMenu();
-                    runManageCrewMenu();
+                    runManageCrewMenu(crew, craft);
                     break;
                 case 4: // manage spact craft
                     printManageCraftMenu();
@@ -257,15 +259,18 @@ public class Menus {
         ui.print("\nWhat is your choice? ");
     }
 
-    public void runManageCrewMenu(){
+    public void runManageCrewMenu(Crew crew, SpaceCraft craft){
         int userSelection = keyboard.nextInt();
         do {
             switch (userSelection){
                 case 1: // view crew list
+                    crew.printCrewList();
                     break;
                 case 2: // hire crew members
+                    crew.assembleCrew(craft.getMaxCapacity());
                     break;
                 case 3: // fire crew members
+                    crew.fireCrewMember();
                     break;
                 case 4: // do nothing
                     break;

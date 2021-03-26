@@ -113,6 +113,21 @@ public class Crew {
         }
         return foundEngineer;
     }
+    public void fireCrewMember(){
+        if (crewList.size() == 1) {
+            ui.println("You don't have anyone you can fire.");
+        } else {
+            ui.clear();
+            ui.println("Here's your current crew:");
+            int j = 1;
+            for (int i=1; i<crewList.size(); i++) {
+                ui.println(i + ".  " + crewList.get(i).getName() + "   Occupation: " + crewList.get(i).getOccupation());
+            }
+            ui.print("Who would you like to fire? ");
+            int firedMember = keyboard.nextInt();
+            crewList.remove(firedMember);
+        }
+    }
 
 
 }
