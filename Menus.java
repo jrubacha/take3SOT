@@ -8,6 +8,7 @@ import java.util.*;
 public class Menus {
     UserInterface ui = new UserInterface();
     TextBlocks text = new TextBlocks();
+    Talkies talk = new Talkies();
     Scanner keyboard = new Scanner(System.in);
 
     public void printSpaceDailyHeader(int targetDay, int currentDay, currentLocation location, Crew crew, Supplies.Food food, SpaceCraft craft){
@@ -33,7 +34,7 @@ public class Menus {
         ui.print("\nWhat is your choice? ");
     }
 
-    public void runDailyMenu(Supplies.Food food, Crew crew, Supplies.Water water){
+    public void runDailyMenu(Supplies.Food food, Crew crew, Supplies.Water water, int day){
         int userSelection = 0;
         while (userSelection != 1) {
             printSpaceDailyMenu();
@@ -65,7 +66,7 @@ public class Menus {
                     break;
                 case 6: // talk to people
                     if (crew.doesCrewHaveCommOfficer()) {
-                        ui.placeholder("talk"); // TODO: Make random dialogue prompts of "useful" information. And/or no one wants to talk
+                        talk.pickATalky(day);
                     } else {
                         ui.println("\nYou do not have a communications officer. You cannot contact anyone to talk.");
                         ui.pressEnter();
@@ -130,7 +131,7 @@ public class Menus {
                     runManageCraftMenu(craft, location, crew);
                     break;
                 case 5: // talk to people
-                    ui.placeholder("talk to people");
+                    talk.pickATalky(currentDay);
                     break;
                 case 6: // stay overnight
                     ui.placeholder("stay overnight");
@@ -298,7 +299,7 @@ public class Menus {
         ui.println("\nWhat is your choice? ");
     }
 
-    public SpaceCraft runManageCraftMenu(SpaceCraft craft, currentLocation Location, Crew crew){
+    public void runManageCraftMenu(SpaceCraft craft, currentLocation Location, Crew crew){
         int userSelection = 0;
         do {
             userSelection = keyboard.nextInt();
@@ -321,7 +322,6 @@ public class Menus {
                     break;
             } 
         } while (userSelection == 0);
-        return craft;
     }
 
     public void printStationMaintenanceMenu(){

@@ -60,7 +60,7 @@ class Main {
             }
             menu.printSpaceDailyHeader(targetDay, currentDay, location, crew, food, craft);
             // ui.pressEnter();
-            menu.runDailyMenu(food, crew, water);
+            menu.runDailyMenu(food, crew, water, currentDay);
             currentDay += increment;
         }
 
