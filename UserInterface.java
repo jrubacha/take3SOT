@@ -16,17 +16,17 @@ public class UserInterface {
         keyboard.nextLine();
     }
 
-    public int getUserInt(){
-        int a = 0;
-        while (a == 0) {
-            try {
-                a = keyboard.nextInt();
-            } catch (InputMismatchException e) {
-                keyboard.next();
-            }
-        }
-        return a;
-    }
+    // public int getUserInt(){
+    //     int a = 0;
+    //     while (a == 0) {
+    //         try {
+    //             a = keyboard.nextInt();
+    //         } catch (InputMismatchException e) {
+    //             keyboard.next();
+    //         }
+    //     }
+    //     return a;
+    // }
 
     public void placeholder(String word){
         println(word + " placeholder");

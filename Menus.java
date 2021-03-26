@@ -110,7 +110,7 @@ public class Menus {
         boolean readyToLeave = false;
         while (userSelection != 0) {
             printStationDailyMenu(location, currentDay, crew);
-            userSelection =  ui.getUserInt(); // keyboard.nextInt(); //
+            userSelection = keyboard.nextInt();
             switch (userSelection) {
                 case 1: // depart the current station
                     // verify the user wants to leave
@@ -128,13 +128,12 @@ public class Menus {
                     break;
                 case 4: // manage spact craft
                     printManageCraftMenu();
-                    runManageCraftMenu(craft, location, crew);
+                    runManageCraftMenu(location, crew, food);
                     break;
                 case 5: // talk to people
                     talk.pickATalky(currentDay);
                     break;
                 case 6: // stay overnight
-                    ui.placeholder("stay overnight");
                     userSelection = 0;
                     break;
                 default:
@@ -299,7 +298,7 @@ public class Menus {
         ui.println("\nWhat is your choice? ");
     }
 
-    public void runManageCraftMenu(currentLocation Location, Crew crew){
+    public void runManageCraftMenu(currentLocation Location, Crew crew, Supplies.Food food){
         int userSelection = 0;
         do {
             userSelection = keyboard.nextInt();
@@ -309,6 +308,7 @@ public class Menus {
                     break;
                 case 2: // buy space craft
                     offerMoonCraft(crew);
+                    food.spendMoney(crew.getSpaceCraft().getCost());
                     break;
                 case 3: // craft maintenance
                     printStationMaintenanceMenu();
@@ -334,7 +334,7 @@ public class Menus {
         ui.print("\nWhat would you like to do? ");
     }
 
-    public void runStationMaintenanceMenu(SpaceCraft craft,Crew crew){
+    public void runStationMaintenanceMenu(SpaceCraft craft, Crew crew){
         int userSelection = 0;
         do {
             userSelection = keyboard.nextInt();

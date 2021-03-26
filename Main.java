@@ -40,10 +40,10 @@ class Main {
         ui.println("Now that you have a crew, you'll need to take care of them.\n\nYou'll need to make initial purchases of food and water to last at least until you can get to the moon.\n");
         text.printStarLines();
         text.printBuyFoodPrompt();
-        int userSelection = ui.getUserInt();
+        int userSelection = keyboard.nextInt();
         food.buySupply(userSelection);
         text.printBuyWaterPrompt();
-        userSelection = ui.getUserInt();
+        userSelection = keyboard.nextInt();
         water.buySupply(userSelection);
         text.printSupplies(food, water);
 
@@ -76,8 +76,8 @@ class Main {
 
         // Space Dailies (Moon --> Mars)
         location = currentLocation.SPACE;
-        targetDay = currentDay + craft.getTimetoMoon();
-        crew.getSpaceCraft().printFullCraftSpecs();
+        targetDay = currentDay + craft.getTimetoMars();
+        
 
         // Station Dailies (Mars)
         location = currentLocation.MARS_COLONY_7;
@@ -85,6 +85,7 @@ class Main {
 
         // Space Dailies (Mars --> Inner Belt Transit Station)
         location = currentLocation.SPACE;
+        targetDay = currentDay + craft.getTimetoInnerBelt();
 
         // Station Dailies (Inner Belt Transit Station)
         location = currentLocation.INNER_BELT_TRANSIT_STATION_2;
@@ -92,6 +93,7 @@ class Main {
 
         // Space Dailies (Inner Belt --> Outer Belt)
         location = currentLocation.SPACE;
+        targetDay = currentDay + craft.getTimetoOuterBelt();
 
         // Station Dailies (Outer Belt Outpost 4)
         location = currentLocation.OUTBELT_OUTPOST_4;
@@ -99,6 +101,7 @@ class Main {
 
         // Space Dailies (Outer Belt --> Ganymede)
         location = currentLocation.SPACE;
+        targetDay = currentDay + craft.getTimetoGanymede();
 
         // Arrival on Ganymede
         location = currentLocation.GANYMEDE_RESEARCH_CENTER;
