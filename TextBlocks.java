@@ -12,7 +12,7 @@ public class TextBlocks {
         ui.clear();
         printStarLines();
         ui.println("Greetings eager space traveller, and welcome to Star Command.\n\nToday marks your first step in a long journey through the stars. We're glad you chose us to fly with.\n\nYour mission? Successfully navigate the solar system and deliver your crew and equipment safely to the Ganymede Research Center. They are counting on you to get the job done.");
-        printStarLines();
+        art.printNightScene();
         ui.pressEnter();
     }
 

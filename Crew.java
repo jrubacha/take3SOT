@@ -3,6 +3,7 @@ import java.util.*;
 public class Crew {
     UserInterface ui = new UserInterface();
     Menus menu = new Menus();
+    Art art = new Art();
     Scanner keyboard = new Scanner(System.in);
     ArrayList<CrewMember> crewList = new ArrayList<CrewMember>();
     SpaceCraft craft = new SpaceCraft.SaturnV();
@@ -10,6 +11,7 @@ public class Crew {
 
     public void addCaptain(){
         ui.clear();
+        art.printSpaceMan();
         ui.print("Let's get started. First, what is your name? ");
         String captainName = keyboard.next();
         captainName = captainName.substring(0,1).toUpperCase() + captainName.substring(1).toLowerCase();
