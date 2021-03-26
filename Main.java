@@ -50,7 +50,6 @@ class Main {
 
         // Launch
         weather.runLaunchSystem();
-        art.printShip1();
 
         // Space Dailies (Earth --> Moon)
         location = currentLocation.SPACE;
