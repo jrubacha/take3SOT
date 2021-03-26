@@ -180,6 +180,7 @@ public class Menus {
                     break;
                 case 5: // attempt to trade
                     ui.placeholder("trade dialogue");
+                    ui.placeholder("trade dialogue");
                     break;
                 case 6: // do nothing
                     break;
@@ -339,8 +340,10 @@ public class Menus {
             userSelection = keyboard.nextInt();
             switch (userSelection){
                 case 1: // crew engineers
+                    ui.placeholder("crew engineers do maintenance");
                     break;
                 case 2: // station engineers
+                    ui.placeholder("station engineers do maintenance");
                     break;
                 case 3: // do nothing
                     break;

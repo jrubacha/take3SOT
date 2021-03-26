@@ -73,7 +73,7 @@ public class Crew {
             }
             
             if (userSelc !=5) {
-                int numberOfCrewToAdd = keyboard.nextInt();
+                int numberOfCrewToAdd = ui.getUserInt(); //keyboard.nextInt();
                 if (numberOfCrewToAdd < 0 || numberOfCrewToAdd > remainingCapacity) {
                     ui.clear();
                     ui.println("I'm sorry, you can't hire that number. No hires were made.");
