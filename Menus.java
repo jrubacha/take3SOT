@@ -114,9 +114,11 @@ public class Menus {
             switch (userSelection) {
                 case 1: // depart the current station
                     // verify the user wants to leave
-                    ui.placeholder("depart " + location);
-                    readyToLeave = true;
-                    userSelection = 0;
+                    if (canWeLeaveStation(crew, location)) {
+                        readyToLeave = true;
+                        userSelection = 0;
+                        ui.placeholder("depart " + location);
+                    }
                     break;
                 case 2: // manage supplies
                     printManageSuppliesMenu();
@@ -141,6 +143,32 @@ public class Menus {
             }
         }
         return readyToLeave;
+    }
+
+    private boolean compareRangeAndLocation(Crew crew, currentLocation location) {
+        String positionInSpace = location.toString();
+        String craftRange = crew.getSpaceCraft().getRange().toString();
+        ui.println("posInSpace = " + positionInSpace + "  craftRange = " + craftRange);
+        if (positionInSpace.equalsIgnoreCase(craftRange)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    private boolean canWeLeaveStation(Crew crew, currentLocation location) {
+        if (compareRangeAndLocation(crew, location)) {
+            ui.println("Your craft does not have the range to leave the station.");
+            ui.pressEnter();
+            return false;
+        } else if (crew.getSpaceCraft().getMaxCapacity() < crew.sumTotalOfCrew()) {
+            ui.println("You have too many people in your crew for the space craft you have selected.");
+            ui.pressEnter();
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public void printManageSuppliesMenu(){

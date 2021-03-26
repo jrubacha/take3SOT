@@ -122,12 +122,16 @@ public class Crew {
             ui.clear();
             ui.println("Here's your current crew:");
             int j = 1;
-            for (int i=1; i<crewList.size(); i++) {
+            int i;
+            for (i=1; i<crewList.size(); i++) {
                 ui.println(i + ".  " + crewList.get(i).getName() + "   Occupation: " + crewList.get(i).getOccupation());
             }
-            ui.print("Who would you like to fire? ");
+            ui.print(i + ". Do nothing\n\nWho would you like to fire? ");
             int firedMember = keyboard.nextInt();
-            crewList.remove(firedMember);
+            if (firedMember == i) {
+            } else {
+                crewList.remove(firedMember);
+            }
         }
     }
     public String getOverallCrewHealth(){

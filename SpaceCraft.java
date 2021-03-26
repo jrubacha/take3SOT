@@ -16,11 +16,11 @@ public class SpaceCraft {
         LARGE
     }
     enum craftRange {
-        MOON,
-        MARS,
-        INNER_BELT,
-        OUTER_BELT,
-        EVERYWHERE
+        MOON_BASE_1,
+        MARS_COLONY_7,
+        INNER_BELT_TRANSIT_STATION_2,
+        OUTBELT_OUTPOST_4,
+        GANYMEDE_RESEARCH_CENTER
     }
     enum craftStatus {
         DEAD,
@@ -119,6 +119,9 @@ public class SpaceCraft {
     public int getMaxCapacity(){
         return capacity;
     }
+    public craftRange getRange(){
+        return range;
+    }
 
     public int getTimetoMoon(){
         if (speed == craftSpeed.FAST) {
@@ -169,86 +172,86 @@ public class SpaceCraft {
     // Earth Based Space Craft
     public static class SaturnV extends SpaceCraft {
         public SaturnV(){
-            super("Saturn V", craftRange.MOON, craftQuality.POOR, craftSpeed.SLOW, craftTankSize.SMALL, 1000, 3, craftOrigin.EARTH, "A flight vehicle straight out of history, this rocket will get you where you need to go. So long as that place is the Moon.\nKeep your initial flight crew small, three passengers maximum, including you Captain.");
+            super("Saturn V", craftRange.MOON_BASE_1, craftQuality.POOR, craftSpeed.SLOW, craftTankSize.SMALL, 1000, 3, craftOrigin.EARTH, "A flight vehicle straight out of history, this rocket will get you where you need to go. So long as that place is the Moon.\nKeep your initial flight crew small, three passengers maximum, including you Captain.");
         }
     }
     public static class Atlas extends SpaceCraft {
         public Atlas(){
-            super("Atlas", craftRange.MOON, craftQuality.FAIR, craftSpeed.SLOW, craftTankSize.SMALL, 5000, 4, craftOrigin.EARTH, "A slightly more modern alternative to the Saturn V, the Atlas Falcon is similarly capable of lifting you and three others into orbit.");
+            super("Atlas", craftRange.MOON_BASE_1, craftQuality.FAIR, craftSpeed.SLOW, craftTankSize.SMALL, 5000, 4, craftOrigin.EARTH, "A slightly more modern alternative to the Saturn V, the Atlas Falcon is similarly capable of lifting you and three others into orbit.");
         }
     }
     public static class NewShepard extends SpaceCraft {
         public NewShepard() {
-            super("New Shepard XC", craftRange.MARS, craftQuality.GOOD, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 10000, 6, craftOrigin.EARTH, "It’s not the prettiest spacecraft, but the New Shepard will get you out into the solar system. With an extended range from its earlier counterparts, this ship will take you all the way to Mars, maybe further if you’re careful with your supplies.");
+            super("New Shepard XC", craftRange.MARS_COLONY_7, craftQuality.GOOD, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 10000, 6, craftOrigin.EARTH, "It’s not the prettiest spacecraft, but the New Shepard will get you out into the solar system. With an extended range from its earlier counterparts, this ship will take you all the way to Mars, maybe further if you’re careful with your supplies.");
         }
     }
     public static class Artemis extends SpaceCraft {
         public Artemis() {
-            super("Artemis N", craftRange.EVERYWHERE, craftQuality.GOOD, craftSpeed.FAST, craftTankSize.MEDIUM, 20000, 10, craftOrigin.EARTH, "One of the world’s leaders in solar system travel, Artemis doesn’t disappoint with their ‘N’ series craft. Designed for long journeys in mind, the Artemis N will take you wherever you need to go.");
+            super("Artemis N", craftRange.GANYMEDE_RESEARCH_CENTER, craftQuality.GOOD, craftSpeed.FAST, craftTankSize.MEDIUM, 20000, 10, craftOrigin.EARTH, "One of the world’s leaders in solar system travel, Artemis doesn’t disappoint with their ‘N’ series craft. Designed for long journeys in mind, the Artemis N will take you wherever you need to go.");
         }
     }
     public static class NewOrion extends SpaceCraft {
         public NewOrion(){
-            super("New Orion", craftRange.EVERYWHERE, craftQuality.GOOD, craftSpeed.FAST, craftTankSize.LARGE, 40000, 12, craftOrigin.EARTH, "THE interstellar flight vehicle. Top of the line in speed, luxury, and navigational control, you can’t go wrong with this craft. Travel in style to your destination and never worry about a thing.");
+            super("New Orion", craftRange.GANYMEDE_RESEARCH_CENTER, craftQuality.GOOD, craftSpeed.FAST, craftTankSize.LARGE, 40000, 12, craftOrigin.EARTH, "THE interstellar flight vehicle. Top of the line in speed, luxury, and navigational control, you can’t go wrong with this craft. Travel in style to your destination and never worry about a thing.");
         }
     }
 
     // Moon Based Space Craft
     public static class Skybird extends SpaceCraft {
         public Skybird() {
-            super("Skybird", craftRange.MARS, craftQuality.FAIR, craftSpeed.SLOW, craftTankSize.MEDIUM, 5000, 5, craftOrigin.MOON, "Skybird's an delapidated Earthcraft left adrift around the moon. We towed her back and cleaned her up. Don't expect to get past Mars with this ol' ship.");
+            super("Skybird", craftRange.MARS_COLONY_7, craftQuality.FAIR, craftSpeed.SLOW, craftTankSize.MEDIUM, 5000, 5, craftOrigin.MOON, "Skybird's an delapidated Earthcraft left adrift around the moon. We towed her back and cleaned her up. Don't expect to get past Mars with this ol' ship.");
         }
     }
     public static class Helios extends SpaceCraft {
         public Helios() {
-            super("Helios 9", craftRange.INNER_BELT, craftQuality.POOR, craftSpeed.SLOW, craftTankSize.LARGE, 7500, 5, craftOrigin.MOON, "The Helios 9 was built in space, for space. She's an older model though, not quite suited for a trip across the belt. A decent mid system hopper, I'd say.");
+            super("Helios 9", craftRange.INNER_BELT_TRANSIT_STATION_2, craftQuality.POOR, craftSpeed.SLOW, craftTankSize.LARGE, 7500, 5, craftOrigin.MOON, "The Helios 9 was built in space, for space. She's an older model though, not quite suited for a trip across the belt. A decent mid system hopper, I'd say.");
         }
     }
     public static class Pegasus extends SpaceCraft {
         public Pegasus() {
-            super("Pegasus", craftRange.EVERYWHERE, craftQuality.GOOD, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 20000, 10, craftOrigin.MOON, "Looking for luxury? Look no further. The Pegasus was designed for you to travel anywhere in the galaxy in stylish comfort. Just, don't expect to get there in a hurry, okay? Sit back and enjoy the trip.");
+            super("Pegasus", craftRange.GANYMEDE_RESEARCH_CENTER, craftQuality.GOOD, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 20000, 10, craftOrigin.MOON, "Looking for luxury? Look no further. The Pegasus was designed for you to travel anywhere in the galaxy in stylish comfort. Just, don't expect to get there in a hurry, okay? Sit back and enjoy the trip.");
         }
     }
 
     // Mars Based Space Craft (3)
     public static class Avalon extends SpaceCraft {
         public Avalon() {
-            super("Avalon", craftRange.EVERYWHERE, craftQuality.FAIR, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 12000, 8, craftOrigin.MARS, "Avalon text");
+            super("Avalon", craftRange.GANYMEDE_RESEARCH_CENTER, craftQuality.FAIR, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 12000, 8, craftOrigin.MARS, "Avalon text");
         }
     }
     public static class TX7 extends SpaceCraft {
         public TX7() {
-            super("T-X7", craftRange.OUTER_BELT, craftQuality.GOOD, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 12000, 6, craftOrigin.MARS, "T-X7 text");
+            super("T-X7", craftRange.OUTBELT_OUTPOST_4, craftQuality.GOOD, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 12000, 6, craftOrigin.MARS, "T-X7 text");
         }
     }
     public static class Foxfire extends SpaceCraft {
         public Foxfire() {
-            super("Foxfire", craftRange.EVERYWHERE, craftQuality.FAIR, craftSpeed.FAST, craftTankSize.SMALL, 17500, 5, craftOrigin.MARS, "Foxfire text");
+            super("Foxfire", craftRange.GANYMEDE_RESEARCH_CENTER, craftQuality.FAIR, craftSpeed.FAST, craftTankSize.SMALL, 17500, 5, craftOrigin.MARS, "Foxfire text");
         }
     }
 
     // Inner Belt Based Space Craft
     public static class Mayflower extends SpaceCraft {
         public Mayflower() {
-            super("Mayflower Legacy", craftRange.OUTER_BELT, craftQuality.GOOD, craftSpeed.SLOW, craftTankSize.LARGE, 15000, 9, craftOrigin.INNER_BELT, "Mayflower text");
+            super("Mayflower Legacy", craftRange.OUTBELT_OUTPOST_4, craftQuality.GOOD, craftSpeed.SLOW, craftTankSize.LARGE, 15000, 9, craftOrigin.INNER_BELT, "Mayflower text");
             // I want this ship to be indestructable, don't know what all that means, but essentially, it's made for crossing the asteroid belt
         }
     }
     public static class Cygnus extends SpaceCraft {
         public Cygnus() {
-            super("Cygnus Mu", craftRange.EVERYWHERE, craftQuality.POOR, craftSpeed.FAST, craftTankSize.MEDIUM, 11000, 7, craftOrigin.INNER_BELT, "Cygnus Mu text");
+            super("Cygnus Mu", craftRange.GANYMEDE_RESEARCH_CENTER, craftQuality.POOR, craftSpeed.FAST, craftTankSize.MEDIUM, 11000, 7, craftOrigin.INNER_BELT, "Cygnus Mu text");
         }
     }
 
     // Outer Belt Based Space Craft
     public static class Ankaa extends SpaceCraft {
         public Ankaa() {
-            super("Ankaa", craftRange.EVERYWHERE, craftQuality.FAIR, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 9000, 6, craftOrigin.OUTER_BELT, "Ankaa text");
+            super("Ankaa", craftRange.GANYMEDE_RESEARCH_CENTER, craftQuality.FAIR, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 9000, 6, craftOrigin.OUTER_BELT, "Ankaa text");
         }
     }
     public static class Nikephoros extends SpaceCraft {
         public Nikephoros() {
-            super("Nikephoros", craftRange.EVERYWHERE, craftQuality.GOOD, craftSpeed.SLOW, craftTankSize.LARGE, 10000, 8, craftOrigin.OUTER_BELT, "Nikephoros text");
+            super("Nikephoros", craftRange.GANYMEDE_RESEARCH_CENTER, craftQuality.GOOD, craftSpeed.SLOW, craftTankSize.LARGE, 10000, 8, craftOrigin.OUTER_BELT, "Nikephoros text");
         }
     }
 
