@@ -11,7 +11,6 @@ class Main {
         Supplies.Food food = new Supplies.Food();
         Supplies.Water water = new Supplies.Water();
         Crew crew = new Crew();
-        SpaceCraft craft = new SpaceCraft.SaturnV();
         int currentDay = 1;
         int increment = 1;
         int targetDay;
@@ -28,7 +27,8 @@ class Main {
 
         // Select a Ship
         text.shipSelectionPrompt(crew.getCaptainName(), food.getMoney());
-        craft = menu.offerEarthCraft();
+        menu.offerEarthCraft(crew);
+        SpaceCraft craft = crew.getSpaceCraft();
         food.spendMoney(craft.getCost());
 
         // Assemble a Crew

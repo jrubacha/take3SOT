@@ -308,7 +308,7 @@ public class Menus {
                     craft.printFullCraftSpecs();
                     break;
                 case 2: // buy space craft
-                    offerMoonCraft();
+                    offerMoonCraft(crew);
                     break;
                 case 3: // craft maintenance
                     printStationMaintenanceMenu();
@@ -355,7 +355,7 @@ public class Menus {
         } while (userSelection == 0);
     }
    
-    public SpaceCraft offerEarthCraft(){
+    public void offerEarthCraft(Crew crew){
         SpaceCraft[] earthCraft = {new SpaceCraft.SaturnV(), new SpaceCraft.Atlas(), new SpaceCraft.NewShepard(), new SpaceCraft.Artemis(), new SpaceCraft.NewOrion()};
         boolean needAShip = true;
         int userSelection, i = 0;
@@ -369,10 +369,10 @@ public class Menus {
                 }
             }
         }
-        return earthCraft[i];
+        crew.modifyCraft(earthCraft[i]);
     }
 
-    public SpaceCraft offerMoonCraft(){
+    public void offerMoonCraft(Crew crew){
         SpaceCraft[] moonCraft = {new SpaceCraft.Skybird(), new SpaceCraft.Helios(), new SpaceCraft.Pegasus()};
         boolean needAShip = true;
         int userSelection, i = 0;
@@ -386,7 +386,7 @@ public class Menus {
                 }
             }
         }
-        return moonCraft[i];
+        crew.modifyCraft(moonCraft[i]);
     }
 
     public SpaceCraft offerMarsCraft(){

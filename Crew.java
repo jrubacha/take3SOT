@@ -2,8 +2,10 @@ import java.util.*;
 
 public class Crew {
     UserInterface ui = new UserInterface();
+    Menus menu = new Menus();
     Scanner keyboard = new Scanner(System.in);
     ArrayList<CrewMember> crewList = new ArrayList<CrewMember>();
+    SpaceCraft craft = new SpaceCraft.SaturnV();
 
 
     public void addCaptain(){
@@ -128,6 +130,30 @@ public class Crew {
             crewList.remove(firedMember);
         }
     }
+    public String getOverallCrewHealth(){
+        int count=0;
+        for (CrewMember i : crewList) {
+            if ("Good".equalsIgnoreCase(i.getHealth())) {
+                count++;
+            } else if ("Poor".equalsIgnoreCase(i.getHealth())) {
+                count--;
+            }
+        }
+        if (count > (2 * crewList.size() / 3)) {
+            return "Good";
+        } else if (count > (2 * crewList.size() / 5)) {
+            return "Fair";
+        } else {
+            return "Poor";
+        }
+    }
+////////////////////////////////////////////////////////////////////////////////////
 
+    public SpaceCraft getSpaceCraft(){
+        return craft;
+    }
+    public void modifyCraft(SpaceCraft newCraft) {
+        this.craft = newCraft;
+    }
 
 }
