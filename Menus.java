@@ -299,7 +299,7 @@ public class Menus {
         ui.println("\nWhat is your choice? ");
     }
 
-    public void runManageCraftMenu(SpaceCraft craft, currentLocation Location, Crew crew){
+    public void runManageCraftMenu(currentLocation Location, Crew crew){
         int userSelection = 0;
         do {
             userSelection = keyboard.nextInt();
@@ -308,7 +308,7 @@ public class Menus {
                     crew.getSpaceCraft().printFullCraftSpecs();
                     break;
                 case 2: // buy space craft
-                    offerMoonCraft(crew, crew.getSpaceCraft());
+                    offerMoonCraft(crew);
                     break;
                 case 3: // craft maintenance
                     printStationMaintenanceMenu();
@@ -372,7 +372,7 @@ public class Menus {
         crew.modifyCraft(earthCraft[i]);
     }
 
-    public void offerMoonCraft(Crew crew, SpaceCraft craft){
+    public void offerMoonCraft(Crew crew){
         SpaceCraft[] moonCraft = {new SpaceCraft.Skybird(), new SpaceCraft.Helios(), new SpaceCraft.Pegasus()};
         boolean needAShip = true;
         int userSelection=0, i = 0;
@@ -391,10 +391,10 @@ public class Menus {
         }        
     }
 
-    public SpaceCraft offerMarsCraft(){
-        SpaceCraft[] marsCraft = {new SpaceCraft.Avalon(), new SpaceCraft.Mayflower(), new SpaceCraft.Foxfire()};
+    public void offerMarsCraft(Crew crew){
+        SpaceCraft[] marsCraft = {new SpaceCraft.Avalon(), new SpaceCraft.TX7(), new SpaceCraft.Foxfire()};
         boolean needAShip = true;
-        int userSelection, i = 0;
+        int userSelection=0, i = 0;
         while (needAShip) {
             for (i=0; i<marsCraft.length; i++) {
                 printSpaceCraftShopFormat(marsCraft[i]);
@@ -405,13 +405,15 @@ public class Menus {
                 }
             }
         }
-        return marsCraft[i];
+        if (userSelection == 2) {
+            crew.modifyCraft(marsCraft[i]);
+        }  
     }
 
-    public SpaceCraft offerIBCraft(){
-        SpaceCraft[] ibCraft = {new SpaceCraft.Skybird(), new SpaceCraft.Helios(), new SpaceCraft.Pegasus()}; // TODO: Fix this
+    public void offerIBCraft(Crew crew){
+        SpaceCraft[] ibCraft = {new SpaceCraft.Mayflower(), new SpaceCraft.Cygnus()};
         boolean needAShip = true;
-        int userSelection, i = 0;
+        int userSelection=0, i = 0;
         while (needAShip) {
             for (i=0; i<ibCraft.length; i++) {
                 printSpaceCraftShopFormat(ibCraft[i]);
@@ -422,13 +424,15 @@ public class Menus {
                 }
             }
         }
-        return ibCraft[i];
+        if (userSelection == 2) {
+            crew.modifyCraft(ibCraft[i]);
+        }  
     }
 
-    public SpaceCraft offerOBCraft(){
-        SpaceCraft[] obCraft = {new SpaceCraft.Skybird(), new SpaceCraft.Helios(), new SpaceCraft.Pegasus()}; // TODO: fix this
+    public void offerOBCraft(Crew crew){
+        SpaceCraft[] obCraft = {new SpaceCraft.Ankaa(), new SpaceCraft.Nikephoros()};
         boolean needAShip = true;
-        int userSelection, i = 0;
+        int userSelection=0, i = 0;
         while (needAShip) {
             for (i=0; i<obCraft.length; i++) {
                 printSpaceCraftShopFormat(obCraft[i]);
@@ -439,7 +443,9 @@ public class Menus {
                 }
             }
         }
-        return obCraft[i];
+        if (userSelection == 2) {
+            crew.modifyCraft(obCraft[i]);
+        }  
     }
 
     public void printEarthSpaceCraftShopFormat(SpaceCraft craft){
