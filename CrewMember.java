@@ -33,4 +33,7 @@ public class CrewMember {
     public String getOccupation(){
         return occupation.toString();
     }
+    public void setOccuptionToCaptain(){
+        occupation = crewMemberOccupation.CAPTAIN;
+    }
 }

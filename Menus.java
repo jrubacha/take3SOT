@@ -291,7 +291,8 @@ public class Menus {
         ui.println("1. View crew list");
         ui.println("2. Hire crew members");
         ui.println("3. Fire crew members");
-        ui.println("4. Do nothing");
+        ui.println("4. Promote new Captain");
+        ui.println("5. Do nothing");
         ui.print("\nWhat is your choice? ");
     }
 
@@ -309,7 +310,10 @@ public class Menus {
                 case 3: // fire crew members
                     crew.fireCrewMember();
                     break;
-                case 4: // do nothing
+                case 4:
+                    crew.assignNewCaptain();
+                    break;
+                case 5: // do nothing
                     break;
                 default:
                     userSelection = 0;

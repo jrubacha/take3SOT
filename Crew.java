@@ -27,6 +27,41 @@ public class Crew {
         }
         return captainName;
     }
+
+    public void assignNewCaptain() {
+        CrewMember temp;
+        if (crewList.size() == 1) {
+            ui.println("You don't have anyone you can promote to captain.");
+        } else {
+            ui.clear();
+            ui.println("Here's your current crew:");
+            int i;
+            for (i=1; i<crewList.size(); i++) {
+                ui.println(i + ".  " + crewList.get(i).getName() + "   Occupation: " + crewList.get(i).getOccupation());
+            }
+            ui.print(i + ". Do nothing\n\nWho would you like to make Captain? ");
+            int newCaptain = keyboard.nextInt();
+            if (newCaptain == i) {
+                // Do nothing
+            } else if (isCaptainAlive()) {
+                temp = crewList.get(newCaptain);
+                temp.setOccuptionToCaptain();
+                crewList.set(newCaptain, crewList.get(0));
+                crewList.set(0, temp);
+            } else {
+                // If captain is dead
+                crewList.set(0, crewList.get(newCaptain));
+                crewList.remove(newCaptain);
+            }
+        }
+    }
+    public boolean isCaptainAlive(){
+        if (crewList.get(0).health != CrewMember.crewMemberHealth.DEAD) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     public int sumTotalOfCrew() {
         return (crewList.size());
     }
