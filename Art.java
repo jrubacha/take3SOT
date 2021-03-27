@@ -87,6 +87,45 @@ public class Art {
         ui.println(" -'                                '-");
         ui.println("\n\n");
     }
+
+    public void printFlagAtHalfMast(){
+        ui.println("      _");
+        ui.println("     (_)");
+        ui.println("    <___>");
+        ui.println("     | |");
+        ui.println("     | |");
+        ui.println("     | |");
+        ui.println("     | |");
+        ui.println("     | |");
+        ui.println("     | |");
+        ui.println("     | |");
+        ui.println("     | |");
+        ui.println("     | |");
+        ui.println("     | |");
+        ui.println("     | |______");
+        ui.println("     | |* * * )");
+        ui.println("     | | * * (_________");
+        ui.println("     | |* * * |* *|####)");
+        ui.println("     | | * * *| * |   (________________");
+        ui.println("     | |* * * |* *|####|##############|");
+        ui.println("     | | * * *| * |    |              |");
+        ui.println("     | |* * * |* *|####|##############|");
+        ui.println("     | |~~~~~~| * |    |              |");
+        ui.println("     | |######|* *|####|##############|");
+        ui.println("     | |      |~~~'    |              |");
+        ui.println("     | |######|########|##############|");
+        ui.println("     | |      |        |              |");
+        ui.println("     | |######|########|##############|");
+        ui.println("     | |~~~~~~|        |              |");
+        ui.println("     | |      |########|##############|");
+        ui.println("     | |      '~~~~~~~~|              |");
+        ui.println("     | |               |##############|");
+        ui.println("     | |               '~~~~~~~~~~~~~~~");
+        ui.println("     | |");
+        ui.println("     | |");
+        ui.println("     | |");
+        ui.println("\n\n");
+    }
 }
 
 /*

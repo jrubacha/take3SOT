@@ -2,6 +2,7 @@ import java.util.*;
 public class Weather {
     UserInterface ui = new UserInterface();
     TextBlocks text = new TextBlocks();
+    Art art = new Art();
     Scanner keyboard = new Scanner(System.in);
     rainState currentRainState;
     windState currentWindState;
@@ -65,6 +66,7 @@ public class Weather {
             ui.clear();
             ui.println("*********************************************************\n");
             ui.println("Sometimes, fate is just not in your favor. Inexplicably, your craft blew up on launch and all crew members died. Rest assured, there will be a thorough investigation into this matter.\n\n - Star Command");
+            art.printFlagAtHalfMast();
             ui.println("\n*********************************************************");
             System.exit(0);
             return false;
