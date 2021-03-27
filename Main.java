@@ -38,8 +38,10 @@ class Main {
         crew.printCrewList();
 
         // Buy Initial Supplies
+        text.printStarLines();
         ui.println("Now that you have a crew, you'll need to take care of them.\n\nYou'll need to make initial purchases of food and water to last at least until you can get to the moon.\n");
         text.printStarLines();
+        ui.pressEnter();
         text.printBuyFoodPrompt();
         int userSelection = keyboard.nextInt();
         food.buySupply(userSelection);

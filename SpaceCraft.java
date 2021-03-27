@@ -129,7 +129,7 @@ public class SpaceCraft {
         return currentFuel;
     }
 
-    public void printRelativeFuelLevel(){ // TODO: FIX
+    public void printRelativeFuelLevel(){
         double percentageFuel = currentFuel / (double) getMaxFuel();
         String fuelLevel = "";
         if (percentageFuel > .7) {

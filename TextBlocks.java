@@ -115,7 +115,6 @@ public class TextBlocks {
         food.printFoodQuantity();
         water.printWaterQuantity();
         crew.getSpaceCraft().printRelativeFuelLevel();
-        ui.println("current fuel: " + crew.getSpaceCraft().getCurrentFuel()); // TODO: remove later
         food.printMoney();
         printStarLines();
         ui.pressEnter();
