@@ -199,7 +199,7 @@ public class Menus {
                 case 2: // buy supplies
                     ui.clear();
                     ui.print("You may buy:\n1. Food\n2. Water\n3. Fuel.\n4. Spare parts\n5. Space suits\n6. Do nothing\n\nWhat is your choice? ");
-                    runBuySuppliesMenu(food, water);
+                    runBuySuppliesMenu(food, water, crew);
                     break;
                 case 3: // sell supplies
                     ui.clear();
@@ -224,7 +224,7 @@ public class Menus {
         } while (userSelection == 0);
     }
 
-    public void runBuySuppliesMenu(Supplies.Food food, Supplies.Water water){
+    public void runBuySuppliesMenu(Supplies.Food food, Supplies.Water water, Crew crew){
         int userSelection = 0;
         do {
             userSelection = keyboard.nextInt();
@@ -238,7 +238,8 @@ public class Menus {
                     water.buySupply(keyboard.nextInt());
                     break;
                 case 3: // buy fuel
-                    ui.placeholder("buy fuel");
+                    text.printBuyFuelPrompt(crew);
+                    crew.getSpaceCraft().refuelCraft(keyboard.nextInt(), food);
                     break;
                 case 4: // buy spare parts
                     ui.placeholder("buy spare parts");

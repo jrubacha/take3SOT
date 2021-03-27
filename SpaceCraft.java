@@ -73,22 +73,25 @@ public class SpaceCraft {
         return cost;
     }
 
-    public void refuelCraft(int delta) {
+    public void refuelCraft(int delta, Supplies.Food money) {
         currentFuel += delta;
+        int purchaseAmt = delta;
         if (currentFuel > getMaxFuel()) {
+            purchaseAmt = getMaxFuel() - currentFuel;
             currentFuel = getMaxFuel();
         }
+        money.spendMoney(purchaseAmt * 75);
     }
     
     public void burnFuel() {
         int dailyBurn = 0;
         switch (quality) {
             case POOR:
-                dailyBurn = 30;
+                dailyBurn = 40;
             case FAIR:
-                dailyBurn = 20;
+                dailyBurn = 30;
             case GOOD:
-                dailyBurn = 10;
+                dailyBurn = 20;
         }
         currentFuel -= dailyBurn;
     }
@@ -126,8 +129,8 @@ public class SpaceCraft {
         return currentFuel;
     }
 
-    public void printRelativeFuelLevel(){
-        double percentageFuel = currentFuel / (double) getMaxCapacity();
+    public void printRelativeFuelLevel(){ // TODO: FIX
+        double percentageFuel = currentFuel / (double) getMaxFuel();
         String fuelLevel = "";
         if (percentageFuel > .7) {
             fuelLevel = "High";

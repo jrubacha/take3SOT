@@ -16,6 +16,11 @@ public class TextBlocks {
         ui.pressEnter();
     }
 
+    public void printBuyFuelPrompt(Crew crew){
+        ui.clear();
+        ui.print("< Buying Fuel >\n\nYour craft can hold " + crew.getSpaceCraft().getMaxFuel() + " gallons of fuel.\n\nHow much would you like to purchase? ");
+    }
+
     public void printLaunchPrompt(){
         ui.print("\n1. Launch Today\n2. Postpone launch one day\n\nWhat would you like to do? ");
     }
@@ -109,7 +114,8 @@ public class TextBlocks {
         printStarLines();
         food.printFoodQuantity();
         water.printWaterQuantity();
-        crew.getSpaceCraft().printRelativeFuelLevel();;
+        crew.getSpaceCraft().printRelativeFuelLevel();
+        ui.println("current fuel: " + crew.getSpaceCraft().getCurrentFuel()); // TODO: remove later
         food.printMoney();
         printStarLines();
         ui.pressEnter();
