@@ -60,6 +60,7 @@ public class TextBlocks {
         ui.clear();
         printStarLines();
         ui.println("You've done it! You've arrived at the Ganymede Research Center!\n\nWe're so glad you're here. The equipment you've brought will be instrumental to our success, we need it more than ever. You wouldn't believe the logistical challenges in having to order things years in advance.\n\nThank you and welcome.");
+        art.printEndGameLandedShip();
         printStarLines();
         ui.pressEnter();
     }

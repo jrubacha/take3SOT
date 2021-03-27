@@ -64,6 +64,29 @@ public class Art {
         ui.println("          `-._/._/");
         ui.println("\n");
     }
+
+    public void printEndGameLandedShip(){
+        ui.println("                   *     .--.");
+        ui.println("                        / /  `");
+        ui.println("       +               | |");
+        ui.println("              '         \\ \\__,");
+        ui.println("          *          +   '--'  *");
+        ui.println("              +   /\\");
+        ui.println(" +              .'  '.   *");
+        ui.println("        *      /======\\      +");
+        ui.println("              ;:.  _   ;");
+        ui.println("              |:. (_)  |");
+        ui.println("              |:.  _   |");
+        ui.println("    +         |:. (_)  |          *");
+        ui.println("              ;:.      ;");
+        ui.println("            .' \\:.    / `.");
+        ui.println("           / .-'':._.'`-. \\");
+        ui.println("           |/    /||\\    \\|");
+        ui.println("         _..--\"\"\"''''\"\"\"--.._");
+        ui.println("   _.-'``                    ``'-._");
+        ui.println(" -'                                '-");
+        ui.println("\n\n");
+    }
 }
 
 /*
