@@ -8,8 +8,14 @@ public class UserInterface {
         System.out.println(word);
     }
     public void clear(){
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+        // Temp. removal because school computer is booty
+        // System.out.print("\033[H\033[2J");
+        // System.out.flush();
+
+        // really bad temp fix
+        for (int i=0; i<50;i++){
+            println("");
+        }
     }
     public void pressEnter(){
         print("\n< Press ENTER to continue >");

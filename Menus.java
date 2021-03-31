@@ -425,7 +425,7 @@ public class Menus {
         crew.modifyCraft(earthCraft[i]);
     }
 
-    public void offerMoonCraft(Crew crew){
+    public void offerMoonCraft(Crew crew, Supplies.Food money){
         SpaceCraft[] moonCraft = {new SpaceCraft.Skybird(), new SpaceCraft.Helios(), new SpaceCraft.Pegasus()};
         boolean needAShip = true;
         int userSelection=0, i = 0;
@@ -439,9 +439,13 @@ public class Menus {
                 }
             }
         }
-        if (userSelection == 2) {
-            crew.modifyCraft(moonCraft[i]);
-        }        
+        if (money.haveEnoughMoney(moonCraft[i].getCost())) {
+            if (userSelection == 2) {
+                crew.modifyCraft(moonCraft[i]);
+            }  
+        } else {
+            ui.println("You don't have enough money to buy that.");
+        }       
     }
 
     public void offerMarsCraft(Crew crew){

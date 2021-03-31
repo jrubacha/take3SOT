@@ -37,9 +37,25 @@ public class Supplies {
     public void printMoney(){
         ui.println("Money: " + (int) money);
     }
+
+    public boolean haveEnoughMoney(double wantToBuy){
+        if (wantToBuy > money) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+
     public void buySupply(int delta){
         increaseQuantity(delta);
-        money -= delta * unitCost;
+        double purchasePrice = delta * unitCost;
+
+        if (haveEnoughMoney(purchasePrice)) {
+            money -= purchasePrice;
+        } else {
+            ui.println("You don't have enough money.");
+        }
     }
     public void sellSupply(int delta){
         reduceQuantity(delta);
