@@ -35,6 +35,9 @@ public class SpaceDailies {
         }
     }
 
+    public void diceRollCrewHealth(Crew crew, Supplies.Food food, Supplies.Water water) {
+        
+    }
     
 }
 
