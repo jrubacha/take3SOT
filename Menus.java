@@ -363,9 +363,11 @@ public class Menus {
                             break;
                     }
                     if (shipPurchaseSuccessful) {
-                        food.spendMoney(crew.getSpaceCraft().getCost());
+                        food.spendMoney(crew.getSpaceCraft().getCost()); // TODO: Make sure to add refund from previous ship?
+                    } else {
+                        ui.println("You don't have enough money to buy that.");
+                        ui.pressEnter();
                     }
-                    
                     break;
                 case 3: // craft maintenance
                     printStationMaintenanceMenu();
@@ -448,7 +450,6 @@ public class Menus {
                 crew.modifyCraft(moonCraft[i]);
                 return true;
             } else {
-                ui.println("You don't have enough money to buy that.");
                 return false;
             }   
         } else {
@@ -475,7 +476,6 @@ public class Menus {
                 crew.modifyCraft(marsCraft[i]);
                 return true;
             } else {
-                ui.println("You don't have enough money to buy that.");
                 return false;
             }   
         } else {
@@ -502,7 +502,6 @@ public class Menus {
                 crew.modifyCraft(ibCraft[i]);
                 return true;
             } else {
-                ui.println("You don't have enough money to buy that.");
                 return false;
             }
         } else {
@@ -530,7 +529,6 @@ public class Menus {
                 crew.modifyCraft(obCraft[i]);
                 return true;
             } else {
-                ui.println("You don't have enough money to buy that.");
                 return false;
             }   
         } else {
