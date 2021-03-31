@@ -238,8 +238,8 @@ public class Menus {
                     water.buySupply(keyboard.nextInt());
                     break;
                 case 3: // buy fuel
-                    text.printBuyFuelPrompt(crew);
-                    crew.getSpaceCraft().refuelCraft(keyboard.nextInt(), food);
+                    text.printBuyFuelPrompt(crew); 
+                    crew.getSpaceCraft().refuelCraft(keyboard.nextInt(), food); // TODO: Tried to buy fuel with full tank. told me i didn't have enough money???
                     break;
                 case 4: // buy spare parts
                     ui.placeholder("buy spare parts");
@@ -344,24 +344,28 @@ public class Menus {
                     crew.getSpaceCraft().printFullCraftSpecs();
                     break;
                 case 2: // buy space craft
+                    boolean shipPurchaseSuccessful = false;
                     switch (location) {
                         case MOON_BASE_1:
-                            offerMoonCraft(crew);
+                            shipPurchaseSuccessful = offerMoonCraft(crew, food);
                             break;
                         case MARS_COLONY_7:
-                            offerMarsCraft(crew);
+                            shipPurchaseSuccessful = offerMarsCraft(crew, food);
                             break;
                         case INNER_BELT_TRANSIT_STATION_2:
-                            offerIBCraft(crew);
+                            shipPurchaseSuccessful = offerIBCraft(crew, food);
                             break;
                         case OUTBELT_OUTPOST_4:
-                            offerOBCraft(crew);
+                            shipPurchaseSuccessful = offerOBCraft(crew, food);
                             break;
                         default:
                             ui.println("Something's wrong.");
                             break;
                     }
-                    food.spendMoney(crew.getSpaceCraft().getCost());
+                    if (shipPurchaseSuccessful) {
+                        food.spendMoney(crew.getSpaceCraft().getCost());
+                    }
+                    
                     break;
                 case 3: // craft maintenance
                     printStationMaintenanceMenu();
@@ -425,7 +429,7 @@ public class Menus {
         crew.modifyCraft(earthCraft[i]);
     }
 
-    public void offerMoonCraft(Crew crew, Supplies.Food money){
+    public boolean offerMoonCraft(Crew crew, Supplies.Food money){
         SpaceCraft[] moonCraft = {new SpaceCraft.Skybird(), new SpaceCraft.Helios(), new SpaceCraft.Pegasus()};
         boolean needAShip = true;
         int userSelection=0, i = 0;
@@ -439,16 +443,20 @@ public class Menus {
                 }
             }
         }
-        if (money.haveEnoughMoney(moonCraft[i].getCost())) {
-            if (userSelection == 2) {
+        if (userSelection == 2) {
+            if (money.haveEnoughMoney(moonCraft[i].getCost())) {
                 crew.modifyCraft(moonCraft[i]);
-            }  
+                return true;
+            } else {
+                ui.println("You don't have enough money to buy that.");
+                return false;
+            }   
         } else {
-            ui.println("You don't have enough money to buy that.");
-        }       
+            return false;
+        }
     }
 
-    public void offerMarsCraft(Crew crew){
+    public boolean offerMarsCraft(Crew crew, Supplies.Food money){
         SpaceCraft[] marsCraft = {new SpaceCraft.Avalon(), new SpaceCraft.TX7(), new SpaceCraft.Foxfire()};
         boolean needAShip = true;
         int userSelection=0, i = 0;
@@ -460,14 +468,22 @@ public class Menus {
                     needAShip = false;
                     break;
                 }
-            }
+            } 
         }
         if (userSelection == 2) {
-            crew.modifyCraft(marsCraft[i]);
-        }  
+            if (money.haveEnoughMoney(marsCraft[i].getCost())) {
+                crew.modifyCraft(marsCraft[i]);
+                return true;
+            } else {
+                ui.println("You don't have enough money to buy that.");
+                return false;
+            }   
+        } else {
+            return false;
+        }
     }
 
-    public void offerIBCraft(Crew crew){
+    public boolean offerIBCraft(Crew crew, Supplies.Food money){
         SpaceCraft[] ibCraft = {new SpaceCraft.Mayflower(), new SpaceCraft.Cygnus()};
         boolean needAShip = true;
         int userSelection=0, i = 0;
@@ -479,14 +495,22 @@ public class Menus {
                     needAShip = false;
                     break;
                 }
-            }
+            } 
         }
         if (userSelection == 2) {
-            crew.modifyCraft(ibCraft[i]);
-        }  
+            if (money.haveEnoughMoney(ibCraft[i].getCost())) {
+                crew.modifyCraft(ibCraft[i]);
+                return true;
+            } else {
+                ui.println("You don't have enough money to buy that.");
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
-    public void offerOBCraft(Crew crew){
+    public boolean offerOBCraft(Crew crew, Supplies.Food money){
         SpaceCraft[] obCraft = {new SpaceCraft.Ankaa(), new SpaceCraft.Nikephoros()};
         boolean needAShip = true;
         int userSelection=0, i = 0;
@@ -500,9 +524,18 @@ public class Menus {
                 }
             }
         }
+
         if (userSelection == 2) {
-            crew.modifyCraft(obCraft[i]);
-        }  
+            if (money.haveEnoughMoney(obCraft[i].getCost())) {
+                crew.modifyCraft(obCraft[i]);
+                return true;
+            } else {
+                ui.println("You don't have enough money to buy that.");
+                return false;
+            }   
+        } else {
+            return false;
+        }
     }
 
     public void printEarthSpaceCraftShopFormat(SpaceCraft craft){
