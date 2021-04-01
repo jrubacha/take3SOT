@@ -7,7 +7,7 @@ public class CrewMember {
     crewMemberOccupation occupation;
     crewMemberInjury injury, initialInjury;
     crewMemberSickness sickness, initialSickness;
-    int daysWithInjuryType, daysWithSicknessType, daysAtHealthLevel;
+    int daysWithInjuryType, daysWithSicknessType, daysAtHealthLevel, daysAtFoodRation, daysAtWaterRation;
 
     enum crewMemberHealth {
         DEAD,
@@ -42,6 +42,8 @@ public class CrewMember {
         daysAtHealthLevel = 0;
         daysWithInjuryType = 0;
         daysWithSicknessType = 0;
+        daysAtWaterRation = 0;
+        daysAtFoodRation = 0;
     }
 
     // General Methods
@@ -64,10 +66,15 @@ public class CrewMember {
             return false;
         }
     }
+    public void rollForHealthUpdate(){
+        assignInjury();
+        updateHealthByInjuryType();
+        updateDaysAt();
+    }
 
 
     // Update days at
-    public void updateDaysAt(){
+    private void updateDaysAt(){
         if (initialHealth != health) {
             daysAtHealthLevel = 0;
             initialHealth = health;
@@ -88,8 +95,12 @@ public class CrewMember {
         }
     }
 
+    private void daysAtFoodLevel(Supplies.Food food, Supplies.Water water) {
+        
+    }
+
     // Methods - Health
-    public void assignInjury(){
+    private void assignInjury(){
         int diceRoll = rand.nextInt(100);
         if (injury == crewMemberInjury.HEALTHY) {
             if (diceRoll < 5) {
@@ -113,7 +124,7 @@ public class CrewMember {
             }
         }        
     }
-    public void updateHealth(){
+    private void updateHealthByInjuryType(){
         if (injury != crewMemberInjury.HEALTHY) {
             // Currently not healthy
             if (daysAtHealthLevel > 60) {
@@ -128,7 +139,14 @@ public class CrewMember {
             }
         }
     }
-
+    private void updateHealthBySickness(){
+        if (daysWithSicknessType == 0) {
+            if (sickness == crewMemberSickness.FEVER || sickness == crewMemberSickness.RADIATION_SICKNESS || sickness == crewMemberSickness.SPACE_DYSENTERY) {
+                reduceHealthLevel();
+            }
+        }
+    }
+    // TODO: fix the significant problem wherein these health types all reduce health level and if you have poor nutrition, injury, and sickness, you're gonna die
 
     // Methods - Move through health enum
     private void reduceHealthLevel() {
