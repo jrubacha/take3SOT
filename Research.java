@@ -21,6 +21,8 @@ public class Research {
         Random r = new Random();
         if (canCrewRunResearch()) {
             int randomQ = r.nextInt(questionArray.length);
+            printQuestion(randomQ);
+            checkAnswer(randomQ);
         } else {
             ui.println("The research panel seems to be malfunctioning. Try again later.");
         }
@@ -28,12 +30,18 @@ public class Research {
 
     }
     private void printQuestion(int whichQ) {
-        ui.println("Read the following question and then answeing the question.");
+        ui.println("Read the following question and then answering the question.");
+        ui.println(questionArray[whichQ][0]);
         ui.println(questionArray[whichQ][1]);
-        ui.println(questionArray[whichQ][2]);
     }
-    private boolean wasAnswerCorrect(){
-
+    private void checkAnswer(int whichQ){
+        Scanner k = new Scanner(System.in);
+        String userGuess = k.nextLine();
+        if (questionArray[whichQ][2].equalsIgnoreCase(userGuess)) {
+            ui.println("That's correct. Good reading.");
+        } else {
+            ui.println("That's not it. Read more carefully next time.");
+        }
     }
     private boolean canCrewRunResearch(){
         Random r = new Random();
