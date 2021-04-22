@@ -38,4 +38,12 @@ public class UserInterface {
         println(word + " placeholder");
         pressEnter();
     }
+
+    public void sleep(int time){
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            // no-op
+        }
+    }
 }

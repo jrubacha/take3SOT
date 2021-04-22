@@ -15,17 +15,21 @@ public class Maintenance {
     public void runMantenanceGame(){
         boolean gameOn = true;
         do {
-            Integer newVal = r.nextInt(4);
-            String addon = newVal.toString();
-            sequence.concat(addon);
+            sequence = sequence + r.nextInt(4);
+            ui.clear();
+            ui.println("Remember the sequence:\n");
             ui.println(sequence);
-            ui.pressEnter();
+            ui.sleep(1100);
+            ui.clear();
+            ui.println("Type the sequence:\n");
             userSequence = k.next();
             if (!sequence.equals(userSequence)) {
                 gameOn = false;
             }  
         } while (gameOn);
-        ui.println("You got " + sequence.length() + " matches correct.");
+        ui.println("You got " + (sequence.length()-1) + " matches correct.");
+        ui.placeholder("good thing that happens because of score");
+        ui.pressEnter();
     }
 
     
