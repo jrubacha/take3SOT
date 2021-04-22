@@ -152,6 +152,15 @@ public class Crew {
         }
         return foundEngineer;
     }
+    public boolean doesCrewHaveScientist(){
+        boolean foundScientist = false;
+        for (CrewMember i : crewList) {
+            if (i.occupation == CrewMember.crewMemberOccupation.SCIENTIST) {
+                foundScientist = true;
+            }
+        }
+        return foundScientist;
+    }
     public void fireCrewMember(){
         if (crewList.size() == 1) {
             ui.println("You don't have anyone you can fire.");

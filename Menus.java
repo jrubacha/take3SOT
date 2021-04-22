@@ -10,6 +10,8 @@ public class Menus {
     TextBlocks text = new TextBlocks();
     Talkies talk = new Talkies();
     Scanner keyboard = new Scanner(System.in);
+    Research research = new Research();
+    Maintenance maintenance = new Maintenance();
 
     public void printSpaceDailyHeader(int targetDay, int currentDay, currentLocation location, Crew crew, Supplies.Food food, SpaceCraft craft){
         ui.clear();
@@ -32,6 +34,7 @@ public class Menus {
         ui.println("5. Attempt to trade");
         ui.println("6. Talk to people");
         ui.println("7. Perform ship maintenance");
+        ui.println("8. Perform Research");
         ui.print("\nWhat is your choice? ");
     }
 
@@ -75,14 +78,20 @@ public class Menus {
                     ui.clear();
                     break;
                 case 7: // perform ship maintenance
-                    if (crew.doesCrewHaveCommOfficer()) {
-                        ui.placeholder("repair"); // TODO: Make repair minigame?
+                    if (crew.doesCrewHaveEngineer()) {
+                        maintenance.runMantenanceGame();
                     } else {
                         ui.println("\nYou do not have an engineer. You cannot repair the ship in space.");
                         ui.pressEnter();
                     }
                     ui.clear();
                     break;
+                case 8: // perform research
+                    if (crew.doesCrewHaveScientist()) {
+                        research.runResearchActivity();
+                    } else {
+                        ui.println("\nYou do not have a scientist. You cannot perform research at this time.");
+                    }
                 default:
                     userSelection = 0;
                     break;

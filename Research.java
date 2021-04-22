@@ -62,7 +62,8 @@ public class Research {
 
     }
     private void printQuestion(int whichQ) {
-        ui.println("Read the following question and then answering the question.");
+        ui.println("Read the following passage and then answer the question.");
+        ui.pressEnter();
         ui.println(questionArray[whichQ][0]);
         ui.println(questionArray[whichQ][1]);
     }

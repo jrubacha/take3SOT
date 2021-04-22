@@ -15,9 +15,11 @@ public class Maintenance {
     public void runMantenanceGame(){
         boolean gameOn = true;
         do {
-            String addon = String.valueOf(r.nextInt(4));
+            Integer newVal = r.nextInt(4);
+            String addon = newVal.toString();
             sequence.concat(addon);
             ui.println(sequence);
+            ui.pressEnter();
             userSequence = k.next();
             if (!sequence.equals(userSequence)) {
                 gameOn = false;
