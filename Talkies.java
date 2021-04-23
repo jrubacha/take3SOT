@@ -110,4 +110,45 @@ public class Talkies {
         }
         ui.pressEnter();
     }
+
+    public void pickAMarsTalky(int day){
+        if (day != currentDay) {
+            switch(rand.nextInt(20)) {
+                case 1:
+                    ui.println(marsFact1);
+                    break;
+                case 2:
+                    ui.println(marsFact2);
+                    break;
+                case 3:
+                    ui.println(marsFact3);
+                    break;
+                case 4:
+                    ui.println(marsFact4);
+                    break;
+                case 5:
+                    ui.println(marsFact5);
+                    break;
+                case 6:
+                    ui.println(fact8);
+                    break;
+                case 7:
+                    ui.println(fact8);
+                    break;
+                case 8:
+                    ui.println(fact8);
+                    break;
+                case 9:
+                    ui.println(fact8);
+                    break;
+                default:
+                    ui.println(lonely);
+                    break;
+            }
+            currentDay = day;
+        } else {
+            ui.println("You can talk again tomorrow.");
+        }
+        ui.pressEnter();
+    }
 }

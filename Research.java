@@ -4,7 +4,7 @@ public class Research {
     UserInterface ui = new UserInterface();
 
     String researchPanel = "=================================\n\n"
-        + "Welcome Science Officer.\nWould you like instructions on how to use the portal?\n\n\t1. Yes\n\t2. No"
+        + "Welcome Science Officer.\n"
         + "=================================";
 
     String researchPanelInstructions = "Each day, you may conduct space research. Gaining this knowledge will make it easier for you to assist in tasks around the ship. Correctly answering questions will improve your score and help your crew consume less resources.";
@@ -58,8 +58,8 @@ public class Research {
         } else {
             ui.println("The research panel seems to be malfunctioning. Try again later.");
         }
-       
-
+        ui.pressEnter();
+        ui.clear();
     }
     private void printQuestion(int whichQ) {
         ui.println("Read the following passage and then answer the question.");
