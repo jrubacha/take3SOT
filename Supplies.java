@@ -108,7 +108,7 @@ public class Supplies {
         public void printChangeRationSizePrompt(){
             ui.clear();
             ui.println("Change food rations\n< Currently " + rationSize +" >");
-            ui.print("The amount of food the people in your crew each each day can change. These amounts are:\n1. Filling - meals are large and generous.\n2. Meager - meals are small, but adequate.\n3. Bare bones - meals are very small; everyone stays hungry.\n\nWhat is your choice? ");
+            ui.print("The amount of food the people in your crew eat each day can change. These amounts are:\n1. Filling - meals are large and generous.\n2. Meager - meals are small, but adequate.\n3. Bare bones - meals are very small; everyone stays hungry.\n\nWhat is your choice? ");
         }
         public boolean hasCrewStarved() {
             if (amount <= 0) {
@@ -162,6 +162,11 @@ public class Supplies {
         }
         public void setRationSizeToParched(){
             rationSize = waterRationSize.PARCHED;
+        }
+        public void printChangeRationSizePrompt() {
+            ui.clear();
+            ui.println("Change water rations\n< Currently " + rationSize +" >");
+            ui.print("The amount of water the people in your crew drink each day can change. These amounts are:\n1. Hydrated - water portions are large and generous.\n2. Thirsty - water portions are small, but adequate.\n3. Parched - water portions are very small; everyone stays thirsty.\n\nWhat is your choice? ");
         }
     }
 /////////////////////////////////////////////////////////////////////////////

@@ -32,11 +32,12 @@ public class Menus {
         ui.println("\t1. Continue on your journey");
         ui.println("\t2. Check supplies");
         ui.println("\t3. Change food rations");
-        ui.println("\t4. Check crew");
-        ui.println("\t5. Attempt to trade");
-        ui.println("\t6. Talk to people");
-        ui.println("\t7. Perform ship maintenance");
-        ui.println("\t8. Perform Research");
+        ui.println("\t4. Change water rations");
+        ui.println("\t5. Check crew");
+        ui.println("\t6. Attempt to trade");
+        ui.println("\t7. Talk to people");
+        ui.println("\t8. Perform ship maintenance");
+        ui.println("\t9. Perform Research");
         ui.print("\nWhat is your choice? ");
     }
 
@@ -58,11 +59,15 @@ public class Menus {
                     runChangeFoodRation(food);
                     ui.clear();
                     break;
-                case 4: // check crew
+                case 4: // change water rations
+                    water.printChangeRationSizePrompt();
+                    runChangeWaterRation(water);
+                    break;
+                case 5: // check crew
                     crew.printCrewList();
                     ui.clear();
                     break;
-                case 5: // attempt to trade
+                case 6: // attempt to trade
                     if (crew.doesCrewHaveCommOfficer()) {
                         ui.placeholder("trade"); // TODO: Figure out how trading works...
                     } else {
@@ -71,7 +76,7 @@ public class Menus {
                     }
                     ui.clear();
                     break;
-                case 6: // talk to people
+                case 7: // talk to people
                     if (crew.doesCrewHaveCommOfficer()) {
                         talk.pickATalky(day);
                     } else {
@@ -80,7 +85,7 @@ public class Menus {
                     }
                     ui.clear();
                     break;
-                case 7: // perform ship maintenance
+                case 8: // perform ship maintenance
                     if (crew.doesCrewHaveEngineer()) {
                         maintenance.runMantenanceGame(day);
                     } else {
@@ -89,7 +94,7 @@ public class Menus {
                     }
                     ui.clear();
                     break;
-                case 8: // perform research
+                case 9: // perform research
                     if (crew.doesCrewHaveScientist()) {
                         research.runResearchActivity(day);
                     } else {
@@ -197,8 +202,9 @@ public class Menus {
         ui.println("\t2. Buy supplies");
         ui.println("\t3. Sell supplies");
         ui.println("\t4. Change food ration size");
-        ui.println("\t5. Attempt to trade");
-        ui.println("\t6. Do nothing"); // exits out of current menu with no changes
+        ui.println("\t5. Change water ration size");
+        ui.println("\t6. Attempt to trade");
+        ui.println("\t7. Do nothing"); // exits out of current menu with no changes
         ui.print("\nWhat is your choice? ");
     }
 
@@ -224,10 +230,14 @@ public class Menus {
                     food.printChangeRationSizePrompt();
                     runChangeFoodRation(food);
                     break;
-                case 5: // attempt to trade
+                case 5: // change water ration size
+                    water.printChangeRationSizePrompt();
+                    runChangeWaterRation(water);
+                    break;
+                case 6: // attempt to trade
                     ui.placeholder("trade dialogue");
                     break;
-                case 6: // do nothing
+                case 7: // do nothing
                     break;
                 default:
                     userSelection = 0;
@@ -582,6 +592,22 @@ public class Menus {
                 break;
             default:
                 food.setRationSizeToFilling();
+                break;
+        }
+    }
+
+    public void runChangeWaterRation(Supplies.Water water) {
+        switch(keyboard.nextInt()) {
+            case 1:
+                water.setRationSizeToHydrated();
+                break;
+            case 2:
+                water.setRationSizeToThirsty();
+                break;
+            case 3:
+                water.setRationSizeToParched();
+                break;
+            default:
                 break;
         }
     }

@@ -15,6 +15,8 @@ public class Maintenance {
 
     public void runMantenanceGame(int day){
         boolean gameOn = true;
+        sequence = "";
+        userSequence = "";
         if (day != currentDay) {
             ui.clear();
             ui.println(prompt);

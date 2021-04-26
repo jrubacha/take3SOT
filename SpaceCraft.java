@@ -80,14 +80,14 @@ public class SpaceCraft {
         if (money.haveEnoughMoney(purchaseCost)) {
             money.spendMoney(purchaseCost);
             currentFuel += maxPossibleFuelPurchase;
-            ui.println("maxpossible purchase = " + maxPossibleFuelPurchase + "\ndelta = " + delta);
+            //ui.println("maxpossible purchase = " + maxPossibleFuelPurchase + "\ndelta = " + delta);
             if (maxPossibleFuelPurchase < delta) {
                 ui.println("You asked for more fuel than you can hold. I gave you the max you can carry.");
             } 
         } else {
                 ui.println("You don't have enough money.");
         }
-        ui.pressEnter();;
+        ui.pressEnter();
     }
     
     public void burnFuel() {
