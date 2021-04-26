@@ -251,42 +251,42 @@ public class SpaceCraft {
     // Mars Based Space Craft (3)
     public static class Avalon extends SpaceCraft {
         public Avalon() {
-            super("Avalon", craftRange.GANYMEDE_RESEARCH_CENTER, craftQuality.FAIR, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 12000, 8, craftOrigin.MARS, "Avalon text");
+            super("Avalon", craftRange.GANYMEDE_RESEARCH_CENTER, craftQuality.FAIR, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 12000, 8, craftOrigin.MARS, "A fair ship for a fair Captain. There's nothing special about the Avalon, but she'll get you anywhere you need to go.");
         }
     }
     public static class TX7 extends SpaceCraft {
         public TX7() {
-            super("T-X7", craftRange.OUTBELT_OUTPOST_4, craftQuality.GOOD, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 12000, 6, craftOrigin.MARS, "T-X7 text");
+            super("T-X7", craftRange.OUTBELT_OUTPOST_4, craftQuality.GOOD, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 12000, 6, craftOrigin.MARS, "Designed for mid system hops, the T-X7 doesn't disappoint. Don't expect much and you'll be happy.");
         }
     }
     public static class Foxfire extends SpaceCraft {
         public Foxfire() {
-            super("Foxfire", craftRange.GANYMEDE_RESEARCH_CENTER, craftQuality.FAIR, craftSpeed.FAST, craftTankSize.SMALL, 17500, 5, craftOrigin.MARS, "Foxfire text");
+            super("Foxfire", craftRange.GANYMEDE_RESEARCH_CENTER, craftQuality.FAIR, craftSpeed.FAST, craftTankSize.SMALL, 17500, 5, craftOrigin.MARS, "The Foxfire was designed for small light loads and is capable of cruising at astonishing speeds. If you're looking to get anywhere in the Solar System fast, she's your best bet.");
         }
     }
 
     // Inner Belt Based Space Craft
     public static class Mayflower extends SpaceCraft {
         public Mayflower() {
-            super("Mayflower Legacy", craftRange.OUTBELT_OUTPOST_4, craftQuality.GOOD, craftSpeed.SLOW, craftTankSize.LARGE, 15000, 9, craftOrigin.INNER_BELT, "Mayflower text");
+            super("Mayflower Legacy", craftRange.OUTBELT_OUTPOST_4, craftQuality.GOOD, craftSpeed.SLOW, craftTankSize.LARGE, 15000, 9, craftOrigin.INNER_BELT, "There's no more robust a ship than the Mayflower Legacy. She's slow as all get, but you won't need to worry about a thing from her in regards to maintenance. Too bad her range isn't too great.");
             // I want this ship to be indestructable, don't know what all that means, but essentially, it's made for crossing the asteroid belt
         }
     }
     public static class Cygnus extends SpaceCraft {
         public Cygnus() {
-            super("Cygnus Mu", craftRange.GANYMEDE_RESEARCH_CENTER, craftQuality.POOR, craftSpeed.FAST, craftTankSize.MEDIUM, 11000, 7, craftOrigin.INNER_BELT, "Cygnus Mu text");
+            super("Cygnus Mu", craftRange.GANYMEDE_RESEARCH_CENTER, craftQuality.POOR, craftSpeed.FAST, craftTankSize.MEDIUM, 11000, 7, craftOrigin.INNER_BELT, "This Cygnus isn't in the best of shape, but she's still quick on her thrusters. If speed's your goal, she's a great pick. Just, maybe have an engineer on board is all I'm saying.");
         }
     }
 
     // Outer Belt Based Space Craft
     public static class Ankaa extends SpaceCraft {
         public Ankaa() {
-            super("Ankaa", craftRange.GANYMEDE_RESEARCH_CENTER, craftQuality.FAIR, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 9000, 6, craftOrigin.OUTER_BELT, "Ankaa text");
+            super("Ankaa", craftRange.GANYMEDE_RESEARCH_CENTER, craftQuality.FAIR, craftSpeed.AVERAGE, craftTankSize.MEDIUM, 9000, 6, craftOrigin.OUTER_BELT, "There's not of options this far out into the Solar System, so you've got to take what you can get. Ankaa is another one of them average ships.");
         }
     }
     public static class Nikephoros extends SpaceCraft {
         public Nikephoros() {
-            super("Nikephoros", craftRange.GANYMEDE_RESEARCH_CENTER, craftQuality.GOOD, craftSpeed.SLOW, craftTankSize.LARGE, 10000, 8, craftOrigin.OUTER_BELT, "Nikephoros text");
+            super("Nikephoros", craftRange.GANYMEDE_RESEARCH_CENTER, craftQuality.GOOD, craftSpeed.SLOW, craftTankSize.LARGE, 10000, 8, craftOrigin.OUTER_BELT, "Once upon a time, Nikephoros was the bringer of victory. Perhaps she'll be that for you too. A decent ship with consistent results.");
         }
     }
 
