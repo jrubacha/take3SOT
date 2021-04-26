@@ -79,7 +79,7 @@ public class Menus {
                     break;
                 case 7: // perform ship maintenance
                     if (crew.doesCrewHaveEngineer()) {
-                        maintenance.runMantenanceGame();
+                        maintenance.runMantenanceGame(day);
                     } else {
                         ui.println("\nYou do not have an engineer. You cannot repair the ship in space.");
                         ui.pressEnter();
@@ -88,9 +88,11 @@ public class Menus {
                     break;
                 case 8: // perform research
                     if (crew.doesCrewHaveScientist()) {
-                        research.runResearchActivity();
+                        research.runResearchActivity(day);
                     } else {
                         ui.println("\nYou do not have a scientist. You cannot perform research at this time.");
+                        ui.pressEnter();
+                        ui.clear();
                     }
                 default:
                     userSelection = 0;
@@ -239,11 +241,11 @@ public class Menus {
             userSelection = keyboard.nextInt();
             switch(userSelection) {
                 case 1: // buy food
-                    text.printBuyFoodPrompt();
+                    text.printBuyFoodPrompt(crew.sumTotalOfCrew());
                     food.buySupply(keyboard.nextInt());
                     break;
                 case 2: // buy water
-                    text.printBuyWaterPrompt();
+                    text.printBuyWaterPrompt(crew.sumTotalOfCrew());
                     water.buySupply(keyboard.nextInt());
                     break;
                 case 3: // buy fuel

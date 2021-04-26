@@ -67,7 +67,7 @@ public class Crew {
     }
     public void hireCrewPrompt(){
         ui.clear();
-        ui.print("\nYou can hire several people for your journey. There are many qualified candidates from the following categories:\n1. Engineer\n2. Scientist\n3. Communications Officer\n4. Pilot\n5. No more hires\n\nWho would you like to hire? ");
+        ui.print("\nYou can hire several people for your journey. There are many qualified candidates from the following categories:\n\t1. Engineer\n\t2. Scientist\n\t3. Communications Officer\n\t4. Pilot\n\t5. No more hires\n\t6. Describe crew roles\n\nWho would you like to hire? ");
     }
     public void assembleCrew(int maxCapacity) {
         int userSelc = 0;
@@ -106,12 +106,18 @@ public class Crew {
                         ui.println("No more hires, got it.");
                     }
                     break;
+                case 6:
+                    keyboard.nextLine();
+                    ui.clear();
+                    ui.println("Engineer: A skilled technician who can take care of your ship. Engineers allow you to make repairs to your spacecraft while in space.\n\nScientist: Well educated experts whose job it is to make advancements in the field of space travel. Scientists will allow you to perform research while in space, potentially leading to discoveries that will improve the lives of your crew members.\n\nCommunications Officer: Well trained individuals capable of navigating the comm. ports on your space craft. Without them, you won't be able to contact other space craft while in space, limiting your ability to trade.\n\nPilot: Experienced individuals who will improve your space travel experience. With a pilot onboard, you'll make better time to your destinations, have better odds of avoiding space debris, and use less fuel.");
+                    ui.pressEnter();
+                    break;
                 default:
                     ui.println("Don't do that");
                     break;
             }
             
-            if (userSelc !=5) {
+            if (userSelc !=5 && userSelc != 6) {
                 int numberOfCrewToAdd = keyboard.nextInt();
                 if (numberOfCrewToAdd < 0 || numberOfCrewToAdd > remainingCapacity) {
                     ui.clear();

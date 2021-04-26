@@ -1,6 +1,8 @@
 import java.util.*;
 public class UserInterface {
     Scanner keyboard = new Scanner(System.in);
+    TextBlocks text = new TextBlocks();
+    
     public void print(String word) {
         System.out.print(word);
     }
@@ -9,13 +11,13 @@ public class UserInterface {
     }
     public void clear(){
         // Temp. removal because school computer is booty
-        // System.out.print("\033[H\033[2J");
-        // System.out.flush();
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
 
         // really bad temp fix
-        for (int i=0; i<50;i++){
-            println("");
-        }
+        // for (int i=0; i<50;i++){
+        //     println("");
+        // }
     }
     public void pressEnter(){
         print("\n< Press ENTER to continue >");
@@ -45,5 +47,9 @@ public class UserInterface {
         } catch (InterruptedException e) {
             // no-op
         }
+    }
+    public void endOfGame(Crew crew, Supplies.Food food, Supplies.Water water, SpaceCraft craft) {
+        clear();
+        
     }
 }

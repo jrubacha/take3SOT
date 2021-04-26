@@ -72,7 +72,7 @@ public class TextBlocks {
     public void shipSelectionPrompt(String captainName, double money) {
         ui.clear();
         printStarLines();
-        ui.println("Welcome aboard Captain " + captainName + "!\n\nYour first task is to choose a ship.\n\nChoose wisely, some of these flight vehicles are meant for short voyages only and others are suitable for long hauls. You will have the opportunity to purchase a new flight vehicle at each waystation.\n\nYour starting budget is $" + (int) money + ". Ship costs include any fuel needed to get out of Earth's orbit.");
+        ui.println("Welcome aboard Captain " + captainName + "!\n\nYour first task is to choose a ship.\n\nChoose wisely, some of these flight vehicles are meant for short voyages only and others are suitable for long hauls. You will have the opportunity to purchase a new flight vehicle at each waystation.\n\nYour initial journey to the Moon will only take a few days, but travelling deeper into the Solar System will takes months to years.\n\nYour starting budget is $" + (int) money + ". Ship costs include any fuel needed to get out of Earth's orbit.");
         printStarLines();
         ui.pressEnter();
     }
@@ -105,7 +105,7 @@ public class TextBlocks {
         ui.clear();
         art.printShip1();
         printStarLines();
-        ui.println("Congrats! You didn't die on launch."); // TODO: make better success message
+        ui.println("Congratulations on the successful launch! Your mission is underway and everything looks good.\n\nGodspeed Captain.");
         printStarLines();
         ui.pressEnter();
     }
@@ -121,13 +121,32 @@ public class TextBlocks {
         ui.pressEnter();
     }
 
-    public void printBuyFoodPrompt(){
+    public void printIntialPurchaseExplanation(){
+        ui.println("Now that you have a crew, you'll need to kept them well fed. Your initial journey to the Moon will only take a few days, but the trip to Ganymede will likely take several years.\n\nLuckily, you'll have the option to purchase supplies along the way as well. You'll need to consider you budget and payload capacities carefully when selecting how many supplies to purchase.");
+    }
+    public void printBuyFoodPrompt(int crewSize){
         ui.clear();
-        ui.print("< Buying Food >\n\nThe average person eats 2 lbs of food a day.\n\nHow many pounds of food would you like to buy? ");
+        String grammar;
+        if (crewSize == 1) {
+            grammar = "person";
+        } else {
+            grammar = "people";
+        }
+        ui.print("< Buying Food >\n\nThe average person eats 2 lbs of food a day.\nYou have "+ crewSize + grammar + "  to feed.\nHow many pounds of food would you like to buy? ");
     }
 
-    public void printBuyWaterPrompt(){
+    public void printBuyWaterPrompt(int crewSize){
         ui.clear();
-        ui.print("< Buying Water >\n\nThe average person needs 1 liter of water a day.\n\nHow many liters of water would you like to buy? ");
+        String grammar;
+        if (crewSize == 1) {
+            grammar = "person";
+        } else {
+            grammar = "people";
+        }
+        ui.print("< Buying Water >\n\nThe average person needs 1 liter of water a day.\nYou have " + crewSize + grammar + " to take care of.\nHow many liters of water would you like to buy? ");
+    }
+    public void explainLaunchSystem() {
+        ui.clear();
+        ui.println("Everything is ready for launch Captain. You will have a two week period to make your launch, otherwise you will miss your window.\n\nYou'll have to make careful consideration of the weather each day to decided whether or not you should launch.");
     }
 }

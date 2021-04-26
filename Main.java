@@ -38,19 +38,21 @@ class Main {
         crew.printCrewList();
 
         // Buy Initial Supplies
+        ui.clear();
         text.printStarLines();
-        ui.println("Now that you have a crew, you'll need to take care of them.\n\nYou'll need to make initial purchases of food and water to last at least until you can get to the moon.\n");
+        text.printIntialPurchaseExplanation();
         text.printStarLines();
         ui.pressEnter();
-        text.printBuyFoodPrompt();
+        text.printBuyFoodPrompt(crew.sumTotalOfCrew());
         int userSelection = keyboard.nextInt();
         food.buySupply(userSelection);
-        text.printBuyWaterPrompt();
+        text.printBuyWaterPrompt(crew.sumTotalOfCrew());
         userSelection = keyboard.nextInt();
         water.buySupply(userSelection);
         text.printSupplies(food, water, crew);
 
         // Launch
+        text.explainLaunchSystem();
         weather.runLaunchSystem();
 
         // Space Dailies (Earth --> Moon)

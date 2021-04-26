@@ -2,10 +2,7 @@ import java.util.*;
 public class Research {
     // Controls the Scientist CrewMember Special Tasks
     UserInterface ui = new UserInterface();
-
-    String researchPanel = "=================================\n\n"
-        + "Welcome Science Officer.\n"
-        + "=================================";
+    int currentDay = 0;
 
     String researchPanelInstructions = "Each day, you may conduct space research. Gaining this knowledge will make it easier for you to assist in tasks around the ship. Correctly answering questions will improve your score and help your crew consume less resources.";
 
@@ -49,29 +46,39 @@ public class Research {
     // Array housing all of the questions, their passages, and their correct answers
     String[][] questionArray = {{passage1, question1, correctAnswer1}, {passage2, question2, correctAnswer2}, {passage3, question3, correctAnswer3}, {passage4, question4, correctAnswer4}, {passage5, question5, correctAnswer5}};
 
-    public void runResearchActivity(){
+    public void runResearchActivity(int day){
         Random r = new Random();
-        if (canCrewRunResearch()) {
-            int randomQ = r.nextInt(questionArray.length);
-            printQuestion(randomQ);
-            checkAnswer(randomQ);
+        if (day != currentDay) {
+            if (canCrewRunResearch()) {
+                int randomQ = r.nextInt(questionArray.length);
+                printQuestion(randomQ);
+                checkAnswer(randomQ);
+            } else {
+                ui.println("The research panel seems to be malfunctioning. Try again later.");
+            }
+            ui.pressEnter();
+            ui.clear();
+            currentDay = day;
         } else {
-            ui.println("The research panel seems to be malfunctioning. Try again later.");
+            ui.println("You can perform research again tomorrow.");
+            ui.pressEnter();
         }
-        ui.pressEnter();
-        ui.clear();
+        
     }
     private void printQuestion(int whichQ) {
-        ui.println("Read the following passage and then answer the question.");
+        ui.clear();
+        ui.println("Welcome Science Officer.\n\nRead the following passage and then answer the question.");
         ui.pressEnter();
-        ui.println(questionArray[whichQ][0]);
+        ui.clear();
+        ui.println(questionArray[whichQ][0] + "\n\n");
         ui.println(questionArray[whichQ][1]);
+        ui.print("Type your response: ");
     }
     private void checkAnswer(int whichQ){
         Scanner k = new Scanner(System.in);
         String userGuess = k.nextLine();
         if (questionArray[whichQ][2].equalsIgnoreCase(userGuess)) {
-            ui.println("That's correct. Good reading.");
+            ui.println("\nThat's correct. Good reading.");
         } else {
             ui.println("That's not it. Read more carefully next time.");
         }

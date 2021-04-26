@@ -21,18 +21,22 @@ public class SpaceDailies {
         if (food.hasCrewStarved()) {
             ui.clear();
             ui.placeholder("death by starvation");
+            ui.endOfGame(crew, food, water, craft);
             return false;
         } else if (water.hasCrewSufferedTerminalDehydration()) {
             ui.clear();
             ui.placeholder("death by lack of water");
+            ui.endOfGame(crew, food, water, craft);
             return false;
         } else if (craft.areWeOutOfFuel()) {
             ui.clear();
             ui.placeholder("ran out of fuel");
+            ui.endOfGame(crew, food, water, craft);
             return false;
         } else {
             return true;
         }
+
     }
 
     public void diceRollCrewHealth(Crew crew, Supplies.Food food, Supplies.Water water) {
