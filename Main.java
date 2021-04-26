@@ -61,11 +61,11 @@ class Main {
         while (currentDay < targetDay) { // loop needs to run until target reached
             daily.consumeConsumables(crew, food, crew.getSpaceCraft(), water, increment);
             if (!daily.areWeAlive(crew, food, water, crew.getSpaceCraft())) {
-                System.exit(0);
+                ui.endOfGame(crew, food, water, craft);
             }
-            menu.printSpaceDailyHeader(targetDay, currentDay, location, crew, food, crew.getSpaceCraft());
+            menu.runDailyMenu(targetDay, currentDay, location, crew, food, crew.getSpaceCraft(), water);
             // ui.pressEnter();
-            menu.runDailyMenu(food, crew, water, currentDay);
+            //menu.runDailyMenu(food, crew, water, currentDay);
             currentDay += increment;
         }
 
@@ -74,7 +74,7 @@ class Main {
         text.printMoonWelcome();
         while (!readyToLeave) { // loop needs to run until user leaves moon
             // daily.consumeConsumables(crew, food, craft, water, increment); // no consume while on station
-            menu.printSpaceDailyHeader(0, currentDay, location, crew, food, crew.getSpaceCraft());
+            //menu.printStationDailyHeader(0, currentDay, location, crew, food, crew.getSpaceCraft());
             readyToLeave = menu.runDailyStationMenu(location, food, water, crew, crew.getSpaceCraft(), currentDay);
             currentDay += increment;
         }
@@ -87,11 +87,10 @@ class Main {
         while (currentDay < targetDay) { // loop needs to run until target reached
             daily.consumeConsumables(crew, food, crew.getSpaceCraft(), water, increment);
             if (!daily.areWeAlive(crew, food, water, crew.getSpaceCraft())) {
-                System.exit(0);
+                ui.endOfGame(crew, food, water, craft);
             }
-            menu.printSpaceDailyHeader(targetDay, currentDay, location, crew, food, crew.getSpaceCraft());
-            // ui.pressEnter();
-            menu.runDailyMenu(food, crew, water, currentDay);
+            menu.runDailyMenu(targetDay, currentDay, location, crew, food, crew.getSpaceCraft(), water);
+            //menu.runDailyMenu(food, crew, water, currentDay);
             currentDay += increment;
         }
 
@@ -102,7 +101,7 @@ class Main {
         text.printMarsWelcome();
         while (!readyToLeave) { // loop needs to run until user leaves moon
             // daily.consumeConsumables(crew, food, craft, water, increment); // no consume while on station
-            menu.printSpaceDailyHeader(0, currentDay, location, crew, food, crew.getSpaceCraft());
+            //menu.printSpaceDailyHeader(0, currentDay, location, crew, food, crew.getSpaceCraft());
             readyToLeave = menu.runDailyStationMenu(location, food, water, crew, crew.getSpaceCraft(), currentDay);
             currentDay += increment;
         }
@@ -114,11 +113,9 @@ class Main {
         while (currentDay < targetDay) { // loop needs to run until target reached
             daily.consumeConsumables(crew, food, crew.getSpaceCraft(), water, increment);
             if (!daily.areWeAlive(crew, food, water, crew.getSpaceCraft())) {
-                System.exit(0);
+                ui.endOfGame(crew, food, water, craft);
             }
-            menu.printSpaceDailyHeader(targetDay, currentDay, location, crew, food, crew.getSpaceCraft());
-            // ui.pressEnter();
-            menu.runDailyMenu(food, crew, water, currentDay);
+            menu.runDailyMenu(targetDay, currentDay, location, crew, food, crew.getSpaceCraft(), water);
             currentDay += increment;
         }
 
@@ -129,7 +126,7 @@ class Main {
         increment = 1;
         while (!readyToLeave) { // loop needs to run until user leaves moon
             // daily.consumeConsumables(crew, food, craft, water, increment); // no consume while on station
-            menu.printSpaceDailyHeader(0, currentDay, location, crew, food, crew.getSpaceCraft());
+            //menu.printSpaceDailyHeader(0, currentDay, location, crew, food, crew.getSpaceCraft());
             readyToLeave = menu.runDailyStationMenu(location, food, water, crew, crew.getSpaceCraft(), currentDay);
             currentDay += increment;
         }
@@ -141,11 +138,9 @@ class Main {
         while (currentDay < targetDay) { // loop needs to run until target reached
             daily.consumeConsumables(crew, food, crew.getSpaceCraft(), water, increment);
             if (!daily.areWeAlive(crew, food, water, crew.getSpaceCraft())) {
-                System.exit(0);
+                ui.endOfGame(crew, food, water, craft);
             }
-            menu.printSpaceDailyHeader(targetDay, currentDay, location, crew, food, crew.getSpaceCraft());
-            // ui.pressEnter();
-            menu.runDailyMenu(food, crew, water, currentDay);
+            menu.runDailyMenu(targetDay, currentDay, location, crew, food, crew.getSpaceCraft(), water);
             currentDay += increment;
         }
 
@@ -156,7 +151,7 @@ class Main {
         increment = 1;
         while (!readyToLeave) { // loop needs to run until user leaves moon
             // daily.consumeConsumables(crew, food, craft, water, increment); // no consume while on station
-            menu.printSpaceDailyHeader(0, currentDay, location, crew, food, crew.getSpaceCraft());
+            //menu.printSpaceDailyHeader(0, currentDay, location, crew, food, crew.getSpaceCraft());
             readyToLeave = menu.runDailyStationMenu(location, food, water, crew, crew.getSpaceCraft(), currentDay);
             currentDay += increment;
         }
@@ -168,11 +163,9 @@ class Main {
         while (currentDay < targetDay) { // loop needs to run until target reached
             daily.consumeConsumables(crew, food, crew.getSpaceCraft(), water, increment);
             if (!daily.areWeAlive(crew, food, water, crew.getSpaceCraft())) {
-                System.exit(0);
+                ui.endOfGame(crew, food, water, craft);
             }
-            menu.printSpaceDailyHeader(targetDay, currentDay, location, crew, food, crew.getSpaceCraft());
-            // ui.pressEnter();
-            menu.runDailyMenu(food, crew, water, currentDay);
+            menu.runDailyMenu(targetDay, currentDay, location, crew, food, crew.getSpaceCraft(), water);
             currentDay += increment;
         }
 
@@ -181,5 +174,6 @@ class Main {
         text.printGanymedeWelcome();
 
         // Game Over and Report Score
+        ui.endOfGame(crew, food, water, craft);
     }
 }

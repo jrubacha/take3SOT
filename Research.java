@@ -24,7 +24,7 @@ public class Research {
     + "\nComets also revolve around the sun. While planets have elliptical orbits that are close to being circular, comets have highly elliptical orbits that are long and narrow. This means that at some points in their orbit comets are much closer to the sun than other times. Comets are balls of ice and rocky dust particles that look like giant dirty snowballs. The ice is a mixture of water, ammonia, carbon dioxide, carbon monoxide and methane. As it travels through space a comet has a trailing tail made of gas and particles. The tail of a comet always faces away from the sun due to the solar wind and solar radiation. Because comets have a different shape of orbit, sometimes they collide with a planet, causing an impact crater on the planet. NASA space probes are providing new information about comets."
     + "\nA meteor is often called a shooting star, falling star or even fireball because it appears as a brief bright light traveling in the night sky. A meteor is caused by a small chunk of space material that enters the earth’s atmosphere. Millions of tiny chunks of space rocks, called meteoroids, enter the earth’s atmosphere daily and simply burn up. When a meteoroid does survive its trip through the atmosphere and lands on earth, it is called a meteorite.";
 
-    String question2 = "Find in the blank: The tail of a comet always faces ____ from the sun.";
+    String question2 = "The tail of a comet always faces ____ from the sun.";
     String correctAnswer2 = "away";
 
     // QUESTION 3

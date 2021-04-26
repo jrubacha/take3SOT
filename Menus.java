@@ -13,7 +13,7 @@ public class Menus {
     Research research = new Research();
     Maintenance maintenance = new Maintenance();
 
-    public void printSpaceDailyHeader(int targetDay, int currentDay, currentLocation location, Crew crew, Supplies.Food food, SpaceCraft craft){
+    public void printSpaceDailyHeader(int targetDay, int currentDay, currentLocation location, Crew crew, Supplies.Food food, SpaceCraft craft, Supplies.Water water){
         ui.clear();
         ui.println("Day #" + currentDay);
         ui.println("Location: " + location);
@@ -22,6 +22,8 @@ public class Menus {
         crew.getSpaceCraft().printRelativeFuelLevel();
         ui.println("Days until next stop: " + (targetDay - currentDay));
         text.printStarLines();
+        //printSpaceDailyMenu();
+        //runDailyMenu(food, crew, water, currentDay);
     }
 
     public void printSpaceDailyMenu(){
@@ -38,9 +40,10 @@ public class Menus {
         ui.print("\nWhat is your choice? ");
     }
 
-    public void runDailyMenu(Supplies.Food food, Crew crew, Supplies.Water water, int day){
+    public void runDailyMenu(int targetDay, int day, currentLocation location, Crew crew, Supplies.Food food, SpaceCraft craft, Supplies.Water water){
         int userSelection = 0;
         while (userSelection != 1) {
+            printSpaceDailyHeader(targetDay, day, location, crew, food, craft, water);
             printSpaceDailyMenu();
             userSelection = keyboard.nextInt();
             switch (userSelection) {
@@ -222,7 +225,6 @@ public class Menus {
                     runChangeFoodRation(food);
                     break;
                 case 5: // attempt to trade
-                    ui.placeholder("trade dialogue");
                     ui.placeholder("trade dialogue");
                     break;
                 case 6: // do nothing

@@ -1,8 +1,8 @@
 import java.util.*;
 public class UserInterface {
     Scanner keyboard = new Scanner(System.in);
-    TextBlocks text = new TextBlocks();
-    
+    //TextBlocks text = new TextBlocks();
+
     public void print(String word) {
         System.out.print(word);
     }
@@ -50,6 +50,14 @@ public class UserInterface {
     }
     public void endOfGame(Crew crew, Supplies.Food food, Supplies.Water water, SpaceCraft craft) {
         clear();
-        
+        println("**************************************");
+        println("You ended the game with:\n");
+        crew.printEndGameCrewList();
+        println("Travelling aboard the " + craft.name);
+        println(food.getAmount()+ " pounds of food");
+        println(water.getAmount()+ " liters of water");
+
+        println("\n\nThank you for playing.\n\n\nTo play again, press the run button.");
+        System.exit(0);
     }
 }

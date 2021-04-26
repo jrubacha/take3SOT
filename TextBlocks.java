@@ -132,7 +132,7 @@ public class TextBlocks {
         } else {
             grammar = "people";
         }
-        ui.print("< Buying Food >\n\nThe average person eats 2 lbs of food a day.\nYou have "+ crewSize + grammar + "  to feed.\nHow many pounds of food would you like to buy? ");
+        ui.print("< Buying Food >\n\nThe average person eats 2 lbs of food a day.\nYou have "+ crewSize + " " + grammar + " to feed.\nHow many pounds of food would you like to buy? ");
     }
 
     public void printBuyWaterPrompt(int crewSize){
@@ -143,10 +143,11 @@ public class TextBlocks {
         } else {
             grammar = "people";
         }
-        ui.print("< Buying Water >\n\nThe average person needs 1 liter of water a day.\nYou have " + crewSize + grammar + " to take care of.\nHow many liters of water would you like to buy? ");
+        ui.print("< Buying Water >\n\nThe average person needs 1 liter of water a day.\nYou have " + crewSize + " " + grammar + " to take care of.\nHow many liters of water would you like to buy? ");
     }
     public void explainLaunchSystem() {
         ui.clear();
         ui.println("Everything is ready for launch Captain. You will have a two week period to make your launch, otherwise you will miss your window.\n\nYou'll have to make careful consideration of the weather each day to decided whether or not you should launch.");
+        ui.pressEnter();
     }
 }

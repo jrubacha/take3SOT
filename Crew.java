@@ -140,6 +140,13 @@ public class Crew {
         }
         ui.pressEnter();
     }
+
+    public void printEndGameCrewList(){
+        ui.println("The following people were in your crew.\n");
+        for (CrewMember i : crewList) {
+            ui.println("Name: " + i.getName() + "  Occupation: " + i.getOccupation() + "   Health: " + i.getHealth());
+        }
+    }
     public boolean doesCrewHaveCommOfficer(){
         boolean foundCommOfficer = false;
         for (CrewMember i : crewList) {
