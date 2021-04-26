@@ -53,11 +53,24 @@ public class UserInterface {
         println("**************************************");
         println("You ended the game with:\n");
         crew.printEndGameCrewList();
-        println("Travelling aboard the " + craft.name);
-        println(food.getAmount()+ " pounds of food");
-        println(water.getAmount()+ " liters of water");
+        println("\nTravelling aboard the " + craft.name + "\n");
+
+        if (food.getAmount() <0){
+            println("0 pounds of food");
+        } else {
+            println(food.getAmount()+ " pounds of food");
+        }
+        if (water.getAmount()<0) {
+            println("0 liters of water");
+        } else {
+            println(water.getAmount()+ " liters of water");
+        }
+        
+
+        println("\n\nScore calculation not yet available in this version.");
 
         println("\n\nThank you for playing.\n\n\nTo play again, press the run button.");
+        println("**************************************");
         System.exit(0);
     }
 }

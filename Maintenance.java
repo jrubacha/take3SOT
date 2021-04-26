@@ -11,7 +11,7 @@ public class Maintenance {
     String userSequence;
     int currentDay = 0;
 
-    String prompt = "Hello Engineer!\nThere are a couple of faulty systems around the ship. The console will tell you the sequence you will need to input in order to fix them. As you go, the sequence will grow longer and get more difficult to remember.\nGood luck!";
+    String prompt = "Hello Engineer!\n\nThere are a couple of faulty systems around the ship. The console will tell you the sequence you will need to input in order to fix them. As you go, the sequence will grow longer and get more difficult to remember.\n\nGood luck!";
 
     public void runMantenanceGame(int day){
         boolean gameOn = true;

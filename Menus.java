@@ -29,14 +29,14 @@ public class Menus {
     public void printSpaceDailyMenu(){
         //ui.clear();
         ui.println("You may:");
-        ui.println("1. Continue on your journey");
-        ui.println("2. Check supplies");
-        ui.println("3. Change food rations");
-        ui.println("4. Check crew");
-        ui.println("5. Attempt to trade");
-        ui.println("6. Talk to people");
-        ui.println("7. Perform ship maintenance");
-        ui.println("8. Perform Research");
+        ui.println("\t1. Continue on your journey");
+        ui.println("\t2. Check supplies");
+        ui.println("\t3. Change food rations");
+        ui.println("\t4. Check crew");
+        ui.println("\t5. Attempt to trade");
+        ui.println("\t6. Talk to people");
+        ui.println("\t7. Perform ship maintenance");
+        ui.println("\t8. Perform Research");
         ui.print("\nWhat is your choice? ");
     }
 
@@ -111,12 +111,12 @@ public class Menus {
         ui.println("Crew Health: " + crew.getOverallCrewHealth());
         text.printStarLines();
         ui.println("You may:");
-        ui.println("1. Depart from " + location);
-        ui.println("2. Manage supplies");
-        ui.println("3. Manage crew");
-        ui.println("4. Manage space craft");
-        ui.println("5. Talk to people");
-        ui.println("6. Stay overnight at " + location);
+        ui.println("\t1. Depart from " + location);
+        ui.println("\t2. Manage supplies");
+        ui.println("\t3. Manage crew");
+        ui.println("\t4. Manage space craft");
+        ui.println("\t5. Talk to people");
+        ui.println("\t6. Stay overnight at " + location);
         ui.print("\nWhat is your choice? ");
     }
 
@@ -130,7 +130,7 @@ public class Menus {
                 case 1: // depart the current station
                     // verify the user wants to leave
                     if (canWeLeaveStation(crew, location)) {
-                        ui.print("Once you leave, you can't come back.\n\n1. Yes\n2. No\n\nAre you sure? ");
+                        ui.print("\nOnce you leave, you can't come back.\n\n1. Yes\n2. No\n\nAre you sure? ");
                         userSelection = keyboard.nextInt();
                         if (userSelection == 1) {
                             readyToLeave = true;
@@ -193,12 +193,12 @@ public class Menus {
         ui.clear();
         ui.println("< Managing Supplies >\n");
         ui.println("You may:");
-        ui.println("1. Check supplies");
-        ui.println("2. Buy supplies");
-        ui.println("3. Sell supplies");
-        ui.println("4. Change food ration size");
-        ui.println("5. Attempt to trade");
-        ui.println("6. Do nothing"); // exits out of current menu with no changes
+        ui.println("\t1. Check supplies");
+        ui.println("\t2. Buy supplies");
+        ui.println("\t3. Sell supplies");
+        ui.println("\t4. Change food ration size");
+        ui.println("\t5. Attempt to trade");
+        ui.println("\t6. Do nothing"); // exits out of current menu with no changes
         ui.print("\nWhat is your choice? ");
     }
 
@@ -212,12 +212,12 @@ public class Menus {
                     break;
                 case 2: // buy supplies
                     ui.clear();
-                    ui.print("You may buy:\n1. Food\n2. Water\n3. Fuel.\n4. Spare parts\n5. Space suits\n6. Do nothing\n\nWhat is your choice? ");
+                    ui.print("You may buy:\n\t1. Food\n\t2. Water\n\t3. Fuel\n\t4. Spare parts\n\t5. Space suits\n\t6. Do nothing\n\nWhat is your choice? ");
                     runBuySuppliesMenu(food, water, crew);
                     break;
                 case 3: // sell supplies
                     ui.clear();
-                    ui.print("You may sell:\n1. Food\n2. Water\n3. Fuel.\n4. Spare parts\n5. Space suits\n6. Do nothing\n\nWhat is your choice? ");
+                    ui.print("You may sell:\n\t1. Food\n\t2. Water\n\t3. Fuel.\n\t4. Spare parts\n\t5. Space suits\n\t6. Do nothing\n\nWhat is your choice? ");
                     runSellSuppliesMenu(food, water);
                     break;
                 case 4: // change food ration size
@@ -302,11 +302,11 @@ public class Menus {
         ui.clear();
         ui.println("< Managing Crew >\n");
         ui.println("You may:");
-        ui.println("1. View crew list");
-        ui.println("2. Hire crew members");
-        ui.println("3. Fire crew members");
-        ui.println("4. Promote new Captain");
-        ui.println("5. Do nothing");
+        ui.println("\t1. View crew list");
+        ui.println("\t2. Hire crew members");
+        ui.println("\t3. Fire crew members");
+        ui.println("\t4. Promote new Captain");
+        ui.println("\t5. Do nothing");
         ui.print("\nWhat is your choice? ");
     }
 
@@ -341,10 +341,10 @@ public class Menus {
         ui.clear();
         ui.println("< Managing Space Craft >\n");
         ui.println("You may:");
-        ui.println("1. View current craft's specs");
-        ui.println("2. Buy space craft");
-        ui.println("3. Craft maintenance");
-        ui.println("4. Do nothing");
+        ui.println("\t1. View current craft's specs");
+        ui.println("\t2. Buy space craft");
+        ui.println("\t3. Craft maintenance");
+        ui.println("\t4. Do nothing");
         ui.println("\nWhat is your choice? ");
     }
 
@@ -400,9 +400,9 @@ public class Menus {
         ui.clear();
         ui.println("< Space Craft Maintenance >\n");
         ui.println("You may:");
-        ui.println("1. Have crew engineers perform maintenance - Free, minimal repair gain");
-        ui.println("2. Have station repairmen perform maintenance = $1000, Excellent repair gain");
-        ui.println("3. Do nothing");
+        ui.println("\t1. Have crew engineers perform maintenance - Free, minimal repair gain");
+        ui.println("\t2. Have station repairmen perform maintenance = $1000, Excellent repair gain");
+        ui.println("\t3. Do nothing");
         ui.print("\nWhat would you like to do? ");
     }
 
@@ -465,6 +465,8 @@ public class Menus {
             } else {
                 return false;
             }   
+        } else if (userSelection == 3) {
+            return true;
         } else {
             return false;
         }

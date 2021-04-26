@@ -21,6 +21,7 @@ class Main {
         
         
         // Welcome
+        text.printTitleScreen();
         text.printGameIntro();
 
         // Add Captain to the Crew

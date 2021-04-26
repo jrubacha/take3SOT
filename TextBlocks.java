@@ -2,6 +2,13 @@ public class TextBlocks {
     UserInterface ui = new UserInterface();
     Art art = new Art();
 
+
+    public void printTitleScreen(){
+        printStarLines();
+        ui.println("\nWelcome to Destination: Deep Space.\n\nThis game is a prototype of an educational text based game aimed at teaching about space and space travel.\n\nYour keyboard is your primary method of navigation. Type in what is requested on screen in order to play.\n\nAt this time, input in NOT validated, so be careful to only type what is requested. When a menu contains numbers, type in the number corresponding to the item you want to select.\n\nSeveral features are represented, but not fully finalized, so these elements may not be fully utilized.");
+        ui.pressEnter();
+    }
+
     public void printStarLines(){
         for(int i=0; i<35; i++) {
             ui.print("*");

@@ -73,6 +73,7 @@ public class SpaceCraft {
         return cost;
     }
 
+    // TODO: This doesn't seem to work?
     public void refuelCraft(int delta, Supplies.Food money) {
         int maxPossibleFuelPurchase = getMaxFuel() - currentFuel;
         double purchaseCost = maxPossibleFuelPurchase * 75;
@@ -86,6 +87,7 @@ public class SpaceCraft {
         } else {
                 ui.println("You don't have enough money.");
         }
+        ui.pressEnter();;
     }
     
     public void burnFuel() {
