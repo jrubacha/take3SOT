@@ -94,11 +94,11 @@ public class SpaceCraft {
         int dailyBurn = 0;
         switch (quality) {
             case POOR:
-                dailyBurn = 40;
+                dailyBurn = 4;
             case FAIR:
-                dailyBurn = 30;
+                dailyBurn = 3;
             case GOOD:
-                dailyBurn = 20;
+                dailyBurn = 2;
         }
         currentFuel -= dailyBurn;
     }

@@ -5,13 +5,13 @@ These may include
         - eg. food, water, fuel
     - determining whether someone gets sick/hurt
     - determining whether someone who's health is poor die
-    - checking to see if we're still alive
-        - TODO: write this
 */
 
 
 public class SpaceDailies {
     UserInterface ui = new UserInterface();
+
+
     public void consumeConsumables(Crew crew, Supplies.Food food, SpaceCraft craft, Supplies.Water water, int increment) {
         for (int i=0; i<increment; i++) {
             food.eatFood(crew.sumTotalOfCrew());
@@ -19,6 +19,8 @@ public class SpaceDailies {
             water.drinkWater(crew.sumTotalOfCrew());
         }
     }
+
+    
     public boolean areWeAlive(Crew crew, Supplies.Food food, Supplies.Water water, SpaceCraft craft) {
         if (food.hasCrewStarved()) {
             ui.clear();
