@@ -44,7 +44,8 @@ public class SpaceCraft {
     craftTankSize tankSize;
     craftStatus status;
     craftOrigin origin;
-    int cost, capacity, currentFuel;
+    int cost, capacity;
+    double currentFuel;
 
     public SpaceCraft(String name, craftRange range, craftQuality quality, craftSpeed speed, craftTankSize tankSize, int cost, int capacity, craftOrigin origin, String descriptiveText){
         this.name = name;
@@ -75,12 +76,13 @@ public class SpaceCraft {
 
     // TODO: This doesn't seem to work?
     public void refuelCraft(int delta, Supplies.Food money) {
-        int maxPossibleFuelPurchase = getMaxFuel() - currentFuel;
+        double maxPossibleFuelPurchase = getMaxFuel() - currentFuel;
         double purchaseCost = maxPossibleFuelPurchase * 75;
+        //ui.println("maxpossible purchase = " + maxPossibleFuelPurchase + "\ndelta = " + delta);
         if (money.haveEnoughMoney(purchaseCost)) {
             money.spendMoney(purchaseCost);
             currentFuel += maxPossibleFuelPurchase;
-            //ui.println("maxpossible purchase = " + maxPossibleFuelPurchase + "\ndelta = " + delta);
+            //
             if (maxPossibleFuelPurchase < delta) {
                 ui.println("You asked for more fuel than you can hold. I gave you the max you can carry.");
             } 
@@ -90,16 +92,34 @@ public class SpaceCraft {
         ui.pressEnter();
     }
     
-    public void burnFuel() {
-        int dailyBurn = 0;
-        switch (quality) {
-            case POOR:
-                dailyBurn = 4;
-            case FAIR:
-                dailyBurn = 3;
-            case GOOD:
-                dailyBurn = 2;
+    public void burnFuel(Crew crew) {
+        double dailyBurn = 0;
+        if (crew.doesCrewHavePilot()) {
+            switch (quality) {
+                case POOR:
+                    dailyBurn = 2;
+                    break;
+                case FAIR:
+                    dailyBurn = 1;
+                    break;
+                case GOOD:
+                    dailyBurn = .5;
+                    break;
+            }
+        } else {
+            switch (quality) {
+                case POOR:
+                    dailyBurn = 4;
+                    break;
+                case FAIR:
+                    dailyBurn = 3;
+                    break;
+                case GOOD:
+                    dailyBurn = 2;
+                    break;
+            }
         }
+        
         currentFuel -= dailyBurn;
     }
     public void printFullCraftSpecs(){
@@ -132,7 +152,7 @@ public class SpaceCraft {
     public void printQuickDescription(){
         ui.println(descriptiveText);
     }
-    public int getCurrentFuel(){
+    public double getCurrentFuel(){
         return currentFuel;
     }
 

@@ -15,7 +15,7 @@ public class SpaceDailies {
     public void consumeConsumables(Crew crew, Supplies.Food food, SpaceCraft craft, Supplies.Water water, int increment) {
         for (int i=0; i<increment; i++) {
             food.eatFood(crew.sumTotalOfCrew());
-            craft.burnFuel();
+            craft.burnFuel(crew);
             water.drinkWater(crew.sumTotalOfCrew());
         }
     }
