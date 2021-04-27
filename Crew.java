@@ -6,6 +6,7 @@ public class Crew {
     Art art = new Art();
     Scanner keyboard = new Scanner(System.in);
     ArrayList<CrewMember> crewList = new ArrayList<CrewMember>();
+    ArrayList<CrewMember> deadList = new ArrayList<CrewMember>();
     SpaceCraft craft = new SpaceCraft.SaturnV();
 
 
@@ -220,6 +221,24 @@ public class Crew {
         }
     }
 
+	public void randomDead() {
+        Random r = new Random();
+        int j = 0;
+        for (CrewMember i : crewList) {
+            if (r.nextInt(10) == 1) {
+                i.killCrewMember();
+                ui.println(i.getName() + " has died.");
+                //purgeTheDead(j);
+            }
+            j++;
+        }
+    }
+    
+    public void purgeTheDead(int index) {
+        deadList.add(crewList.get(index));
+        crewList.remove(index);
+    }
+
     public void breakAnArm(){
         
     }
@@ -233,5 +252,7 @@ public class Crew {
     public void modifyCraft(SpaceCraft newCraft) {
         craft = newCraft;
     }
+
+
 
 }

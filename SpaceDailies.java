@@ -17,6 +17,7 @@ public class SpaceDailies {
             food.eatFood(crew.sumTotalOfCrew());
             craft.burnFuel(crew);
             water.drinkWater(crew.sumTotalOfCrew());
+            crew.randomDead();
         }
     }
 

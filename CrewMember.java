@@ -166,4 +166,8 @@ public class CrewMember {
         }
     }
     
+    // Methods
+    public void killCrewMember() {
+        health = crewMemberHealth.DEAD;
+    }
 }
