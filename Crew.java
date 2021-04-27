@@ -231,7 +231,7 @@ public class Crew {
         Random r = new Random();
         ArrayList<CrewMember> theDead = new ArrayList<CrewMember>();
         for (CrewMember i : crewList) {
-            if (r.nextInt(10) == 1) {
+            if (r.nextInt(1000) == 1) {
                 i.killCrewMember();
                 ui.println(i.getName() + " has died.");
                 theDead.add(i);
