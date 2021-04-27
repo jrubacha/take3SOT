@@ -223,20 +223,18 @@ public class Crew {
 
 	public void randomDead() {
         Random r = new Random();
-        int j = 0;
         for (CrewMember i : crewList) {
-            if (r.nextInt(10) == 1) {
+            if (r.nextInt(1000) == 1) {
                 i.killCrewMember();
                 ui.println(i.getName() + " has died.");
-                //purgeTheDead(j);
+                purgeTheDead(i);
             }
-            j++;
         }
     }
     
-    public void purgeTheDead(int index) {
-        deadList.add(crewList.get(index));
-        crewList.remove(index);
+    public void purgeTheDead(CrewMember deadBody) {
+        deadList.add(deadBody);
+        crewList.remove(deadBody);
     }
 
     public void breakAnArm(){
