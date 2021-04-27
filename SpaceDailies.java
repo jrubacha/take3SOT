@@ -38,6 +38,11 @@ public class SpaceDailies {
             ui.placeholder("ran out of fuel");
             ui.endOfGame(crew, food, water, craft);
             return false;
+        } else if (crew.sumTotalOfCrew() == 0) {
+            ui.clear();
+            ui.placeholder("everyone died");
+            ui.endOfGame(crew, food, water, craft);
+            return false;
         } else {
             return true;
         }

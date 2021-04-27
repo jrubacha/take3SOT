@@ -53,7 +53,11 @@ public class UserInterface {
         println("**************************************");
         println("You ended the game with:\n");
         crew.printEndGameCrewList();
+        println("The following crew members died while in your care:\n");
+        crew.printDeadList();
         println("\nTravelling aboard the " + craft.name + "\n");
+
+        
 
         if (food.getAmount() <0){
             println("0 pounds of food");

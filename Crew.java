@@ -148,6 +148,12 @@ public class Crew {
             ui.println("\tName: " + i.getName() + "  Occupation: " + i.getOccupation() + "   Health: " + i.getHealth());
         }
     }
+
+    public void printDeadList(){
+        for(CrewMember i : deadList) {
+            ui.println("\tName: " + i.getName() + " Occupation: " + i.getOccupation());
+        }
+    }
     public boolean doesCrewHaveCommOfficer(){
         boolean foundCommOfficer = false;
         for (CrewMember i : crewList) {
