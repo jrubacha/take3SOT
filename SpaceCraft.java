@@ -77,15 +77,16 @@ public class SpaceCraft {
     // TODO: This doesn't seem to work?
     public void refuelCraft(int delta, Supplies.Food money) {
         double maxPossibleFuelPurchase = getMaxFuel() - currentFuel;
-        double purchaseCost = maxPossibleFuelPurchase * 75;
-        //ui.println("maxpossible purchase = " + maxPossibleFuelPurchase + "\ndelta = " + delta);
+
+        if (delta > maxPossibleFuelPurchase) {
+            delta = (int) maxPossibleFuelPurchase;
+        }
+        
+        double purchaseCost = delta * 75;
+
         if (money.haveEnoughMoney(purchaseCost)) {
             money.spendMoney(purchaseCost);
-            currentFuel += maxPossibleFuelPurchase;
-            //
-            if (maxPossibleFuelPurchase < delta) {
-                ui.println("You asked for more fuel than you can hold. I gave you the max you can carry.");
-            } 
+            currentFuel += delta; 
         } else {
                 ui.println("You don't have enough money.");
         }

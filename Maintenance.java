@@ -36,7 +36,6 @@ public class Maintenance {
             } while (gameOn);
             ui.println("\nYou got " + (sequence.length()-1) + " matches correct.");
             ui.placeholder("\ngood thing that happens because of score");
-            //ui.pressEnter(); // extra not needed because placeholder contains one
             currentDay = day;
         } else {
             ui.println("You can do maintenance again tomorrow.");

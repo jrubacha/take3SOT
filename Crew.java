@@ -123,6 +123,7 @@ public class Crew {
                 if (numberOfCrewToAdd < 0 || numberOfCrewToAdd > remainingCapacity) {
                     ui.clear();
                     ui.println("I'm sorry, you can't hire that number. No hires were made.");
+                    ui.pressEnter();
                 } else {
                     for (int i=0; i<numberOfCrewToAdd; i++) {
                         ui.print("What's this crew member's name? ");
